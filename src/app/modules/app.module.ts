@@ -14,8 +14,12 @@ import { AppRoutingModule }						from './app-routing.module';
 /* Resolve services */
 
 
-/* Application Components */
+/* Bootstrap Component */
 import { AppComponent }							from '../components/app.component';
+
+/* Application Components */
+import { ChatBotComponent }						from '../components/chatbot/chatbot.component';
+import { ResultComponent }						from '../components/result/result.component';
 
 /* Pipes */
 
@@ -30,7 +34,9 @@ import { AppComponent }							from '../components/app.component';
 		AppRoutingModule
 	],
 	declarations: [
-		AppComponent
+		AppComponent,
+		ChatBotComponent,
+		ResultComponent
 	],
 	providers: [],
 	bootstrap: [ AppComponent ]

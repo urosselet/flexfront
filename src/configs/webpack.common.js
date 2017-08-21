@@ -52,7 +52,7 @@ module.exports = {
         }, {
             test: /\.scss$/,
             exclude: /node_modules/,
-            loaders: ['raw-loader', 'sass-loader']
+            loaders: ['raw-loader', 'sass-loader', 'file-loader?name=assets/sass/[name].[hash].[ext]']
         }, {
             test: /\.(eot|svg|ttf|woff|woff2)$/,
             loader: 'file-loader?name=assets/fonts/[name].[ext]'
