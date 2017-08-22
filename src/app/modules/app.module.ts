@@ -18,6 +18,7 @@ import { AppRoutingModule }						from './app-routing.module';
 import { AppComponent }							from '../components/app.component';
 
 /* Application Components */
+import { IndexComponent }						from '../components/_index/index.component';
 import { ChatBotComponent }						from '../components/chatbot/chatbot.component';
 import { ResultComponent }						from '../components/result/result.component';
 
@@ -35,6 +36,7 @@ import { ResultComponent }						from '../components/result/result.component';
 	],
 	declarations: [
 		AppComponent,
+		IndexComponent,
 		ChatBotComponent,
 		ResultComponent
 	],

@@ -52,19 +52,18 @@ module.exports = {
         }, {
             test: /\.scss$/,
             exclude: /node_modules/,
-            loaders: ['raw-loader', 'sass-loader', 'file-loader?name=assets/sass/[name].[hash].[ext]']
+            loaders: ['raw-loader', 'sass-loader']
         }, {
             test: /\.(eot|svg|ttf|woff|woff2)$/,
             loader: 'file-loader?name=assets/fonts/[name].[ext]'
-        }, {
-	        test: /pdf\.worker(\.min)?\.js$/,
-	        use: 'raw-loader',
-      	}]
+        }]
     },
 
     plugins: [
 
     	new ExtractTextPlugin('[name].css'),
+
+        new CopyWebpackPlugin([]),
 
         new webpack.optimize.CommonsChunkPlugin({
             name: ['main', 'vendor', 'polyfills']
@@ -74,8 +73,6 @@ module.exports = {
             template: 'src/index.html'
         }),
 
-        new CopyWebpackPlugin([]),
-
         new webpack.ContextReplacementPlugin(
             /angular(\\|\/)core(\\|\/)@angular/,
             path.resolve(__dirname, '..')
@@ -84,10 +81,9 @@ module.exports = {
         new webpack.ProvidePlugin({
 			jQuery: 'jquery',
       		$: 'jquery',
-      		Tether: 'tether',
-      		Popper: 'popper.js',
-      		Hammer: 'hammerjs'
-		}),
+            Popper: ['popper.js', 'default'],
+            'window.jQuery': 'jquery'
+		})
 
     ]
 };

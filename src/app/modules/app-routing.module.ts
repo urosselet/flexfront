@@ -1,11 +1,11 @@
 import { NgModule }             		from '@angular/core';
 import { RouterModule, Routes } 		from '@angular/router';
 
-import { ChatBotComponent }  			from '../components/chatbot/chatbot.component';
+import { IndexComponent }  			from '../components/_index/index.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'chat-bot', pathMatch: 'full' },
-	{ path: 'chat-bot', component: ChatBotComponent },
+	{ path: 'chat-bot', component: IndexComponent },
 ];
 
 @NgModule({

@@ -1,0 +1,18 @@
+@import 'src/assets/sass/variables';
+
+#index-component
+{
+    height: 100%;
+    padding: 4rem;
+
+    text-align: left;
+
+    background: #fff;
+
+    h1 {
+    	color: $fc-blue;
+    	border-bottom: 2px solid $fc-blue;
+    	font-size: 1.75rem;
+    	margin-bottom: 2rem; 
+    }
+}

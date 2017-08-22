@@ -1,0 +1,214 @@
+@import 'src/assets/sass/variables';
+
+#chatbot-component
+{
+    position: relative;
+
+    display: block;
+    .chat_window
+    {
+        position: relative;
+
+        border-radius: 10px;
+        background-color: #fff;
+        background-color: #f8f8f8;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, .15);
+    }
+    .messages
+    {
+        position: relative;
+
+        min-height: 20rem;
+        margin: 0;
+        padding: 20px 10px 0 10px;
+
+        list-style: none;
+    }
+    .messages .message
+    {
+        clear: both;
+        overflow: hidden;
+
+        margin-bottom: 20px;
+
+        transition: all .5s linear;
+
+        opacity: 0;
+    }
+    .messages .message.left .avatar
+    {
+        float: left;
+
+        background-color: #f5886e;
+    }
+    .messages .message.left .text_wrapper
+    {
+        margin-left: 20px;
+
+        background-color: #e67e22;
+
+
+    }
+    .messages .message.left .text_wrapper::after,
+    .messages .message.left .text_wrapper::before
+    {
+        right: 100%;
+
+        border-right-color: #e67e22;
+    }
+    .messages .message.left .text
+    {
+        color: #fff;
+    }
+    .messages .message.right .avatar
+    {
+        float: right;
+
+        background-color: $fc-blue;
+    }
+    .messages .message.right .text_wrapper
+    {
+        float: right;
+
+        margin-right: 20px;
+
+        background-color: $fc-blue;
+    }
+    .messages .message.right .text_wrapper::after,
+    .messages .message.right .text_wrapper::before
+    {
+        left: 100%;
+
+        border-left-color: $fc-blue;
+    }
+    .messages .message.right .text
+    {
+        color: #fff;
+    }
+    .messages .message.appeared
+    {
+        opacity: 1;
+    }
+    .messages .message .avatar
+    {
+        display: inline-block;
+
+        width: 60px;
+        height: 60px;
+
+        border-radius: 50%;
+    }
+    .messages .message .text_wrapper
+    {
+        position: relative;
+
+        display: inline-block;
+
+        width: calc(100% - 85px);
+        min-width: 100px;
+        padding: 20px;
+
+        border-radius: 6px;
+    }
+    .messages .message .text_wrapper::after,
+    .messages .message .text_wrapper:before
+    {
+        position: absolute;
+        top: 18px;
+
+        width: 0;
+        height: 0;
+
+        content: ' ';
+        pointer-events: none;
+
+        border: solid transparent;
+    }
+    .messages .message .text_wrapper::after
+    {
+        margin-top: 0;
+
+        border-width: 13px;
+    }
+    .messages .message .text_wrapper::before
+    {
+        margin-top: -2px;
+
+        border-width: 15px;
+    }
+    .messages .message .text_wrapper .text
+    {
+        font-size: 18px;
+        font-weight: 300;
+    }
+    .bottom_wrapper
+    {
+        position: relative;
+        position: absolute;
+        bottom: 0;
+
+        width: 100%;
+        padding: 20px 20px;
+
+        background-color: #fff;
+    }
+    .bottom_wrapper .message_input_wrapper
+    {
+        position: relative;
+
+        display: inline-block;
+
+        width: calc(100% - 160px);
+        height: 50px;
+        padding: 0 20px;
+
+        border: 1px solid #bcbdc0;
+        border-radius: 25px;
+    }
+    .bottom_wrapper .message_input_wrapper .message_input
+    {
+        position: absolute;
+
+        box-sizing: border-box;
+        width: calc(100% - 40px);
+        height: 100%;
+
+        color: gray;
+        border: none;
+        outline-width: 0;
+    }
+    .bottom_wrapper .send_message
+    {
+        display: inline-block;
+        float: right;
+
+        width: 140px;
+        height: 50px;
+
+        cursor: pointer;
+        transition: all .2s linear;
+        text-align: center;
+
+        color: #fff;
+        border: 2px solid #a3d063;
+        border-radius: 50px;
+        background-color: #a3d063;
+    }
+    .bottom_wrapper .send_message:hover
+    {
+        color: #a3d063;
+        background-color: #fff;
+    }
+    .bottom_wrapper .send_message .text
+    {
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 48px;
+
+        display: inline-block;
+    }
+    .message_template
+    {
+        display: none;
+    }
+}
