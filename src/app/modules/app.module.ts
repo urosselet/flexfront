@@ -7,12 +7,10 @@ import { HttpModule, JsonpModule }				from '@angular/http';
 /* Application Wide routing */
 import { AppRoutingModule }						from './app-routing.module';
 
-
 /* API Services */
-
+import { SearchService }						from '../services/search.service';
 
 /* Resolve services */
-
 
 /* Bootstrap Component */
 import { AppComponent }							from '../components/app.component';
@@ -40,7 +38,9 @@ import { ResultComponent }						from '../components/result/result.component';
 		ChatBotComponent,
 		ResultComponent
 	],
-	providers: [],
+	providers: [
+		SearchService
+	],
 	bootstrap: [ AppComponent ]
 })
 

@@ -1,4 +1,6 @@
-import { Component, ViewEncapsulation, OnInit }  from 	'@angular/core';
+import { Component, ViewEncapsulation, OnInit }  from '@angular/core';
+
+import { SearchService }						 from '../../services/search.service';
 
 @Component({
 	selector: 'fc-chatbot',
@@ -9,8 +11,19 @@ import { Component, ViewEncapsulation, OnInit }  from 	'@angular/core';
 
 export class ChatBotComponent implements OnInit {
 
-	constructor() { }
+	private query: string;
+
+	constructor(private searchService: SearchService) { }
 
 	ngOnInit(): void { }
+
+	public search(q: string): void {
+		console.log(q)
+		/*searchService.query(q)
+			.subscribe(
+                res => {},
+                error => {}
+            );*/
+	}
 
 }

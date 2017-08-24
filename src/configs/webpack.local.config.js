@@ -17,6 +17,7 @@ module.exports = webpackMerge(commonConfig, {
     },
 
     plugins: [
+    
         /**
          * Plugin: DefinePlugin
          * Description: Define free variables.
@@ -30,8 +31,8 @@ module.exports = webpackMerge(commonConfig, {
             'process.env': {
                 'ENV': JSON.stringify('LOCAL'),
                 'NODE_ENV': JSON.stringify('LOCAL'),
-                'API_URL': JSON.stringify('http://localhost:1337/api/'),
-                'SOCKET_URL': JSON.stringify('http://localhost:1337')
+                'API_URL': JSON.stringify('http://localhost:1338/api'),
+                'SOCKET_URL': JSON.stringify('http://localhost:1338')
             }
         })
 
