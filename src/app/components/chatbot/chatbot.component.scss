@@ -1,12 +1,10 @@
 @import 'src/assets/sass/variables';
 
-#chatbot-component
-{
+#chatbot-component {
     position: relative;
 
     display: block;
-    .chat_window
-    {
+    .chat_window {
         position: relative;
 
         border-radius: 10px;
@@ -14,8 +12,7 @@
         background-color: #f8f8f8;
         box-shadow: 0 10px 20px rgba(0, 0, 0, .15);
     }
-    .messages
-    {
+    .messages {
         position: relative;
 
         min-height: 20rem;
@@ -24,8 +21,7 @@
 
         list-style: none;
     }
-    .messages .message
-    {
+    .messages .message {
         clear: both;
         overflow: hidden;
 
@@ -35,60 +31,52 @@
 
         opacity: 0;
     }
-    .messages .message.left .avatar
-    {
+    .messages .message.left .avatar {
         float: left;
 
         background-color: #e67e22;
     }
-    .messages .message.left .text_wrapper
-    {
+    .messages .message.left .text_wrapper {
+        margin-top: 10px;
         margin-left: 20px;
 
         background-color: #e67e22;
     }
-    .messages .message.left .text_wrapper::before
-    {
+    .messages .message.left .text_wrapper::before {
         right: 100%;
 
         border-width: 8px;
         border-right-color: #e67e22;
     }
-    .messages .message.left .text
-    {
+    .messages .message.left .text {
         color: #fff;
     }
-    .messages .message.right .avatar
-    {
+    .messages .message.right .avatar {
         float: right;
 
         background-color: $fc-blue;
     }
-    .messages .message.right .text_wrapper
-    {
+    .messages .message.right .text_wrapper {
         float: right;
 
+        margin-top: 10px;
         margin-right: 20px;
 
         background-color: $fc-blue;
     }
-    .messages .message.right .text_wrapper::before
-    {
+    .messages .message.right .text_wrapper::before {
         left: 100%;
 
         border-width: 8px;
         border-left-color: $fc-blue;
     }
-    .messages .message.right .text
-    {
+    .messages .message.right .text {
         color: #fff;
     }
-    .messages .message.appeared
-    {
+    .messages .message.appeared {
         opacity: 1;
     }
-    .messages .message .avatar
-    {
+    .messages .message .avatar {
         display: inline-block;
 
         width: 60px;
@@ -96,8 +84,7 @@
 
         border-radius: 50%;
     }
-    .messages .message .text_wrapper
-    {
+    .messages .message .text_wrapper {
         position: relative;
 
         display: inline-block;
@@ -108,8 +95,7 @@
 
         border-radius: 6px;
     }
-    .messages .message .text_wrapper:before
-    {
+    .messages .message .text_wrapper:before {
         position: absolute;
         top: 10px;
 
@@ -121,18 +107,15 @@
 
         border: solid transparent;
     }
-    .messages .message .text_wrapper::after
-    {
+    .messages .message .text_wrapper::after {
         margin-top: 0;
 
         border-width: 13px;
     }
-    .messages .message .text_wrapper .text
-    {
+    .messages .message .text_wrapper .text {
         font-size: 1rem;
     }
-    .bottom_wrapper
-    {
+    .bottom_wrapper {
         position: relative;
         position: absolute;
         bottom: 0;
@@ -142,21 +125,19 @@
 
         background-color: #fff;
     }
-    .bottom_wrapper .message_input_wrapper
-    {
+    .bottom_wrapper .message_input_wrapper {
         position: relative;
 
         display: inline-block;
 
         width: calc(100% - 110px);
-        height: 40px;
+        height: 35px;
         padding: 0 20px;
 
         border: 1px solid #bcbdc0;
         border-radius: 25px;
     }
-    .bottom_wrapper .message_input_wrapper .message_input
-    {
+    .bottom_wrapper .message_input_wrapper .message_input {
         position: absolute;
 
         box-sizing: border-box;
@@ -167,13 +148,12 @@
         border: none;
         outline-width: 0;
     }
-    .bottom_wrapper .send_message
-    {
+    .bottom_wrapper .send_message {
         display: inline-block;
         float: right;
 
         width: 100px;
-        height: 40px;
+        height: 35px;
 
         cursor: pointer;
         transition: all .2s linear;
@@ -184,21 +164,13 @@
         border-radius: 50px;
         background-color: #a3d063;
     }
-    .bottom_wrapper .send_message:hover
-    {
+    .bottom_wrapper .send_message:hover {
         color: #a3d063;
         background-color: #fff;
     }
-    .bottom_wrapper .send_message .text
-    {
-        font-size: 18px;
-        font-weight: 300;
-        line-height: 40px;
+    .bottom_wrapper .send_message .text {
+        line-height: 30px;
 
         display: inline-block;
-    }
-    .message_template
-    {
-        display: none;
     }
 }

@@ -28,8 +28,9 @@ export class SearchService extends CommonService {
 	 * [getUsers description]
 	 * @return {Observable<User[]>} [description]
 	 */
-	search(query: any): Observable<any[]> {
-		return this.http.post(this.baseUrl, query)
+	query(query: any): Observable<any[]> {
+
+		return this.http.get(this.baseUrl, new RequestOptions({ params: { 'query': query } }))
 			.map((res: Response) => res.json())
 			.catch(this.handleError);
 	}

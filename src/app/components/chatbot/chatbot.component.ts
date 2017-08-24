@@ -18,12 +18,12 @@ export class ChatBotComponent implements OnInit {
 	ngOnInit(): void { }
 
 	public search(q: string): void {
-		console.log(q)
-		/*searchService.query(q)
+		
+		this.searchService.query(q)
 			.subscribe(
-                res => {},
+                res => { console.log(res) },
                 error => {}
-            );*/
+            );
 	}
 
 }

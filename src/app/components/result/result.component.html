@@ -2,18 +2,37 @@
     <h1>Solutions possibles</h1>
 
     <div class="row result-header">
-    	<div class="col">
+    	<div class="col col-5 text-left">
     		<span class="fa fa-thumbs-down" aria-hidden="true"></span>
 		</div>
-    	<div class="col">
+    	<div class="col col-2">
     		<span class="fa fa-circle-thin" aria-hidden="true"></span>
     	</div>
-    	<div class="col">
+    	<div class="col col-5 text-right">
     		<span class="fa fa-thumbs-up" aria-hidden="true"></span>
     	</div>
     </div>
 
-    <div class="row">
-    	
+    <div class="row platform-list">
+	    <ul>
+	    	<li>
+	    		<div class="platform">
+	    			<span></span>
+	    			<div><md-slider [disabled]="true" [min]="0" [max]="10" [value]="5"></md-slider></div>
+	    		</div>
+	    	</li>
+	    	<li>
+	    		<div class="platform">
+	    			<span></span>
+	    			<div><md-slider [disabled]="true" [min]="0" [max]="10" [value]="2.5"></md-slider></div>
+	    		</div>
+	    	</li>
+	    	<li>
+	    		<div class="platform">
+	    			<span></span>
+	    			<div><md-slider [disabled]="true" [disabled]="true" [min]="0" [max]="10" [value]="7.5"></md-slider></div>
+	    		</div>
+	    	</li>
+	    </ul>
     </div>
 </div>

@@ -79,10 +79,11 @@ module.exports = {
         ),
 
         new webpack.ProvidePlugin({
+            'window.jQuery': 'jquery',
 			jQuery: 'jquery',
       		$: 'jquery',
             Popper: ['popper.js', 'default'],
-            'window.jQuery': 'jquery'
+            Hammer: 'hammerjs/hammer'
 		})
 
     ]

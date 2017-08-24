@@ -1,8 +1,10 @@
 @import 'variables';
 
-
 /* Bootstrap */
 @import '../../../node_modules/bootstrap/scss/bootstrap';
 
 /* Fontawesome */
 @import url('fonts/font-awesome.min.css');
+
+/* Plugins styles */
+@import url('plugins/deeppurple-amber.css');

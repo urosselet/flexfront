@@ -31,7 +31,7 @@ module.exports = webpackMerge(commonConfig, {
             'process.env': {
                 'ENV': JSON.stringify('LOCAL'),
                 'NODE_ENV': JSON.stringify('LOCAL'),
-                'API_URL': JSON.stringify('http://localhost:1338/api'),
+                'API_URL': JSON.stringify('http://localhost:1338/'),
                 'SOCKET_URL': JSON.stringify('http://localhost:1338')
             }
         })
