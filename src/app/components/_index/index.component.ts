@@ -1,5 +1,7 @@
 import { Component, ViewEncapsulation, OnInit }  from 	'@angular/core';
 
+import { SearchService }						 from '../../services/search.service';
+
 @Component({
 	selector: 'fc-index',
 	templateUrl: 'index.component.html',
@@ -9,8 +11,19 @@ import { Component, ViewEncapsulation, OnInit }  from 	'@angular/core';
 
 export class IndexComponent implements OnInit {
 
-	constructor() { }
+	constructor(private searchService: SearchService) { }
 
-	ngOnInit(): void { }
+	private questions: any[] = [];
+	private results: any[] = [];
+
+	ngOnInit(): void {}
+
+	public fullTextInput(q: string): void {
+	   	this.searchService.query(q)
+			.subscribe(
+                res => { this.results = res },
+                error => {}
+            );
+	}
 
 }

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit }  from 	'@angular/core';
+import { Component, ViewEncapsulation, OnInit, Input }  from 	'@angular/core';
 
 @Component({
 	selector: 'fc-result',
@@ -8,6 +8,8 @@ import { Component, ViewEncapsulation, OnInit }  from 	'@angular/core';
 })
 
 export class ResultComponent implements OnInit {
+
+	@Input() results: any[];
 
 	constructor() {}
 

@@ -62,7 +62,11 @@
                     height: 50px;
                     margin-right: 1rem;
 
+                    color: #fff;
                     border-radius: 50%;
+
+                    justify-content: center;
+                    align-items: center;
                 }
                 md-slider {
                     width: 300px;
@@ -74,7 +78,7 @@
                         height: 40px;
                     }
                 }
-                &:nth-child(1) {
+                > div.low-score {
                     span {
                         background: #02b3e4;
                     }
@@ -84,6 +88,17 @@
                         }
                     }
                 }
+                > div.high-score {
+                    span {
+                        background: #e67e22;
+                    }
+                    md-slider {
+                        .mat-slider-thumb {
+                            background: #e67e22;
+                        }
+                    }
+                }
+                /*
                 &:nth-child(2) {
                     span {
                         background: #888;
@@ -104,6 +119,7 @@
                         }
                     }
                 }
+                */
             }
         }
     }

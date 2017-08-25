@@ -5,7 +5,11 @@ import { FormsModule, ReactiveFormsModule }		from '@angular/forms';
 import { HttpModule, JsonpModule }				from '@angular/http';
 
 /* Angular material modules */
-import { MaterialModule, MdSliderModule } 		from '@angular/material';
+import { 
+	MaterialModule, 
+	MdSliderModule,
+	MdTooltipModule  
+} 												from '@angular/material';
 
 /* Application Wide routing */
 import { AppRoutingModule }						from './app-routing.module';
@@ -34,7 +38,8 @@ import { ResultComponent }						from '../components/result/result.component';
 		HttpModule,
 		JsonpModule,
 		AppRoutingModule,
-		MdSliderModule
+		MdSliderModule,
+		MdTooltipModule
 	],
 	declarations: [
 		AppComponent,

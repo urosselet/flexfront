@@ -3,12 +3,11 @@
 	<div class="row">
 
 		<div class="col flex-middle">
-			<fc-chatbot></fc-chatbot>
+			<fc-chatbot (fullTextInput)="fullTextInput($event)" [questions]="questions"></fc-chatbot>
 		</div>
 		
-		
 		<div class="col flex-middle">
-			<fc-result></fc-result>
+			<fc-result [results]="results"></fc-result>
 		</div>
 
 	</div>

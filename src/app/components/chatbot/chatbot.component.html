@@ -4,28 +4,44 @@
     <div class="chat_window">
 
         <ul class="messages">
+
             <li class="message left appeared">
                 <div class="avatar"></div>
                 <div class="text_wrapper">
-                    <div class="text">Welcome to FlexCrowd!</div>
+                    <div class="text">Welcome to FlexCrowd, How can we help ?</div>
                 </div>
             </li>
-            <li class="message right appeared">
+
+            <li class="message right appeared" *ngFor="let question of questions">
                 <div class="avatar"></div>
                 <div class="text_wrapper">
-                    <div class="text">Lorum ipsum</div>
+                    <div class="text">{{ question.text }}</div>
                 </div>
             </li>
+
+            <li class="message left appeared">
+                <div class="avatar"></div>
+                <div class="text_wrapper">
+                    <div class="text">
+                        <div class="typing-container">
+                            <div class="typing-indicator"></div>
+                            <div class="typing-indicator"></div>
+                            <div class="typing-indicator"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
         </ul>
 
         <div class="bottom_wrapper clearfix">
 
             <div class="message_input_wrapper">
-                <input class="message_input" placeholder="Type your question here..." [ngModel]="query" (ngModelChange)="search($event)" />
+                <input class="message_input" placeholder="How can I help you ?" [(ngModel)]="query" (keyup.enter)="search()" />
             </div>
 
             <div class="send_message">
-                <div class="text">Send</div>
+                <div class="text" (click)="search()">Send</div>
             </div>
 
         </div>

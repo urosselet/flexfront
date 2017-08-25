@@ -1,6 +1,4 @@
-import { Component, ViewEncapsulation, OnInit }  from '@angular/core';
-
-import { SearchService }						 from '../../services/search.service';
+import { Component, ViewEncapsulation, OnInit, Output, Input, EventEmitter }  from '@angular/core';
 
 @Component({
 	selector: 'fc-chatbot',
@@ -11,19 +9,19 @@ import { SearchService }						 from '../../services/search.service';
 
 export class ChatBotComponent implements OnInit {
 
+	@Input() questions: any[];
+	@Output() fullTextInput: EventEmitter<string> = new EventEmitter();
+
 	private query: string;
 
-	constructor(private searchService: SearchService) { }
+	constructor() { }
 
 	ngOnInit(): void { }
 
-	public search(q: string): void {
-		
-		this.searchService.query(q)
-			.subscribe(
-                res => { console.log(res) },
-                error => {}
-            );
+	private search(): void {
+		this.questions.push({ 'text': this.query })
+		this.fullTextInput.emit(this.query);
+		this.query = '';
 	}
 
 }
