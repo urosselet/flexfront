@@ -11,6 +11,8 @@ import {
 	MdTooltipModule  
 } 												from '@angular/material';
 
+import { InfiniteScrollModule } 				from 'ngx-infinite-scroll';
+
 /* Application Wide routing */
 import { AppRoutingModule }						from './app-routing.module';
 
@@ -39,7 +41,8 @@ import { ResultComponent }						from '../components/result/result.component';
 		JsonpModule,
 		AppRoutingModule,
 		MdSliderModule,
-		MdTooltipModule
+		MdTooltipModule,
+		InfiniteScrollModule
 	],
 	declarations: [
 		AppComponent,
