@@ -11,7 +11,9 @@ import {
 	MdTooltipModule  
 } 												from '@angular/material';
 
+/* Third party modules */
 import { InfiniteScrollModule } 				from 'ngx-infinite-scroll';
+import { CookieModule }							 from 'ngx-cookie';
 
 /* Application Wide routing */
 import { AppRoutingModule }						from './app-routing.module';
@@ -42,7 +44,8 @@ import { ResultComponent }						from '../components/result/result.component';
 		AppRoutingModule,
 		MdSliderModule,
 		MdTooltipModule,
-		InfiniteScrollModule
+		InfiniteScrollModule,
+		CookieModule.forRoot()
 	],
 	declarations: [
 		AppComponent,

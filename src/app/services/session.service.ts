@@ -6,14 +6,14 @@ import { Observable }                     		from 'rxjs/Rx';
 import { CommonService }                        from './common.service';
 
 @Injectable()
-export class SearchService extends CommonService {
+export class SessionService extends CommonService {
 
 	/**
 	 * Connection API base Url
 	 * @type {String}
 	 */
 
-	private baseUrl = process.env.API_URL.concat('search/');
+	private baseUrl = process.env.API_URL.concat('session/');
 
 	/**
 	 * [constructor description]
@@ -28,9 +28,9 @@ export class SearchService extends CommonService {
 	 * [getUsers description]
 	 * @return {Observable<User[]>} [description]
 	 */
-	query(query: any): Observable<any> {
+	getSessionId(): Observable<any> {
 
-		return this.http.get(this.baseUrl, new RequestOptions({ params: { 'query': query, 'session': '8392371938321' } }))
+		return this.http.get(this.baseUrl))
 			.map((res: Response) => res.json())
 			.catch(this.handleError);
 	}

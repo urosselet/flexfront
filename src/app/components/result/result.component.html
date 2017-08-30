@@ -22,7 +22,7 @@
 
 	    	<li *ngFor="let result of results">
 	    		<div class="platform" [ngClass]="{'high-score': result?._score > 2, 'low-score': result?._score <= 2 }">
-	    			<span  mdTooltip="{{ result?._source.name }} {{ result?._source.description }}" [mdTooltipPosition]="'above'">{{ result?._id }}</span>
+	    			<span  mdTooltip="{{ result?._source.description }}" [mdTooltipPosition]="'above'">{{ result?._id }}</span>
 	    			<div>
                         <md-slider [disabled]="true" [min]="0" [max]="3" [value]="result?._score"></md-slider>
                         <div class="text-center platform-name">{{ result?._source.name }}</div>

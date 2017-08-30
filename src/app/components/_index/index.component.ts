@@ -1,6 +1,6 @@
-import { Component, ViewEncapsulation, OnInit }  from 	'@angular/core';
-
-import { SearchService }						 from '../../services/search.service';
+import { Component, ViewEncapsulation, OnInit }  	from '@angular/core';
+import { CookieService } 							from 'ngx-cookie';
+import { SearchService }						 	from '../../services/search.service';
 
 @Component({
 	selector: 'fc-index',
@@ -11,14 +11,18 @@ import { SearchService }						 from '../../services/search.service';
 
 export class IndexComponent implements OnInit {
 
-	constructor(private searchService: SearchService) { }
-
 	private questions: any[] = [];
 	private answers: any[] = [];
-
 	private results: any[] = [];
 
-	ngOnInit(): void {}
+	constructor(
+		private searchService: SearchService,
+		private cookieService: CookieService
+	) {}
+
+	ngOnInit(): void {
+		console.log(this.cookieService.getAll())
+	}
 
 	public fullTextInput(q: string): void {
 
