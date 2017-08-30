@@ -37,19 +37,19 @@
     .messages .message.left .avatar {
         float: left;
 
-        background-color: #e67e22;
+        background-color: #ef7921;
     }
     .messages .message.left .text_wrapper {
         margin-top: 10px;
         margin-left: 20px;
 
-        background-color: #e67e22;
+        background-color: #ef7921;
     }
     .messages .message.left .text_wrapper::before {
         right: 100%;
 
         border-width: 8px;
-        border-right-color: #e67e22;
+        border-right-color: #ef7921;
     }
     .messages .message.left .text {
         color: #fff;

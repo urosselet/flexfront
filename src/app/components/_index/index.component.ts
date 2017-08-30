@@ -20,9 +20,7 @@ export class IndexComponent implements OnInit {
 		private cookieService: CookieService
 	) {}
 
-	ngOnInit(): void {
-		console.log(this.cookieService.getAll())
-	}
+	ngOnInit(): void {}
 
 	public fullTextInput(q: string): void {
 
