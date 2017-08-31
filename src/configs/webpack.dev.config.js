@@ -9,7 +9,7 @@ const helpers = require('./helpers');
 module.exports = webpackMerge(commonConfig, {
 
     devServer: {
-    	host: '157.26.64.148',
+    	host: '0.0.0.0',
         port: 8081,
         disableHostCheck: true,
         historyApiFallback: true,
