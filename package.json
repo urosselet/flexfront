@@ -75,9 +75,6 @@
         "webpack-hot-middleware": "^2.18.2",
         "webpack-merge": "^4.1.0"
     },
-    "optionalDependencies": {
-        "fsevents": "*"
-    },
     "repository": {
         "type": "git",
         "url": "git@git.ig.he-arc.ch:ulysse.rosselet/flexfront.git"
