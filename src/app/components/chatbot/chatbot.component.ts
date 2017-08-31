@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ElementRef, OnInit, Output, Input, Renderer, EventEmitter, ViewChild }  from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, Output, Input, EventEmitter }  from '@angular/core';
 
 @Component({
 	selector: 'fc-chatbot',
@@ -14,11 +14,9 @@ export class ChatBotComponent implements OnInit {
 
 	@Output() fullTextInput: EventEmitter<string> = new EventEmitter();
 
-	@ViewChild('messages') conversationContainer: ElementRef;
-
 	private query: string;
 
-	constructor(private renderer: Renderer) { }
+	constructor() { }
 
 	ngOnInit(): void { }
 
@@ -26,11 +24,6 @@ export class ChatBotComponent implements OnInit {
 		this.questions.push({ 'text': this.query });
     	this.fullTextInput.emit(this.query);
 		this.query = '';
-		this.scrollBottom();
-	}
-
-	private scrollBottom(): void {
-	    this.renderer.setElementProperty(this.conversationContainer.nativeElement, 'scrollTop', 1e10);
 	}
 
 }

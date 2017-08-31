@@ -12,8 +12,8 @@ import {
 } 												from '@angular/material';
 
 /* Third party modules */
-import { InfiniteScrollModule } 				from 'ngx-infinite-scroll';
-import { CookieModule }							 from 'ngx-cookie';
+import { CookieModule }							from 'ngx-cookie';
+import { NgxAutoScroll } 						from 'ngx-auto-scroll/lib/ngx-auto-scroll.directive';
 
 /* Application Wide routing */
 import { AppRoutingModule }						from './app-routing.module';
@@ -44,14 +44,14 @@ import { ResultComponent }						from '../components/result/result.component';
 		AppRoutingModule,
 		MdSliderModule,
 		MdTooltipModule,
-		InfiniteScrollModule,
 		CookieModule.forRoot()
 	],
 	declarations: [
 		AppComponent,
 		IndexComponent,
 		ChatBotComponent,
-		ResultComponent
+		ResultComponent,
+		NgxAutoScroll
 	],
 	providers: [
 		SearchService
