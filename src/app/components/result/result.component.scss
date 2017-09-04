@@ -10,7 +10,7 @@
         }
         .col:nth-child(1) {
             span.fa {
-                color: #2da5b6;
+                color: #e67e22;
                 &:after {
                     position: absolute;
                     top: 12px;
@@ -26,7 +26,7 @@
         }
         .col:nth-child(3) {
             span.fa {
-                color: #ddd;
+                color: #2da5b6;
                 &:after {
                     position: absolute;
                     top: 12px;
@@ -80,25 +80,27 @@
 
                         width: 40px;
                         height: 40px;
+
+                        background: #aaa;
                     }
                 }
                 > div.low-score {
-                    span {
-                        background: #2da5b6;
-                    }
-                    md-slider {
-                        .mat-slider-thumb {
-                            background: #2da5b6;
-                        }
-                    }
-                }
-                > div.high-score {
                     span {
                         background: #e67e22;
                     }
                     md-slider {
                         .mat-slider-thumb {
                             background: #e67e22;
+                        }
+                    }
+                }
+                > div.high-score {
+                    span {
+                        background: #2da5b6;
+                    }
+                    md-slider {
+                        .mat-slider-thumb {
+                            background: #2da5b6;
                         }
                     }
                 }
