@@ -5,15 +5,16 @@ import { FormsModule, ReactiveFormsModule }		from '@angular/forms';
 import { HttpModule, JsonpModule }				from '@angular/http';
 
 /* Angular material modules */
-import { 
-	MaterialModule, 
+import {
+	MaterialModule,
 	MdSliderModule,
-	MdTooltipModule  
+	MdTooltipModule
 } 												from '@angular/material';
 
 /* Third party modules */
 import { CookieModule }							from 'ngx-cookie';
 import { NgxAutoScroll } 						from 'ngx-auto-scroll/lib/ngx-auto-scroll.directive';
+import { NguiAutoCompleteModule } 				from '@ngui/auto-complete';
 
 /* Application Wide routing */
 import { AppRoutingModule }						from './app-routing.module';
@@ -44,6 +45,7 @@ import { ResultComponent }						from '../components/result/result.component';
 		AppRoutingModule,
 		MdSliderModule,
 		MdTooltipModule,
+		NguiAutoCompleteModule,
 		CookieModule.forRoot()
 	],
 	declarations: [

@@ -35,4 +35,10 @@ export class SearchService extends CommonService {
 			.catch(this.handleError);
 	}
 
+	autocomplete(query: any): Observable<any> {
+		return this.http.get(this.baseUrl + 'complete', new RequestOptions({ params: { 'query': query } }))
+			.map((res: Response) => res.json())
+			.catch(this.handleError);
+	}
+
 }

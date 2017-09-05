@@ -1,4 +1,8 @@
-import { Component, ViewEncapsulation, OnInit, Output, Input, EventEmitter }  from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, Output, Input, EventEmitter }    from '@angular/core';
+import { Observable } 															from 'rxjs/Observable';
+
+
+import { SearchService }						 								from '../../services/search.service';
 
 @Component({
 	selector: 'fc-chatbot',
@@ -15,10 +19,15 @@ export class ChatBotComponent implements OnInit {
 	@Output() fullTextInput: EventEmitter<string> = new EventEmitter();
 
 	private query: string;
+	private sources: any[] = [];
 
-	constructor() { }
+	constructor(private searchService: SearchService) { }
 
 	ngOnInit(): void { }
+
+	observableSource(query: any): Observable<any[]> {
+		return this.searchService.autocomplete(query);
+	}
 
 	private search(): void {
 		this.questions.push({ 'text': this.query });

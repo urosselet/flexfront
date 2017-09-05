@@ -8,7 +8,7 @@
             <div class="message left appeared">
                 <div class="avatar"></div>
                 <div class="text_wrapper">
-                    <div class="text">Welcome to FlexCrowd, How can we help ?</div>
+                    <div class="text">Welcome to FlexCrowd, how can we help ?</div>
                 </div>
             </div>
 
@@ -48,7 +48,10 @@
         <div class="bottom_wrapper clearfix">
 
             <div class="message_input_wrapper">
+                <!--
                 <input class="message_input" placeholder="How can I help you ?" [(ngModel)]="query" (keyup.enter)="search()" />
+                -->
+                <input class="message_input" placeholder="How can I help you ?" list-formatter="text" min-chars="2" ngui-auto-complete (keyup.enter)="search()" [(ngModel)]="query" [source]="observableSource.bind(this)" />
             </div>
 
             <div class="send_message">
