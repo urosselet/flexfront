@@ -37,7 +37,9 @@
                 <div class="message left appeared" *ngIf="answers[i]">
                     <div class="avatar"></div>
                     <div class="text_wrapper">
-                        <div class="text">{{ answers[i] }}</div>
+                        <div class="text">
+                            <p *ngFor="let item of answers | mapToIterable">{{ item.key }}</p>
+                        </div>
                     </div>
                 </div>
 

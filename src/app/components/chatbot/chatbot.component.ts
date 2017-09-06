@@ -1,7 +1,6 @@
 import { Component, ViewEncapsulation, OnInit, Output, Input, EventEmitter }    from '@angular/core';
 import { Observable } 															from 'rxjs/Observable';
 
-
 import { SearchService }						 								from '../../services/search.service';
 
 @Component({

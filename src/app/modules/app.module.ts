@@ -34,6 +34,9 @@ import { ResultComponent }						from '../components/result/result.component';
 
 /* Pipes */
 
+/* Pipes */
+import { MapToIterable }						from '../pipes/application.pipes';
+
 @NgModule({
 	imports: [
 		BrowserModule,
@@ -53,7 +56,8 @@ import { ResultComponent }						from '../components/result/result.component';
 		IndexComponent,
 		ChatBotComponent,
 		ResultComponent,
-		NgxAutoScroll
+		NgxAutoScroll,
+		MapToIterable
 	],
 	providers: [
 		SearchService

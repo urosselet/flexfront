@@ -139,7 +139,7 @@
 
         width: calc(100% - 110px);
         height: 35px;
-        padding: 0 20px;
+        padding: 0 10px;
 
         border: 1px solid #bcbdc0;
         border-radius: 25px;
@@ -150,11 +150,12 @@
         box-sizing: border-box;
         width: 100%;
         height: 100%;
-        padding-top: 6px;
+        padding-top: 8px;
 
         color: gray;
         border: none;
         outline-width: 0;
+        background: transparent;
     }
     .bottom_wrapper .send_message {
         display: inline-block;

@@ -29,7 +29,7 @@ export class IndexComponent implements OnInit {
                 res => {
                 	this.results = res.results;
                 	setTimeout(() => {
-			    		this.answers.push(res.answer);
+			    		this.answers.push(res.questions);
 			  		}, 1000);
                 },
                 error => {}
