@@ -14,6 +14,7 @@ export class IndexComponent implements OnInit {
 	private questions: any[] = [];
 	private answers: any[] = [];
 	private results: any[] = [];
+	private isFirstQuery: boolean = true
 
 	constructor(
 		private searchService: SearchService,
@@ -24,12 +25,13 @@ export class IndexComponent implements OnInit {
 
 	public fullTextInput(q: string): void {
 
-	   	this.searchService.query(q)
+	   	this.searchService.query(q, this.isFirstQuery)
 			.subscribe(
                 res => {
                 	this.results = res.results;
+                	this.isFirstQuery = false;
                 	setTimeout(() => {
-			    		this.answers.push(res.questions);
+			    		this.answers.push(res);
 			  		}, 1000);
                 },
                 error => {}

@@ -9,7 +9,7 @@ import { CommonService }                        from './common.service';
 export class SessionService extends CommonService {
 
 	/**
-	 * Connection API base Url
+	 * Session API base Url
 	 * @type {String}
 	 */
 
@@ -25,11 +25,10 @@ export class SessionService extends CommonService {
 	) { super() }
 
 	/**
-	 * [getUsers description]
-	 * @return {Observable<User[]>} [description]
+	 * Session handler
+	 * @return {Observable<any[]>} [description]
 	 */
-	getSessionId(): Observable<any> {
-
+	public getSessionId(): Observable<any> {
 		return this.http.get(this.baseUrl))
 			.map((res: Response) => res.json())
 			.catch(this.handleError);

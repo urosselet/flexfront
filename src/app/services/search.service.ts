@@ -9,7 +9,7 @@ import { CommonService }                        from './common.service';
 export class SearchService extends CommonService {
 
 	/**
-	 * Connection API base Url
+	 * search API base Url
 	 * @type {String}
 	 */
 
@@ -25,17 +25,21 @@ export class SearchService extends CommonService {
 	) { super() }
 
 	/**
-	 * [getUsers description]
-	 * @return {Observable<User[]>} [description]
+	 * User query
+	 * @return {Observable<any[]>} [description]
 	 */
-	query(query: any): Observable<any> {
-
-		return this.http.get(this.baseUrl, new RequestOptions({ params: { 'query': query, 'session': '8392371938321' } }))
+	public query(query: any, isFirstQuery: boolean): Observable<any> {
+		return this.http.get(this.baseUrl, new RequestOptions({ params: { 'query': query, 'session': '8392371938321', 'status': isFirstQuery } }))
 			.map((res: Response) => res.json())
 			.catch(this.handleError);
 	}
 
-	autocomplete(query: any): Observable<any> {
+	/**
+	 * Query autocomplete
+	 * @param  {any}             query [description]
+	 * @return {Observable<any>}       [description]
+	 */
+	public autocomplete(query: any): Observable<any> {
 		return this.http.get(this.baseUrl + 'complete', new RequestOptions({ params: { 'query': query } }))
 			.map((res: Response) => res.json())
 			.catch(this.handleError);
