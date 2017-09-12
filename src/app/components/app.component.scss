@@ -1,3 +1,60 @@
+@import 'src/assets/sass/variables';
+
 body {
-	background: #efefef;
+    background: $fc-white;
+}
+
+header {
+    background: #f9f5e8;
+    .logo {
+        line-height: 1;
+
+        position: relative;
+
+        float: left;
+
+        width: 25%;
+        min-height: 1px;
+        padding: 1em;
+        padding-right: 15px;
+        padding-left: 15px;
+        img {
+        	    max-width: 100%;
+        }
+    }
+    .menu-top {
+        position: relative;
+
+        float: left;
+
+        width: 75%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        text-align: right;
+        ul li {
+            display: inline-block;
+
+            padding: 0 0 0 2em;
+
+            list-style: none outside none;
+        }
+    }
+}
+
+.welcome-section {
+	background-color: $fc-light-orange;
+	> .container-fluid {
+		background-color: $fc-light-orange;
+	}
+	.row {
+		.avatar > img {
+			width: 100%;
+		}
+	}
+}
+
+.container-fluid {
+	background-color: $fc-white;
 }
