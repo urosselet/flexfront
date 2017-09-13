@@ -1,10 +1,35 @@
+/* Fonts styles */
+@font-face {
+    font-family: 'hk-regular';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('fonts/hkgrotesk/HKGrotesk-Regular.eot');
+    src: url('fonts/hkgrotesk/HKGrotesk-Regular.eot?#iefix') format('embedded-opentype'), 
+    	 url('fonts/hkgrotesk/HKGrotesk-Regular.woff2') format('woff2'), 
+    	 url('fonts/hkgrotesk/HKGrotesk-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'hk-bold';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('fonts/hkgrotesk/HKGrotesk-Bold.eot');
+    src: url('fonts/hkgrotesk/HKGrotesk-Bold.eot?#iefix') format('embedded-opentype'), 
+    	 url('fonts/hkgrotesk/HKGrotesk-Bold.woff2') format('woff2'), 
+    	 url('fonts/hkgrotesk/HKGrotesk-Bold.woff') format('woff');
+}
+
+/* Variables */
 @import 'variables';
 
 /* Bootstrap */
 @import '../../../node_modules/bootstrap/scss/bootstrap';
 
 /* Fontawesome */
-@import url('fonts/font-awesome.min.css');
+@import url('fonts/fontawesome/font-awesome.min.css');
 
 /* Plugins styles */
 @import url('plugins/deeppurple-amber.css');
+@import url('plugins/jquery.fullpage.css');

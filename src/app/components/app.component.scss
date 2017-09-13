@@ -5,6 +5,8 @@ body {
 }
 
 header {
+    margin-bottom: 4em;
+
     background: #f9f5e8;
     .logo {
         line-height: 1;
@@ -19,7 +21,7 @@ header {
         padding-right: 15px;
         padding-left: 15px;
         img {
-        	    max-width: 100%;
+            max-width: 100%;
         }
     }
     .menu-top {
@@ -44,17 +46,23 @@ header {
 }
 
 .welcome-section {
-	background-color: $fc-light-orange;
-	> .container-fluid {
-		background-color: $fc-light-orange;
-	}
-	.row {
-		.avatar > img {
-			width: 100%;
-		}
-	}
+    background-color: $fc-light-orange;
+    > .container-fluid {
+        background-color: $fc-light-orange;
+    }
+    .row {
+        justify-content: center;
+        align-items: center;
+        .avatar > img {
+            width: 100%;
+        }
+    }
+    .intro-section button {
+        background-color: $fc-blue;
+        color: $fc-white;
+    }
 }
 
 .container-fluid {
-	background-color: $fc-white;
+    background-color: $fc-white;
 }

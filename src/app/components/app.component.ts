@@ -1,4 +1,8 @@
-import { Component, ViewEncapsulation, OnInit }  from 	'@angular/core';
+import { Component, ViewEncapsulation, OnInit }  	from '@angular/core';
+
+import * as jQuery									from 'jquery';
+
+import 'fullpage.js';
 
 @Component({
 	selector: 'fc-app',

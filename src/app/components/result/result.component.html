@@ -1,35 +1,73 @@
 <div id="result-component">
-    <h1>Solutions possibles</h1>
 
+    <section class="slide">
+        <h1>Mes recommandations</h1>
+        <div class="row result-wrapper">
+            <ul>
+                <li>
+                    <div class="avatar">
+                        <img type="image/svg+xml" [src]="'assets/images/avatar.svg'" class="fill" alt="flex-avatar" />
+                    </div>
+                    <div class="platforms">
+                        <span>Lorump</span>
+                        <span>Ipsum</span>
+                        <span>CrowFlower</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="avatar">
+                        <img type="image/svg+xml" [src]="'assets/images/avatar-sad.svg'" class="fill" alt="flex-avatar" />
+                    </div>
+                    <div class="platforms">
+                        <span>Lorump</span>
+                        <span>Ipsum</span>
+                        <span>CrowFlower</span>
+                    </div>
+                </li>
+            </ul>
+            <div class="callout">
+                <h5>Cliquer sur une plateforme pour obtenir plus d'informations</h5>
+            </div>
+        </div>
+        <div class="row btn-action">
+            <div class="col">
+                <button class="btn">Pourquoi ai-je choisi ces <br /> solutions pour vous ?</button>
+            </div>
+        </div>
+    </section>
+
+    <!--
     <div class="row result-header">
-    	<div class="col col-5 text-left">
-    		<span class="fa fa-thumbs-down" aria-hidden="true"></span>
-		</div>
-    	<div class="col col-2">
-    		<span class="fa fa-circle-thin" aria-hidden="true"></span>
-    	</div>
-    	<div class="col col-5 text-right">
-    		<span class="fa fa-thumbs-up" aria-hidden="true"></span>
-    	</div>
+        <div class="col col-5 text-left">
+            <span class="fa fa-thumbs-down" aria-hidden="true"></span>
+        </div>
+        <div class="col col-2">
+            <span class="fa fa-circle-thin" aria-hidden="true"></span>
+        </div>
+        <div class="col col-5 text-right">
+            <span class="fa fa-thumbs-up" aria-hidden="true"></span>
+        </div>
     </div>
-
+    -->
+    <!--
     <div class="row platform-list">
-	    <ul>
+        <ul>
 
-	    	<li *ngIf="results?.length === 0">
-	    		<div>Aucun résultat</div>
-	    	</li>
+            <li *ngIf="results?.length === 0">
+                <div>Aucun résultat</div>
+            </li>
 
-	    	<li *ngFor="let result of results">
-	    		<div class="platform" [ngClass]="{'high-score': result?._score > 1.5, 'low-score': result?._score < 1.5 }">
-	    			<span  mdTooltip="{{ result?._source.description }}" [mdTooltipPosition]="'above'">{{ result?._id }}</span>
-	    			<div>
+            <li *ngFor="let result of results">
+                <div class="platform" [ngClass]="{'high-score': result?._score > 1.5, 'low-score': result?._score < 1.5 }">
+                    <span  mdTooltip="{{ result?._source.description }}" [mdTooltipPosition]="'above'">{{ result?._id }}</span>
+                    <div>
                         <md-slider [disabled]="true" [min]="0" [max]="3" [value]="result?._score"></md-slider>
                         <div class="text-center platform-name">{{ result?._source.name }}</div>
                     </div>
-	    		</div>
-	    	</li>
+                </div>
+            </li>
 
-	    </ul>
+        </ul>
     </div>
+    -->
 </div>

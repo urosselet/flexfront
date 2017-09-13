@@ -1,11 +1,16 @@
-/* Fonts */
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600');
-@import url('https://fonts.googleapis.com/css?family=Muli:300,400,600,700');
-
 /**
  * Flexcrowd styles variables
  */
+$font-family-regular: 'hk-regular', Helvetica, Arial, sans-serif;
+$font-family-bold: 'hk-bold', Helvetica, Arial, sans-serif;
+
 $fc-blue: #2da5b6;
 $fc-orange: #ed6a20;
 $fc-light-orange: #f9f5e8;
 $fc-white: #fff;
+
+
+/**
+ * Bootstrap style redifinition
+ */
+$font-family-base: $font-family-regular !default;

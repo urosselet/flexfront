@@ -1,4 +1,49 @@
+@import 'src/assets/sass/variables';
+
 #result-component {
+    .result-wrapper {
+        ul {
+            list-style-type: none;
+            li {
+                display: flex;
+
+                margin-bottom: 2em;
+
+                align-items: center;
+                .avatar {
+                    text-align: center;
+                    img {
+                        width: 75%;
+                    }
+                }
+                .platforms { }
+            }
+        }
+        .callout {
+            margin-left: 2em;
+            padding: 1.25rem;
+
+            border: 1px solid #eee;
+            border-left-width: .25rem;
+            border-left-color: $fc-orange !important;
+            border-radius: .25rem;
+            h5 {
+                font-size: 1rem;
+
+                margin: 0;
+            }
+        }
+    }
+    .btn-action {
+        margin-top: 2em;
+        text-align: center;
+        button {
+            width: 75%;
+            border-radius: 0;
+            background-color: $fc-blue;
+            color: $fc-white;
+        }
+    }
     .result-header {
         position: relative;
 

@@ -1,47 +1,51 @@
-<!-- Header section -->
-<header>
-    <div id="header">
-        <div class="container">
-            <div class="row">
-                <div class="logo">
-                    <a href="/"><img [src]="'assets/images/logo.png'" alt="flexcrowd-logo"></a>
+<div mnFullpage [mnFullpageSlidesNavigation]="true">
+    <!-- Welcome section -->
+    <section class="welcome-section fp-section fp-table">
+        <!-- Header section -->
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="logo">
+                        <a href="/"><img [src]="'assets/images/logo.png'" alt="flex-logo"></a>
+                    </div>
+                    <!--
+                    <div class="menu-top">
+                        <ul>
+                            <li>
+                                <a href="#">About us</a>
+                            </li>
+                            <li>
+                                <a href="#">Our services</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    -->
                 </div>
-                <!--
-                <div class="menu-top">
-                    <ul>
-                        <li>
-                            <a href="#">About us</a>
-                        </li>
-                        <li>
-                            <a href="#">Our services</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                -->
             </div>
+        </header>
+        <!-- Introduction section -->
+        <div class="container intro-section">
+        	<div class="row text">
+    	        <div class="col col-5 avatar">
+                    <img type="image/svg+xml" [src]="'assets/images/avatar.svg'" class="fill" alt="flex-avatar" />
+    	        </div>
+    	        <div class="col col-7">
+    	            <h1>Flexcrowd : votre plateforme de recherche lorem ipsum dolor sit amet hic et nunc</h1>
+    	        </div>
+            </div>
+            <div class="row start-chat-btn">
+    	        <button class="btn">Commencer l'analyse <i class="fa fa-caret-right"></i></button>
+    	    </div>
         </div>
-    </div>
-</header>
-<!-- Welcome section -->
-<section class="welcome-section">
-    <div class="container-fluid">
-    	<div class="row text">
-	        <div class="col col-3 avatar">
-	        	<img [src]="'assets/images/avatar.png'" class="fill" alt="">
-	        </div>
-	        <div class="col col-6">
-	            <h1>Flexcrowd : votre plateforme de recherche lorem ipsum dolor sit amet hic et nunc</h1>
-	            <p class="medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, repellendus!</p>
-	        </div>
+    </section>
+
+    <section class="fp-section fp-table">
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
         </div>
-        <div class="row">
-	        <button class="btn">Commencer l'analyse <i class="fa fa-caret-right"></i> </button>
-	    </div>
-    </div>
-</section>
-<div class="container-fluid">
-    <router-outlet></router-outlet>
+    </section>
+
 </div>

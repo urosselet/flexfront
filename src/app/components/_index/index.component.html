@@ -1,18 +1,16 @@
 <div id="index-component" class="container">
-
-	<div class="row">
-
-		<div class="col flex-middle">
-			<fc-chatbot
-				[questions]="questions"
-				[answers]="answers"
-				(fullTextInput)="fullTextInput($event)"></fc-chatbot>
-		</div>
-
-		<div class="col flex-middle">
-			<fc-result [results]="results"></fc-result>
-		</div>
-
-	</div>
-
+    <section>
+        <div class="row" [@slideMain]="slideState">
+            <div class="col flex-middle">
+                <fc-chatbot [questions]="questions" [answers]="answers" (fullTextInput)="fullTextInput($event)"></fc-chatbot>
+            </div>
+            <div class="col flex-middle">
+                <fc-result [results]="results"></fc-result>
+                <div (click)="toggleSlide()">Hello</div>
+            </div>
+            <section class="col flex-middle" [@slide]="slideState">
+                <h1>Mes recommandations</h1>
+            </section>
+        </div>
+    </section>
 </div>

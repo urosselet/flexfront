@@ -15,6 +15,7 @@ import {
 import { CookieModule }							from 'ngx-cookie';
 import { NgxAutoScroll } 						from 'ngx-auto-scroll/lib/ngx-auto-scroll.directive';
 import { NguiAutoCompleteModule } 				from '@ngui/auto-complete';
+import { MnFullpageModule } 					from 'ngx-fullpage';
 
 /* Application Wide routing */
 import { AppRoutingModule }						from './app-routing.module';
@@ -49,7 +50,8 @@ import { MapToIterable }						from '../pipes/application.pipes';
 		MdSliderModule,
 		MdTooltipModule,
 		NguiAutoCompleteModule,
-		CookieModule.forRoot()
+		CookieModule.forRoot(),
+		MnFullpageModule.forRoot()
 	],
 	declarations: [
 		AppComponent,

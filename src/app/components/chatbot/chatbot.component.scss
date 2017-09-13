@@ -39,9 +39,16 @@
         opacity: 0;
     }
     .messages .message.left .avatar {
+        position: relative;
+
         float: left;
 
-        background-color: #ef7921;
+        background-color: rgba(255, 255, 255, .5);
+        > img {
+            position: absolute;
+            right: 5px;
+            bottom: 4px;
+        }
     }
     .messages .message.left .text_wrapper {
         margin-top: 10px;
