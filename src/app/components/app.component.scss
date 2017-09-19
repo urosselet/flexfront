@@ -41,14 +41,23 @@ header {
             padding: 0 0 0 2em;
 
             list-style: none outside none;
+            a {
+                color: $fc-blue;
+            }
         }
     }
 }
 
 .welcome-section {
     background-color: $fc-light-orange;
-    > .container-fluid {
+    header > .container-fluid {
         background-color: $fc-light-orange;
+        > .row {
+            justify-content: left;
+            img {
+                max-width: 75%;
+            }
+        }
     }
     .row {
         justify-content: center;

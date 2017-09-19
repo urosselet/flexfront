@@ -1,14 +1,13 @@
-<div mnFullpage [mnFullpageSlidesNavigation]="true">
+<div mnFullpage [mnFullpageSlidesNavigation]="true" [mnFullpage]="options">
     <!-- Welcome section -->
     <section class="welcome-section fp-section fp-table">
         <!-- Header section -->
         <header>
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="logo">
                         <a href="/"><img [src]="'assets/images/logo.png'" alt="flex-logo"></a>
                     </div>
-                    <!--
                     <div class="menu-top">
                         <ul>
                             <li>
@@ -22,7 +21,6 @@
                             </li>
                         </ul>
                     </div>
-                    -->
                 </div>
             </div>
         </header>
@@ -36,8 +34,9 @@
     	            <h1>Flexcrowd : votre plateforme de recherche lorem ipsum dolor sit amet hic et nunc</h1>
     	        </div>
             </div>
-            <div class="row start-chat-btn">
-    	        <button class="btn">Commencer l'analyse <i class="fa fa-caret-right"></i></button>
+            <div class="row start-chat-btn" data-menuanchor="start">
+                <a href="#start" class="btn">Commencer l'analyse</a>
+    	        <!--<button class="btn">Commencer l'analyse</button>-->
     	    </div>
         </div>
     </section>

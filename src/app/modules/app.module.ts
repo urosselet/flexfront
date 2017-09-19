@@ -33,7 +33,8 @@ import { IndexComponent }						from '../components/_index/index.component';
 import { ChatBotComponent }						from '../components/chatbot/chatbot.component';
 import { ResultComponent }						from '../components/result/result.component';
 
-/* Pipes */
+/* Directives */
+import { SlideDirective } 						from '../directives/slide.directive';
 
 /* Pipes */
 import { MapToIterable }						from '../pipes/application.pipes';
@@ -59,7 +60,8 @@ import { MapToIterable }						from '../pipes/application.pipes';
 		ChatBotComponent,
 		ResultComponent,
 		NgxAutoScroll,
-		MapToIterable
+		MapToIterable,
+		SlideDirective
 	],
 	providers: [
 		SearchService

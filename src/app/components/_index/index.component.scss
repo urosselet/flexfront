@@ -5,7 +5,6 @@
     padding: 2rem;
 
     text-align: left;
-    
     h1 {
         font-size: 1.75rem;
 
@@ -13,5 +12,22 @@
 
         color: $fc-blue;
         border-bottom: 2px solid $fc-blue;
+    }
+    .platform-detail {
+        display: none;
+    }
+}
+
+.view-slide {
+    section {
+        transform: translateX(0%);
+        .chat-bot {
+            display: none;
+        }
+        .platform-detail {
+            display: block !important;
+
+            background-color: $fc-light-orange;
+        }
     }
 }

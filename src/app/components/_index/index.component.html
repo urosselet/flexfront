@@ -1,15 +1,37 @@
-<div id="index-component" class="container">
+<div id="index-component" class="container" slide>
     <section>
-        <div class="row" [@slideMain]="slideState">
-            <div class="col flex-middle">
+        <div class="row">
+            <div class="col flex-middle chat-bot">
                 <fc-chatbot [questions]="questions" [answers]="answers" (fullTextInput)="fullTextInput($event)"></fc-chatbot>
             </div>
-            <div class="col flex-middle">
+            <div class="col flex-middle results">
                 <fc-result [results]="results"></fc-result>
-                <div (click)="toggleSlide()">Hello</div>
             </div>
-            <section class="col flex-middle" [@slide]="slideState">
-                <h1>Mes recommandations</h1>
+            <section class="col flex-middle platform-detail">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-9">
+                                <h2>Crowdpower</h2>
+                                <div>
+                                    <a href="">www.url.ch</a>
+                                </div>
+                                <div>Quisinci mporerum acias sinvelese velesto quia dolorer ferrovidesti reius dolenim es dolorep udionessum nem qui voluptate ius quistem et mi, ut faceritam, ipiendignat aces assit molorest, sitis aut lam, cum dolupta</div>
+                            </div>
+                            <div class="col-3">
+                                <img src="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h3>Par rapport à vos besoins</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn">Fermer</button>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     </section>

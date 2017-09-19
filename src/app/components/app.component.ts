@@ -1,6 +1,7 @@
-import { Component, ViewEncapsulation, OnInit }  	from '@angular/core';
+import { Component, Input, Output, ViewEncapsulation, OnInit }  	from '@angular/core';
+import { MnFullpageOptions, MnFullpageService } 					from 'ngx-fullpage/index';
 
-import * as jQuery									from 'jquery';
+import * as jQuery													from 'jquery';
 
 import 'fullpage.js';
 
@@ -12,6 +13,14 @@ import 'fullpage.js';
 })
 
 export class AppComponent implements OnInit {
+
+	@Input() public options: MnFullpageOptions = new MnFullpageOptions({
+        controlArrows: false,
+        scrollingSpeed: 1000,
+        menu: '.start-chat-btn',
+        //css3: true,
+        anchors: ['start']
+    });
 
 	constructor() { }
 

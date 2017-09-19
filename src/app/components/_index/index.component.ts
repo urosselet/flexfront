@@ -8,30 +8,7 @@ import { SearchService }						 		from '../../services/search.service';
 	selector: 'fc-index',
 	templateUrl: 'index.component.html',
 	styleUrls: ['index.component.scss'],
-	encapsulation: ViewEncapsulation.None,
-	animations: [
-		trigger('slide', [
-      		state('in', style({
-      			transform: 'translateX(0)',
-      			display: 'none'
-      		})),
-	      	state('out', style({
-		      	transform: 'translateX(200px)'
-	      	})),
-		    transition('in => out', animate('500ms ease-in-out')),
-		    transition('out => in', animate('500ms ease-in-out'))
-	    ]),
-	    trigger('slideMain', [
-      		state('in', style({
-      			transform: 'translateX(0)'
-      		})),
-	      	state('out', style({
-		      	transform: 'translateX(-400px)'
-	      	})),
-		    transition('in => out', animate('500ms ease-in-out')),
-		    transition('out => in', animate('500ms ease-in-out'))
-	    ]),
-	]
+	encapsulation: ViewEncapsulation.None
 })
 
 export class IndexComponent implements OnInit {
@@ -40,8 +17,6 @@ export class IndexComponent implements OnInit {
 	private answers: any[] = [];
 	private results: any[] = [];
 	private isFirstQuery: boolean = true;
-
-	private slideState: string = 'in';
 
 	constructor(
 		private searchService: SearchService,
@@ -65,9 +40,5 @@ export class IndexComponent implements OnInit {
             );
 
 	}
-
-	private toggleSlide(): void {
-		this.slideState = this.slideState === 'out' ? 'in' : 'out';
-  	}
 
 }
