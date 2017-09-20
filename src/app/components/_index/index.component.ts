@@ -15,18 +15,27 @@ export class IndexComponent implements OnInit {
 
 	private questions: any[] = [];
 	private answers: any[] = [];
-	private results: any[] = [];
 	private isFirstQuery: boolean = true;
+
+	private results: any;
+	private platform: any;
 
 	constructor(
 		private searchService: SearchService,
 		private cookieService: CookieService
-	) {}
+	) { }
 
 	ngOnInit(): void {}
 
-	public fullTextInput(q: string): void {
+	public getPlatformDetail(id: number): void {
+		this.searchService.getPlatform(id)
+			.subscribe(
+                res => { this.platform = res },
+                error => {}
+            );
+	}
 
+	public fullTextInput(q: string): void {
 	   	this.searchService.query(q, this.isFirstQuery)
 			.subscribe(
                 res => {
@@ -36,9 +45,9 @@ export class IndexComponent implements OnInit {
 			    		this.answers.push(res);
 			  		}, 1000);
                 },
-                error => {}
-            );
+                error => {
 
+                });
 	}
 
 }

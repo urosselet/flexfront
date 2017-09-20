@@ -12,8 +12,13 @@ export class SearchService extends CommonService {
 	 * search API base Url
 	 * @type {String}
 	 */
-
 	private baseUrl = process.env.API_URL.concat('search/');
+
+	/**
+	 * Platform API base Url
+	 * @type {String}
+	 */
+	private platformBaseUrl = process.env.API_URL.concat('csplatform/');
 
 	/**
 	 * [constructor description]
@@ -41,6 +46,17 @@ export class SearchService extends CommonService {
 	 */
 	public autocomplete(query: any): Observable<any> {
 		return this.http.get(this.baseUrl + 'complete', new RequestOptions({ params: { 'query': query } }))
+			.map((res: Response) => res.json())
+			.catch(this.handleError);
+	}
+
+	/**
+	 * Get platform detail
+	 * @param  {any}             query [description]
+	 * @return {Observable<any>}       [description]
+	 */
+	public getPlatform(id: number): Observable<any> {
+		return this.http.get(this.platformBaseUrl + 'getplatformdetail/' + id, new RequestOptions({}))
 			.map((res: Response) => res.json())
 			.catch(this.handleError);
 	}

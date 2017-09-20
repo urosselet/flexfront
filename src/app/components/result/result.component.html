@@ -1,73 +1,45 @@
 <div id="result-component">
+    <section class="slide" *ngIf="results">
+        <h1>My recommendations</h1>
 
-    <section class="slide">
-        <h1>Mes recommandations</h1>
-        <div class="row result-wrapper">
-            <ul>
-                <li>
+        <div class="result-wrapper">
+            <!-- High score hits -->
+            <div class="row high-scores-hits">
+                <div class="col-3 flex-middle">
                     <div class="avatar">
                         <img type="image/svg+xml" [src]="'assets/images/avatar.svg'" class="fill" alt="flex-avatar" />
                     </div>
+                </div>
+                <div class="col-9 flex-middle">
                     <div class="platforms">
-                        <span>Lorump</span>
-                        <span>Ipsum</span>
-                        <span>CrowFlower</span>
+                        <span class="platform" (click)="callParent(platform.id)" *ngFor="let platform of results?.high_hits">{{ platform.name }}</span>
                     </div>
-                </li>
-                <li>
+                </div>
+            </div>
+
+            <!-- Medium score hits -->
+            <div class="row medium-scores-hits">
+                <div class="col-3 flex-middle">
                     <div class="avatar">
                         <img type="image/svg+xml" [src]="'assets/images/avatar-sad.svg'" class="fill" alt="flex-avatar" />
                     </div>
+                </div>
+                <div class="col-9 flex-middle">
                     <div class="platforms">
-                        <span>Lorump</span>
-                        <span>Ipsum</span>
-                        <span>CrowFlower</span>
-                    </div>
-                </li>
-            </ul>
-            <div class="callout">
-                <h5>Cliquer sur une plateforme pour obtenir plus d'informations</h5>
-            </div>
-        </div>
-        <div class="row btn-action">
-            <div class="col">
-                <button class="btn slide-btn">Pourquoi ai-je choisi ces <br /> solutions pour vous ?</button>
-            </div>
-        </div>
-    </section>
-
-    <!--
-    <div class="row result-header">
-        <div class="col col-5 text-left">
-            <span class="fa fa-thumbs-down" aria-hidden="true"></span>
-        </div>
-        <div class="col col-2">
-            <span class="fa fa-circle-thin" aria-hidden="true"></span>
-        </div>
-        <div class="col col-5 text-right">
-            <span class="fa fa-thumbs-up" aria-hidden="true"></span>
-        </div>
-    </div>
-    -->
-    <!--
-    <div class="row platform-list">
-        <ul>
-
-            <li *ngIf="results?.length === 0">
-                <div>Aucun résultat</div>
-            </li>
-
-            <li *ngFor="let result of results">
-                <div class="platform" [ngClass]="{'high-score': result?._score > 1.5, 'low-score': result?._score < 1.5 }">
-                    <span  mdTooltip="{{ result?._source.description }}" [mdTooltipPosition]="'above'">{{ result?._id }}</span>
-                    <div>
-                        <md-slider [disabled]="true" [min]="0" [max]="3" [value]="result?._score"></md-slider>
-                        <div class="text-center platform-name">{{ result?._source.name }}</div>
+                        <span class="platform" (click)="callParent(platform.id)" *ngFor="let platform of results?.medium_hits">{{ platform.name }}</span>
                     </div>
                 </div>
-            </li>
+            </div>
+            <div class="callout">
+                <h5>Click on a platform for more information</h5>
+            </div>
+        </div>
 
-        </ul>
-    </div>
-    -->
+        <div class="row btn-action">
+            <div class="col">
+                <button class="btn slide-btn">Why did I choose these platforms? <i class="fa fa-caret-right" aria-hidden="true"></i></button>
+            </div>
+        </div>
+
+    </section>
 </div>

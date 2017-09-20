@@ -1,4 +1,6 @@
-import { Component, ViewEncapsulation, OnInit, Input }  	from  '@angular/core';
+import { Component, ViewEncapsulation, OnInit, Output, Input, EventEmitter }  	from  '@angular/core';
+
+import { SearchService }						 								from '../../services/search.service';
 
 @Component({
 	selector: 'fc-result',
@@ -9,10 +11,16 @@ import { Component, ViewEncapsulation, OnInit, Input }  	from  '@angular/core';
 
 export class ResultComponent implements OnInit {
 
-	@Input() results: any[];
+	@Input() results: any;
 
-	constructor() {}
+	@Output() someEvent = new EventEmitter<number>();
+
+	constructor(private searchService: SearchService) {}
 
 	ngOnInit(): void {}
+
+	callParent(id: number) {
+	    this.someEvent.next(id);
+	}
 
 }

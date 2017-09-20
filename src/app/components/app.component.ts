@@ -18,7 +18,6 @@ export class AppComponent implements OnInit {
         controlArrows: false,
         scrollingSpeed: 1000,
         menu: '.start-chat-btn',
-        //css3: true,
         anchors: ['start']
     });
 

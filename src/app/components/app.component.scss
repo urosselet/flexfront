@@ -48,6 +48,14 @@ header {
     }
 }
 
+.fc-btn-style {
+    width: auto;
+
+    color: $fc-white;
+    border-radius: 0;
+    background-color: $fc-blue;
+}
+
 .welcome-section {
     background-color: $fc-light-orange;
     header > .container-fluid {
@@ -67,8 +75,8 @@ header {
         }
     }
     .intro-section button {
-        background-color: $fc-blue;
         color: $fc-white;
+        background-color: $fc-blue;
     }
 }
 
