@@ -1,10 +1,11 @@
 import { Component, Input, Output, ViewEncapsulation, OnInit }  	from '@angular/core';
-
+import { Observable }                                               from 'rxjs/Observable';
 import { MnFullpageOptions, MnFullpageService } 					from 'ngx-fullpage/index';
+
+import { SearchService }                                            from '../services/search.service';
 
 import * as jQuery													from 'jquery';
 
-import 'iscroll';
 import 'fullpage.js';
 
 @Component({
@@ -18,8 +19,8 @@ export class AppComponent implements OnInit {
 
 	@Input() public options: MnFullpageOptions = new MnFullpageOptions({
         controlArrows: false,
-        // scrollOverflow: true,
         keyboardScrolling: false,
+        setAllowScrolling: false,
         onLeave: ((index: number, nextIndex: number, direction: string) => {
         	if (direction === 'down') {
         		setTimeout(function() {
@@ -31,10 +32,24 @@ export class AppComponent implements OnInit {
         })
     });
 
+    private query: string;
+
 	constructor(
-		private fullpageService: MnFullpageService
+        private fullpageService: MnFullpageService,
+		private searchService: SearchService
 	) {}
 
-	ngOnInit(): void { }
+	ngOnInit(): void {}
+
+    observableSource(query: any): Observable<any[]> {
+        return this.searchService.autocomplete(query);
+    }
+
+    public search(q: string): void {
+           this.searchService.query(q, true)
+            .subscribe(
+                res => {},
+                error => {});
+    }
 
 }

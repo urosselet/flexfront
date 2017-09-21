@@ -30,13 +30,18 @@
     	        <div class="col col-5 avatar">
                     <img type="image/svg+xml" [src]="'assets/images/avatar.svg'" class="fill" alt="flex-avatar" />
     	        </div>
-    	        <div class="col col-7">
-    	            <h1>Flexcrowd, Finding the right crowdsourcing platform for your business has never been easier !</h1>
+    	        <div class="col col-7 search-wrapper">
+    	            <h1>Finding the right crowdsourcing platform for your business has never been easier!</h1>
+                    <div class="search-input">
+                        <input type="text" list-formatter="text" min-chars="2" ngui-auto-complete (keyup.enter)="search()" [(ngModel)]="query" [source]="observableSource.bind(this)" />
+                    </div>
     	        </div>
             </div>
+            <!--
             <div class="row start-chat-btn">
                 <button class="fc-btn-style btn" (click)="fullpageService.moveSectionDown()">Start session</button>
     	    </div>
+            -->
         </div>
     </section>
 
