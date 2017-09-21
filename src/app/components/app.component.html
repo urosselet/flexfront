@@ -1,4 +1,4 @@
-<div mnFullpage [mnFullpageSlidesNavigation]="true" [mnFullpage]="options">
+<div mnFullpage [mnFullpage]="options">
     <!-- Welcome section -->
     <section class="welcome-section fp-section fp-table">
         <!-- Header section -->
@@ -34,15 +34,14 @@
     	            <h1>Flexcrowd, Finding the right crowdsourcing platform for your business has never been easier !</h1>
     	        </div>
             </div>
-            <div class="row start-chat-btn" data-menuanchor="start">
-                <a href="#start" class="btn">Start chatting with Flexbot</a>
-    	        <!--<button class="btn">Commencer l'analyse</button>-->
+            <div class="row start-chat-btn">
+                <button class="fc-btn-style btn" (click)="fullpageService.moveSectionDown()">Start session</button>
     	    </div>
         </div>
     </section>
 
     <section class="fp-section fp-table">
-        <div class="container-fluid">
+        <div class="container-fluid main-content">
             <router-outlet></router-outlet>
         </div>
     </section>

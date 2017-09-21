@@ -61,7 +61,6 @@ header {
     header > .container-fluid {
         background-color: $fc-light-orange;
         > .row {
-            justify-content: left;
             img {
                 max-width: 75%;
             }
@@ -82,4 +81,8 @@ header {
 
 .container-fluid {
     background-color: $fc-white;
+    &.main-content {
+        padding-right: 0;
+        padding-left: 0;
+    }
 }

@@ -1,17 +1,36 @@
-<div id="index-component" class="container" slide>
-    <section>
+<div id="index-component" class="container-fluid" slide>
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="logo">
+                    <a href="/"><img [src]="'assets/images/logo.png'" alt="flex-logo"></a>
+                </div>
+                <div class="menu-top">
+                    <ul>
+                        <li>
+                            <a href="#">About us</a>
+                        </li>
+                        <li>
+                            <a href="#">Our services</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="container">
         <div class="row">
-
             <!-- Chatbot component -->
             <div class="col flex-middle chat-bot">
                 <fc-chatbot [questions]="questions" [answers]="answers" (fullTextInput)="fullTextInput($event)"></fc-chatbot>
             </div>
-
             <!-- Result component -->
             <div class="col flex-middle results">
                 <fc-result [results]="results" (someEvent)="getPlatformDetail($event)"></fc-result>
             </div>
-
             <!-- Platform detail component -->
             <section id="platform-section" class="col flex-middle">
                 <div class="row platform-detail">
@@ -76,12 +95,10 @@
                                     <li><i class="fa fa-times" aria-hidden="true"></i> Hich et nunc</li>
                                     <li><i class="fa fa-times" aria-hidden="true"></i> Hich et nunc</li>
                                 </ul>
-                            </div>
-                        </div>
-                        <div class="row btn-container">
-                            <div>Mes recommendations classent les solutions en fonction de ces besoins.</div>
-                            <div class="col">
-                                <button class="fc-btn-style btn"><i class="fa fa-caret-left" aria-hidden="true"></i> Fermer</button>
+                                <div>Mes recommendations classent les solutions en fonction de ces besoins.</div>
+                                <div class="col">
+                                    <button class="fc-btn-style btn"><i class="fa fa-caret-left" aria-hidden="true"></i> Fermer</button>
+                                </div>
                             </div>
                         </div>
                     </div>

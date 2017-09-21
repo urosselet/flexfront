@@ -2,9 +2,51 @@
 
 #index-component {
     height: 100%;
-    padding: 2rem 0;
+    padding: 0 0 2rem 0;
 
     text-align: left;
+    header {
+        visibility: hidden;
+
+        margin-bottom: 2em;
+        
+        > .container-fluid {
+            background-color: $fc-light-orange;
+            > .row {
+                align-items: center;
+                img {
+                    max-width: 50%;
+                }
+            }
+        }
+        &.show-header {
+            visibility: visible !important;
+
+            animation-name: slideDown;
+            animation-duration: 2s;
+            animation-timing-function: ease;
+        }
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-100%);
+            }
+            50% {
+                transform: translateY(8%);
+            }
+            65% {
+                transform: translateY(-4%);
+            }
+            80% {
+                transform: translateY(4%);
+            }
+            95% {
+                transform: translateY(-2%);
+            }
+            100% {
+                transform: translateY(0%);
+            }
+        }
+    }
     h1 {
         font-size: 1.75rem;
 
@@ -36,7 +78,6 @@
 #platform-section,
 #feedback-section {
     display: none;
-    
     .platform-detail {
         display: block !important;
 
@@ -62,12 +103,17 @@
         .logo > span {
             display: block;
 
+            width: 100px;
+            height: 100px;
             padding: 1em;
 
             border-radius: 50%;
             background: $fc-white;
             img {
                 width: 100%;
+                height: 100%;
+
+                object-fit: contain;
             }
         }
         .attributes {
