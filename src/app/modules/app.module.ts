@@ -32,6 +32,7 @@ import { AppComponent }							from '../components/app.component';
 import { IndexComponent }						from '../components/_index/index.component';
 import { ChatBotComponent }						from '../components/chatbot/chatbot.component';
 import { ResultComponent }						from '../components/result/result.component';
+import { ProcessComponent }						from '../components/process/process.component';
 
 /* Directives */
 import { SlideDirective } 						from '../directives/slide.directive';
@@ -59,6 +60,7 @@ import { MapToIterable }						from '../pipes/application.pipes';
 		IndexComponent,
 		ChatBotComponent,
 		ResultComponent,
+		ProcessComponent,
 		NgxAutoScroll,
 		MapToIterable,
 		SlideDirective

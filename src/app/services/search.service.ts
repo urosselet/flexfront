@@ -33,8 +33,8 @@ export class SearchService extends CommonService {
 	 * User query
 	 * @return {Observable<any[]>} [description]
 	 */
-	public query(query: any, isFirstQuery: boolean): Observable<any> {
-		return this.http.get(this.baseUrl, new RequestOptions({ params: { 'query': query, 'session': '8392371938321', 'status': isFirstQuery } }))
+	public query(query: any): Observable<any> {
+		return this.http.get(this.baseUrl, new RequestOptions({ params: { 'query': query } }))
 			.map((res: Response) => res.json())
 			.catch(this.handleError);
 	}

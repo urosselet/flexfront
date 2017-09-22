@@ -16,7 +16,6 @@ export class CommonService {
 	public handleError(error: any): Observable<any> {
 		if (error.status === 401) { }
     	return Observable.throw(error.message || error)
-
 	}
 
 }

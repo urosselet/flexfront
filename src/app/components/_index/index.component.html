@@ -21,89 +21,96 @@
             </div>
         </div>
     </header>
-    <section class="container">
-        <div class="row">
-            <!-- Chatbot component -->
-            <div class="col flex-middle chat-bot">
-                <fc-chatbot [questions]="questions" [answers]="answers" (fullTextInput)="fullTextInput($event)"></fc-chatbot>
-            </div>
-            <!-- Result component -->
-            <div class="col flex-middle results">
-                <fc-result [results]="results" (someEvent)="getPlatformDetail($event)"></fc-result>
-            </div>
-            <!-- Platform detail component -->
-            <section id="platform-section" class="col flex-middle">
-                <div class="row platform-detail">
-                    <div class="col">
-                        <div class="row details">
-                            <div class="col-9 header">
-                                <h2>{{ platform?.name }}</h2>
-                                <div class="link">
-                                    <a href="{{ platform?.platform_website }}" target="_blank">{{ platform?.platform_website }}</a>
-                                </div>
-                                <div class="description">
-                                    <p>{{ platform?.description }}</p>
-                                </div>
-                            </div>
-                            <div class="col-3 logo">
-                                <span *ngIf="platform?.platform_img_url === ''">
-                                    <img [src]="'assets/images/avatar.svg'">
-                                </span>
-                                <span *ngIf="platform?.platform_img_url !== ''">
-                                    <img [src]="platform?.platform_img_url">
-                                </span>
-                            </div>
+
+    <fc-process [query]="query" [category]="category"></fc-process>
+        
+    <!-- Chatbot component 
+    <div class="col flex-middle chat-bot">
+        <fc-chatbot [questions]="questions" [answers]="answers" (fullTextInput)="fullTextInput($event)"></fc-chatbot>
+    </div>
+    -->
+
+    <!-- Result component 
+    <div class="col flex-middle results">
+        <fc-result [results]="results" (someEvent)="getPlatformDetail($event)"></fc-result>
+    </div>
+    -->
+
+    <!-- Platform detail component 
+    <section id="platform-section" class="col flex-middle">
+        <div class="row platform-detail">
+            <div class="col">
+                <div class="row details">
+                    <div class="col-9 header">
+                        <h2>{{ platform?.name }}</h2>
+                        <div class="link">
+                            <a href="{{ platform?.platform_website }}" target="_blank">{{ platform?.platform_website }}</a>
                         </div>
-                        <div class="row attributes">
-                            <div class="col">
-                                <h3>Par rapport à vos besoins</h3>
-                                <ul>
-                                    <li><i class="fa fa-check" aria-hidden="true"></i> Facilité d’utilisation</li>
-                                    <li><i class="fa fa-check" aria-hidden="true"></i> Lorem ipsum</li>
-                                    <li><i class="fa fa-minus" aria-hidden="true"></i> Lorem ipsum</li>
-                                    <li><i class="fa fa-minus" aria-hidden="true"></i> Sit amet</li>
-                                    <li><i class="fa fa-times" aria-hidden="true"></i> Hich et nunc</li>
-                                    <li><i class="fa fa-times" aria-hidden="true"></i> Hich et nunc</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row btn-container">
-                            <div class="col">
-                                <button class="fc-btn-style btn"><i class="fa fa-caret-left" aria-hidden="true"></i> Fermer</button>
-                            </div>
+                        <div class="description">
+                            <p>{{ platform?.description }}</p>
                         </div>
                     </div>
-                </div>
-            </section>
-            <!-- Feedback component -->
-            <section id="feedback-section" class="col flex-middle">
-                <div class="row platform-detail">
-                    <div class="col">
-                        <div class="row details">
-                            <div class="col-9 header">
-                                <h2>Pourquoi ai-je choisi ces solutions pour vous</h2>
-                            </div>
-                        </div>
-                        <div class="row attributes">
-                            <div class="col">
-                                <h3>L’analyse me conduit à formuler les besoins suivants pour les plateformes suggérées :</h3>
-                                <ul>
-                                    <li><i class="fa fa-check" aria-hidden="true"></i> Facilité d’utilisation</li>
-                                    <li><i class="fa fa-check" aria-hidden="true"></i> Lorem ipsum</li>
-                                    <li><i class="fa fa-minus" aria-hidden="true"></i> Lorem ipsum</li>
-                                    <li><i class="fa fa-minus" aria-hidden="true"></i> Sit amet</li>
-                                    <li><i class="fa fa-times" aria-hidden="true"></i> Hich et nunc</li>
-                                    <li><i class="fa fa-times" aria-hidden="true"></i> Hich et nunc</li>
-                                </ul>
-                                <div>Mes recommendations classent les solutions en fonction de ces besoins.</div>
-                                <div class="col">
-                                    <button class="fc-btn-style btn"><i class="fa fa-caret-left" aria-hidden="true"></i> Fermer</button>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-3 logo">
+                        <span *ngIf="platform?.platform_img_url === ''">
+                            <img [src]="'assets/images/avatar.svg'">
+                        </span>
+                        <span *ngIf="platform?.platform_img_url !== ''">
+                            <img [src]="platform?.platform_img_url">
+                        </span>
                     </div>
                 </div>
-            </section>
+                <div class="row attributes">
+                    <div class="col">
+                        <h3>Par rapport à vos besoins</h3>
+                        <ul>
+                            <li><i class="fa fa-check" aria-hidden="true"></i> Facilité d’utilisation</li>
+                            <li><i class="fa fa-check" aria-hidden="true"></i> Lorem ipsum</li>
+                            <li><i class="fa fa-minus" aria-hidden="true"></i> Lorem ipsum</li>
+                            <li><i class="fa fa-minus" aria-hidden="true"></i> Sit amet</li>
+                            <li><i class="fa fa-times" aria-hidden="true"></i> Hich et nunc</li>
+                            <li><i class="fa fa-times" aria-hidden="true"></i> Hich et nunc</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row btn-container">
+                    <div class="col">
+                        <button class="fc-btn-style btn"><i class="fa fa-caret-left" aria-hidden="true"></i> Fermer</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+    -->
+    
+    <!-- Feedback component 
+    <section id="feedback-section" class="col flex-middle">
+        <div class="row platform-detail">
+            <div class="col">
+                <div class="row details">
+                    <div class="col-9 header">
+                        <h2>Pourquoi ai-je choisi ces solutions pour vous</h2>
+                    </div>
+                </div>
+                <div class="row attributes">
+                    <div class="col">
+                        <h3>L’analyse me conduit à formuler les besoins suivants pour les plateformes suggérées :</h3>
+                        <ul>
+                            <li><i class="fa fa-check" aria-hidden="true"></i> Facilité d’utilisation</li>
+                            <li><i class="fa fa-check" aria-hidden="true"></i> Lorem ipsum</li>
+                            <li><i class="fa fa-minus" aria-hidden="true"></i> Lorem ipsum</li>
+                            <li><i class="fa fa-minus" aria-hidden="true"></i> Sit amet</li>
+                            <li><i class="fa fa-times" aria-hidden="true"></i> Hich et nunc</li>
+                            <li><i class="fa fa-times" aria-hidden="true"></i> Hich et nunc</li>
+                        </ul>
+                        <div>Mes recommendations classent les solutions en fonction de ces besoins.</div>
+                        <div class="col">
+                            <button class="fc-btn-style btn"><i class="fa fa-caret-left" aria-hidden="true"></i> Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
 </div>

@@ -1,0 +1,17 @@
+@import 'src/assets/sass/variables';
+
+#process-component {
+    .process-column {
+        height: 75vh;
+
+        border-right: 5px solid $fc-white;
+        background-color: $fc-light-orange;
+        h2 {
+            font-size: 1.25rem;
+            font-weight: bold;
+
+            padding-top: 1rem;
+            color: $fc-blue;
+        }
+    }
+}

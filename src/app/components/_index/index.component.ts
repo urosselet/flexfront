@@ -13,6 +13,9 @@ import { SearchService }						 			from '../../services/search.service';
 
 export class IndexComponent implements OnInit {
 
+	@Input() query: string;
+	@Input() category: string;
+
 	private questions: any[] = [];
 	private answers: any[] = [];
 	private isFirstQuery: boolean = true;
@@ -27,6 +30,10 @@ export class IndexComponent implements OnInit {
 
 	ngOnInit(): void {}
 
+	public test(): void {
+		console.log('hello');
+	}
+
 	public getPlatformDetail(id: number): void {
 		this.searchService.getPlatform(id)
 			.subscribe(
@@ -36,7 +43,7 @@ export class IndexComponent implements OnInit {
 	}
 
 	public fullTextInput(q: string): void {
-	   	this.searchService.query(q, this.isFirstQuery)
+	   	this.searchService.query(q)
 			.subscribe(
                 res => {
                 	this.results = res.results;
