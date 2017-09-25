@@ -1,4 +1,4 @@
-<div mnFullpage [mnFullpage]="options">
+<div>
     <!-- Welcome section -->
     <section class="welcome-section fp-section fp-table">
         <!-- Header section -->
@@ -10,21 +10,17 @@
                     </div>
                     <div class="menu-top">
                         <ul>
-                            <li>
-                                <a href="#">About us</a>
-                            </li>
-                            <li>
-                                <a href="#">Our services</a>
-                            </li>
-                            <li>
-                                <a href="#">Contact</a>
-                            </li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Our services</a></li>
+                            <li><a href="#">Contact</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </header>
         <!-- Introduction section -->
+        <router-outlet></router-outlet>
+        <!--
         <div class="container intro-section">
         	<div class="row text">
     	        <div class="col col-5 avatar">
@@ -37,18 +33,15 @@
                     </div>
     	        </div>
             </div>
-            <!--
-            <div class="row start-chat-btn">
-                <button class="fc-btn-style btn" (click)="fullpageService.moveSectionDown()">Start session</button>
-    	    </div>
-            -->
         </div>
+    -->
     </section>
-
+    <!--
     <section class="fp-section fp-table">
         <div class="container-fluid main-content">
+            <router-outlet></router-outlet>
             <fc-index [query]="query" [category]="category"></fc-index>
         </div>
     </section>
-
+    -->
 </div>

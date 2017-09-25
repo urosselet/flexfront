@@ -2,9 +2,11 @@ import { Component, Input, ViewEncapsulation, OnInit, ViewChild }  	from '@angul
 import { Observable }                                               from 'rxjs/Observable';
 import { MnFullpageOptions, MnFullpageService } 					from 'ngx-fullpage/index';
 
-import { IndexComponent }                                           from '../components/_index/index.component';
+import { IndexComponent }                                           from '../components/index/index.component';
 
 import { SearchService }                                            from '../services/search.service';
+
+import { routerTransition }                                         from '../directives/router.transition';
 
 import * as jQuery													from 'jquery';
 
@@ -14,6 +16,7 @@ import 'fullpage.js';
 	selector: 'fc-app',
 	templateUrl: 'app.component.html',
 	styleUrls: ['app.component.scss'],
+    animations: [ routerTransition ],
 	encapsulation: ViewEncapsulation.None
 })
 
@@ -49,14 +52,8 @@ export class AppComponent implements OnInit {
         return this.searchService.autocomplete(query);
     }
 
-    public search(): void {
-        this.searchService.query(this.query)
-            .subscribe(
-                res => {
-                    this.category = res.cat;
-                    this.fullpageService.moveSectionDown();
-                },
-                error => {});
+    getState(outlet) {
+        return outlet.activatedRouteData.state;
     }
 
 }
