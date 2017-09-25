@@ -1,4 +1,8 @@
 import { Component, ViewEncapsulation, OnInit, Input }  	from '@angular/core';
+import { Router } 											from '@angular/router';
+
+import { Observable }                                       from 'rxjs/Observable';
+
 import { CookieService } 									from 'ngx-cookie';
 import { MnFullpageOptions, MnFullpageService } 			from 'ngx-fullpage/index';
 
@@ -25,14 +29,15 @@ export class IndexComponent implements OnInit {
 
 	constructor(
 		private searchService: SearchService,
-		private cookieService: CookieService
+		private cookieService: CookieService,
+		private router: Router
 	) { }
 
 	ngOnInit(): void {}
 
-	public test(): void {
-		console.log('hello');
-	}
+	private observableSource(query: any): Observable<any[]> {
+    	return this.searchService.autocomplete(query);
+    }
 
 	public getPlatformDetail(id: number): void {
 		this.searchService.getPlatform(id)
@@ -50,9 +55,21 @@ export class IndexComponent implements OnInit {
                 	this.isFirstQuery = false;
                 	setTimeout(() => {
 			    		this.answers.push(res.q);
+			    		
 			  		}, 1000);
                 },
                 error => {});
 	}
+
+	public search(): void {
+        this.searchService.query(this.query)
+            .subscribe(
+                res => {
+                    this.category = res.cat;
+                    this.router.navigate(['/process/']);
+                    //this.fullpageService.moveSectionDown();
+                },
+                error => {});
+    }
 
 }

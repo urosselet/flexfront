@@ -9,7 +9,6 @@
         visibility: hidden;
 
         margin-bottom: 2em;
-        
         > .container-fluid {
             background-color: $fc-light-orange;
             > .row {
@@ -57,6 +56,18 @@
     }
 }
 
+.ngui-auto-complete {
+    margin-top: .5rem;
+    ul {
+        padding: .25rem !important;
+
+        text-align: left;
+
+        border: 1px solid #ebdeb2 !important;
+        border-radius: 30px;
+        background-color: transparent !important;
+    }
+}
 .slide-feedback-section {
     .chat-bot {
         display: none;
