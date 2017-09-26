@@ -1,17 +1,85 @@
 @import 'src/assets/sass/variables';
 
 #process-component {
-    .process-column {
-        height: 75vh;
+    border-top: 2px solid $fc-white;
+    > .row {
+        align-items: initial;
+    }
+    .query-cat-wrapper {
+        padding: 1rem;
 
-        border-right: 5px solid $fc-light-orange;
-        background-color: $fc-white;
+        color: $fc-white;
+        background: $fc-blue;
+        .fa {
+            font-size: 2rem;
+
+            padding-right: 1rem;
+        }
+        h1 {
+            font-size: 1.75rem;
+
+            display: inline;
+        }
         h2 {
-            font-size: 1.25rem;
-            font-weight: bold;
+            font-size: 1.5rem;
 
-            padding-top: 1rem;
-            color: $fc-blue;
+            display: inline;
+        }
+    }
+    .recommandation-wrapper {
+        color: $fc-white;
+        border-left: 3px solid $fc-light-orange;
+        background: linear-gradient(to top, rgba(45,165,182, .15), rgba(45, 165, 182, 1));
+        .result-wrapper {
+            width: 100%;
+            > .row {
+                margin-bottom: 1rem;
+            }
+        }
+        > .row {
+            padding: 15px;
+            h1 {
+                font-size: 1.75rem;
+
+                width: 100%;
+                margin-bottom: 2em;
+            }
+        }
+    }
+    .process-wrapper {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+        background-color: $fc-white;
+        .process-column {
+            height: 75vh;
+            &:not(:last-child) {
+                border-right: 3px solid $fc-light-orange;
+            }
+            > .row {
+                justify-content: left;
+                h3 {
+                    font-size: 1.15rem;
+                    font-weight: bold;
+
+                    padding-top: 1rem;
+                    padding-bottom: 1rem;
+
+                    color: $fc-orange;
+                }
+            }
+            h2 {
+                font-size: 1.25rem;
+                font-weight: bold;
+
+                padding-top: 1rem;
+
+                color: $fc-blue;
+            }
+            .mat-radio-button {
+                display: block;
+                .mat-radio-label {
+                    white-space: normal;
+                }
+            }
         }
     }
 }

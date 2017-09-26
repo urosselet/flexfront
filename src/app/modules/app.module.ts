@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule }		from '@angular/forms';
 import { HttpModule, JsonpModule }				from '@angular/http';
 
 /* Angular material modules */
-import { MdSliderModule, MdTooltipModule } 		from '@angular/material';
+import { MdSliderModule, MatRadioModule } 		from '@angular/material';
 
 /* Third party modules */
 import { CookieModule }							from 'ngx-cookie';
@@ -44,7 +44,7 @@ import { MapToIterable }						from '../pipes/application.pipes';
 		JsonpModule,
 		AppRoutingModule,
 		MdSliderModule,
-		MdTooltipModule,
+		MatRadioModule,
 		NguiAutoCompleteModule,
 		CookieModule.forRoot(),
 		MnFullpageModule.forRoot()

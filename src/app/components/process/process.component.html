@@ -1,20 +1,98 @@
-<section id="process-component" class="container">
+<section id="process-component" class="container-fluid">
     <div class="row">
-        <div class="col-12"><h1>{{ query }}</h1></div>
-        <div class="col-12"><h2>{{ category }}</h2></div>
-    </div>
-    <div class="row">
-        <div class="col-3 process-column">
-            <h2>Goal</h2>
+        <div class="col-9">
+            <div class="row query-cat-wrapper">
+                <div class="col-12">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i> <h1>{{ query }}</h1>
+                </div>
+                <div class="col-12">
+                    <i class="fa fa-bullseye" aria-hidden="true"></i> <h2>{{ category }}</h2>
+                </div>
+            </div>
+            <div class="row process-wrapper">
+                <div class="col-3 process-column">
+                    <h2>Goal</h2>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>Value type</h3>
+                            <md-radio-group>
+                                <md-radio-button value="1">Innovation</md-radio-button>
+                                <md-radio-button value="2">Authenticity</md-radio-button>
+                                <md-radio-button value="2">Cost Reduction</md-radio-button>
+                                <md-radio-button value="2">Risk reduction</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 process-column">
+                    <h2>Task</h2>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>Type</h3>
+                            <md-radio-group>
+                                <md-radio-button value="1">Creation</md-radio-button>
+                                <md-radio-button value="2">Evaluation</md-radio-button>
+                                <md-radio-button value="2">Organisation</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 process-column">
+                    <h2>Crowd</h2>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>Main motivational Driver</h3>
+                            <md-radio-group>
+                                <md-radio-button value="1">Tangible reward</md-radio-button>
+                                <md-radio-button value="2">Personal achievement and learning</md-radio-button>
+                                <md-radio-button value="2">Social status and reputation</md-radio-button>
+                                <md-radio-button value="2">Entertainment</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 process-column">
+                    <h2>Evaluation</h2>
+                </div>
+            </div>
         </div>
-        <div class="col-3 process-column">
-            <h2>Task</h2>
-        </div>
-        <div class="col-3 process-column">
-            <h2>Crowd</h2>
-        </div>
-        <div class="col-3 process-column">
-            <h2>Evaluation</h2>
+        <div class="col-3 recommandation-wrapper">
+            <div class="row">
+                <h1>Mes recommandations</h1>
+                <div class="result-wrapper">
+                    <!-- High score hits -->
+                    <div class="row high-scores-hits">
+                        <div class="col-3 flex-middle">
+                            <div class="avatar">
+                                <img type="image/svg+xml" [src]="'assets/images/avatar.svg'" class="fill" alt="flex-avatar" />
+                            </div>
+                        </div>
+                        <div class="col-9 flex-middle">
+                            <div class="platforms">
+                                <span class="platform" (click)="callParent(platform.id)" *ngFor="let platform of results?.high_hits">{{ platform.name }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Medium score hits -->
+                    <div class="row medium-scores-hits">
+                        <div class="col-3 flex-middle">
+                            <div class="avatar">
+                                <img type="image/svg+xml" [src]="'assets/images/avatar-sad.svg'" class="fill" alt="flex-avatar" />
+                            </div>
+                        </div>
+                        <div class="col-9 flex-middle">
+                            <div class="platforms">
+                                <span class="platform" (click)="callParent(platform.id)" *ngFor="let platform of results?.medium_hits">{{ platform.name }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="callout">
+                        <h5>Click on a platform for more information</h5>
+                    </div>
+                    -->
+                </div>
+            </div>
         </div>
     </div>
 </section>

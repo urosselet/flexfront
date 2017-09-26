@@ -5,8 +5,6 @@ body {
 }
 
 header {
-    margin-bottom: 4em;
-
     background: #f9f5e8;
     .logo {
         line-height: 1;
@@ -109,7 +107,6 @@ header {
 }
 
 .container-fluid {
-    background-color: $fc-white;
     &.main-content {
         padding-right: 0;
         padding-left: 0;

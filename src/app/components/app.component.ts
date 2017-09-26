@@ -6,7 +6,7 @@ import { IndexComponent }                                           from '../com
 
 import { SearchService }                                            from '../services/search.service';
 
-import { routerTransition }                                         from '../directives/router.transition';
+import { slideInOutAnimation }                                      from '../directives/router.transition';
 
 import * as jQuery													from 'jquery';
 
@@ -16,7 +16,8 @@ import 'fullpage.js';
 	selector: 'fc-app',
 	templateUrl: 'app.component.html',
 	styleUrls: ['app.component.scss'],
-    animations: [ routerTransition ],
+    animations: [ slideInOutAnimation ],
+    host: { '[@slideInOutAnimation]': '' },
 	encapsulation: ViewEncapsulation.None
 })
 

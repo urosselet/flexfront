@@ -43,8 +43,7 @@ export class IndexComponent implements OnInit {
 		this.searchService.getPlatform(id)
 			.subscribe(
                 res => { this.platform = res },
-                error => {}
-            );
+                error => {});
 	}
 
 	public fullTextInput(q: string): void {
@@ -67,7 +66,6 @@ export class IndexComponent implements OnInit {
                 res => {
                     this.category = res.cat;
                     this.router.navigate(['/process/']);
-                    //this.fullpageService.moveSectionDown();
                 },
                 error => {});
     }

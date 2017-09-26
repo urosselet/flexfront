@@ -27,9 +27,20 @@
 /* Bootstrap */
 @import '../../../node_modules/bootstrap/scss/bootstrap';
 
+/* Material Theming */
+@import '../../../node_modules/@angular/material/theming';
+
 /* Fontawesome */
 @import url('fonts/fontawesome/font-awesome.min.css');
 
 /* Plugins styles */
-@import url('plugins/deeppurple-amber.css');
 @import url('plugins/jquery.fullpage.css');
+@import url('plugins/deeppurple-amber.css');
+
+$custom-typography: mat-typography-config(
+    $font-family: 'hk-regular, monospace',
+    $headline: mat-typography-level(32px, 48px, 700),
+    $body-1: mat-typography-level(16px, 24px, 500)
+);
+
+@include mat-core($custom-typography);

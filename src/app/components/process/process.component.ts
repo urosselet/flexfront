@@ -11,11 +11,14 @@ import { SearchService }						 								from '../../services/search.service';
 
 export class ProcessComponent implements OnInit {
 
-	@Input() query: string;
-	@Input() category: string;
+	private query: string;
+	private category: string;
 
 	constructor(private searchService: SearchService) {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.query = this.searchService.getQuery();
+		this.category = this.searchService.getCategory();
+	}
 
 }
