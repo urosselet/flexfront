@@ -1,12 +1,13 @@
-<section id="process-component" class="container-fluid">
+<section id="process-component" class="container-fluid slide-in" slide>
     <div class="row">
         <div class="col-9">
             <div class="row query-cat-wrapper">
                 <div class="col-12">
-                    <i class="fa fa-question-circle" aria-hidden="true"></i> <h1>{{ query }}</h1>
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    <h1>{{ query }}</h1>
                 </div>
                 <div class="col-12">
-                    <i class="fa fa-bullseye" aria-hidden="true"></i> <h2>{{ category }}</h2>
+                    <h2 class="found-cat">{{ category }}</h2>
                 </div>
             </div>
             <div class="row process-wrapper">
@@ -15,11 +16,11 @@
                     <div class="row">
                         <div class="col-12">
                             <h3>Value type</h3>
-                            <md-radio-group>
-                                <md-radio-button value="1">Innovation</md-radio-button>
-                                <md-radio-button value="2">Authenticity</md-radio-button>
-                                <md-radio-button value="2">Cost Reduction</md-radio-button>
-                                <md-radio-button value="2">Risk reduction</md-radio-button>
+                            <md-radio-group [(ngModel)]="goalValueType" (change)="handleChange($event.value, 'value_type', 'goal')">
+                                <md-radio-button value="innovation">Innovation</md-radio-button>
+                                <md-radio-button value="authenticity">Authenticity</md-radio-button>
+                                <md-radio-button value="cost_reduction">Cost Reduction</md-radio-button>
+                                <md-radio-button value="risk_reduction">Risk reduction</md-radio-button>
                             </md-radio-group>
                         </div>
                     </div>
@@ -29,10 +30,25 @@
                     <div class="row">
                         <div class="col-12">
                             <h3>Type</h3>
-                            <md-radio-group>
-                                <md-radio-button value="1">Creation</md-radio-button>
-                                <md-radio-button value="2">Evaluation</md-radio-button>
-                                <md-radio-button value="2">Organisation</md-radio-button>
+                            <md-radio-group [(ngModel)]="taskType" (change)="handleChange($event.value, 'type', 'task')">
+                                <md-radio-button value="creation">Creation</md-radio-button>
+                                <md-radio-button value="evaluation">Evaluation</md-radio-button>
+                                <md-radio-button value="organisation">Organisation</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                        <div class="col-12">
+                            <h3>Aggregation of Contributions</h3>
+                            <md-radio-group [(ngModel)]="aggregationOfContributions" (change)="handleChange($event.value, 'aggregation_of_contributions', 'process')">
+                                <md-radio-button value="integrative">Integrative</md-radio-button>
+                                <md-radio-button value="selective">Selective</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                        <div class="col-12">
+                            <h3>Peer Contributions Accessibility</h3>
+                            <md-radio-group [(ngModel)]="peerContributionsAccessibility" (change)="handleChange($event.value, 'peer_contributions_accessibility', 'process')">
+                                <md-radio-button value="assess">Assess</md-radio-button>
+                                <md-radio-button value="view">View</md-radio-button>
+                                <md-radio-button value="modify">Modify</md-radio-button>
                             </md-radio-group>
                         </div>
                     </div>
@@ -41,12 +57,21 @@
                     <h2>Crowd</h2>
                     <div class="row">
                         <div class="col-12">
-                            <h3>Main motivational Driver</h3>
-                            <md-radio-group>
-                                <md-radio-button value="1">Tangible reward</md-radio-button>
-                                <md-radio-button value="2">Personal achievement and learning</md-radio-button>
-                                <md-radio-button value="2">Social status and reputation</md-radio-button>
-                                <md-radio-button value="2">Entertainment</md-radio-button>
+                            <h3>Main motivational driver</h3>
+                            <md-radio-group [(ngModel)]="mainMotivationalDriver" (change)="handleChange($event.value, 'main_motivational_driver', 'process')">
+                                <md-radio-button value="tangible_reward">Tangible reward</md-radio-button>
+                                <md-radio-button value="personal_achievement_and_learning">Personal achievement and learning</md-radio-button>
+                                <md-radio-button value="social_status_and_reputation">Social status and reputation</md-radio-button>
+                                <md-radio-button value="entertainment">Entertainment</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>Preselection of Contributors</h3>
+                            <md-radio-group [(ngModel)]="preselectionOfContributors" (change)="handleChange($event.value, 'preselection_of_contributors', 'process')">
+                                <md-radio-button value="qualification-based">Qualification-based</md-radio-button>
+                                <md-radio-button value="context-specific">Context-specific</md-radio-button>
                             </md-radio-group>
                         </div>
                     </div>
@@ -69,7 +94,7 @@
                         </div>
                         <div class="col-9 flex-middle">
                             <div class="platforms">
-                                <span class="platform" (click)="callParent(platform.id)" *ngFor="let platform of results?.high_hits">{{ platform.name }}</span>
+                                <span class="platform" (click)="getPlatformDetail(platform.id)" *ngFor="let platform of results?.high_hits">{{ platform.name }}</span>
                             </div>
                         </div>
                     </div>
@@ -82,7 +107,7 @@
                         </div>
                         <div class="col-9 flex-middle">
                             <div class="platforms">
-                                <span class="platform" (click)="callParent(platform.id)" *ngFor="let platform of results?.medium_hits">{{ platform.name }}</span>
+                                <span class="platform" (click)="getPlatformDetail(platform.id)" *ngFor="let platform of results?.medium_hits">{{ platform.name }}</span>
                             </div>
                         </div>
                     </div>
@@ -92,6 +117,38 @@
                     </div>
                     -->
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="row platform-detail">
+        <div class="col-9 header">
+            <h2>{{ platform?.name }}</h2>
+            <div class="link">
+                <a href="{{ platform?.platform_website }}" target="_blank">{{ platform?.platform_website }}</a>
+            </div>
+            <div class="description">
+                <p>{{ platform?.description }}</p>
+            </div>
+        </div>
+        <div class="col-3 logo">
+            <span *ngIf="platform?.platform_img_url === ''">
+                                <img [src]="'assets/images/avatar.svg'">
+                            </span>
+            <span *ngIf="platform?.platform_img_url !== ''">
+                                <img [src]="platform?.platform_img_url">
+                            </span>
+        </div>
+        <div class="row attributes">
+            <div class="col">
+                <h3>Par rapport à vos besoins</h3>
+                <ul>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Facilité d’utilisation</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Lorem ipsum</li>
+                    <li><i class="fa fa-minus" aria-hidden="true"></i> Lorem ipsum</li>
+                    <li><i class="fa fa-minus" aria-hidden="true"></i> Sit amet</li>
+                    <li><i class="fa fa-times" aria-hidden="true"></i> Hich et nunc</li>
+                    <li><i class="fa fa-times" aria-hidden="true"></i> Hich et nunc</li>
+                </ul>
             </div>
         </div>
     </div>

@@ -5,7 +5,7 @@ body {
 }
 
 header {
-    background: #f9f5e8;
+    background: $fc-white;
     .logo {
         line-height: 1;
 
@@ -59,7 +59,6 @@ header {
 
     background-color: $fc-light-orange;
     header > .container-fluid {
-        background-color: $fc-light-orange;
         > .row {
             img {
                 max-width: 75%;

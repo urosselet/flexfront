@@ -33,6 +33,12 @@ export class SearchService extends CommonService {
 	private category: string;
 
 	/**
+	 * [category description]
+	 * @type {string}
+	 */
+	private results: any;
+
+	/**
 	 * [constructor description]
 	 * @param {Http} private http [description]
 	 */
@@ -50,6 +56,7 @@ export class SearchService extends CommonService {
 			.map((res: Response) => {
 				this.userQuery = query;
 				this.category = res.json().cat;
+				this.results = res.json().results;
 				return res.json();
 			})
 			.catch(this.handleError);
@@ -91,6 +98,14 @@ export class SearchService extends CommonService {
 	 */
 	public getCategory(): string {
 		return this.category;
+	}
+
+	/**
+	 * Get query category
+	 * @return {string} [description]
+	 */
+	public getResults(): string {
+		return this.results;
 	}
 
 }

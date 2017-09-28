@@ -71,7 +71,7 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "tslint": "^5.7.0",
-    "typescript": "^2.5.2",
+    "typescript": "^2.5.3",
     "uglify-js-plugin": "0.0.6",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2",

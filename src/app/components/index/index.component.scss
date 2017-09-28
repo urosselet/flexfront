@@ -1,51 +1,15 @@
 @import 'src/assets/sass/variables';
 
+header {
+    background: $fc-light-orange;
+}
+
 #index-component {
-    height: 100%;
-    padding: 0 0 2rem 0;
+    display: flex;
+
+    height: calc(100vh - 105px);
 
     text-align: left;
-    header {
-        visibility: hidden;
-
-        margin-bottom: 2em;
-        > .container-fluid {
-            background-color: $fc-light-orange;
-            > .row {
-                align-items: center;
-                img {
-                    max-width: 50%;
-                }
-            }
-        }
-        &.show-header {
-            visibility: visible !important;
-
-            animation-name: slideDown;
-            animation-duration: 2s;
-            animation-timing-function: ease;
-        }
-        @keyframes slideDown {
-            0% {
-                transform: translateY(-100%);
-            }
-            50% {
-                transform: translateY(8%);
-            }
-            65% {
-                transform: translateY(-4%);
-            }
-            80% {
-                transform: translateY(4%);
-            }
-            95% {
-                transform: translateY(-2%);
-            }
-            100% {
-                transform: translateY(0%);
-            }
-        }
-    }
     h1 {
         font-size: 1.75rem;
 
@@ -65,6 +29,9 @@
         border: 1px solid #ebdeb2 !important;
         border-radius: 30px;
         background-color: transparent !important;
+        li {
+            color: #d2b554;
+        }
     }
 }
 .slide-feedback-section {
