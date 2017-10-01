@@ -15,7 +15,8 @@
 	    "allowSyntheticDefaultImports": true,
 	    "noEmit": true,
 	    "noEmitHelpers": true,
-	    "importHelpers": true
+        "importHelpers": true,
+        "allowJs": true
     },
     "awesomeTypescriptLoaderOptions": {
         "forkChecker": true,
