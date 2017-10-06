@@ -1,73 +1,66 @@
-import { Component, ViewEncapsulation, OnInit, Input }  	from '@angular/core';
-import { Router } 											from '@angular/router';
+import { Component, ViewEncapsulation, OnInit, Input }      from '@angular/core';
+import { Router }                                           from '@angular/router';
 
 import { Observable }                                       from 'rxjs/Observable';
 
-import { CookieService } 									from 'ngx-cookie';
-import { MnFullpageOptions, MnFullpageService } 			from 'ngx-fullpage/index';
+import { CookieService }                                    from 'ngx-cookie';
+import { MnFullpageOptions, MnFullpageService }             from 'ngx-fullpage/index';
 
-import { SearchService }						 			from '../../services/search.service';
+import { SearchService }                                    from '../../services/search.service';
 
 @Component({
-	selector: 'fc-index',
-	templateUrl: 'index.component.html',
-	styleUrls: ['index.component.scss'],
-	encapsulation: ViewEncapsulation.None
+    selector: 'fc-index',
+    templateUrl: 'index.component.html',
+    styleUrls: ['index.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 
-export class IndexComponent implements OnInit {
+export class IndexComponent {
 
-	@Input() query: string;
-	@Input() category: string;
+    @Input() public query: string;
+    @Input() public category: string;
 
-	private questions: any[] = [];
-	private answers: any[] = [];
-	private isFirstQuery: boolean = true;
+    private questions: any[] = [];
+    private answers: any[] = [];
+    private isFirstQuery: boolean = true;
 
-	private results: any;
-	private platform: any;
+    private results: any;
+    private platform: any;
 
-	constructor(
-		private searchService: SearchService,
-		private cookieService: CookieService,
-		private router: Router
-	) { }
+    constructor(
+        private searchService: SearchService,
+        private cookieService: CookieService,
+        private router: Router
+    ) { }
 
-	ngOnInit(): void {}
-
-	private observableSource(query: any): Observable<any[]> {
-    	return this.searchService.autocomplete(query);
+    public observableSource(query: any): Observable<any[]> {
+        return this.searchService.autocomplete(query);
     }
 
-	public getPlatformDetail(id: number): void {
-		this.searchService.getPlatform(id)
-			.subscribe(
-                res => { this.platform = res },
-                error => {});
-	}
+    public getPlatformDetail(id: number): void {
+        this.searchService.getPlatform(id)
+            .subscribe((res) => { this.platform = res; });
+    }
 
-	public fullTextInput(q: string): void {
-	   	this.searchService.query(q)
-			.subscribe(
-                res => {
-                	this.results = res.results;
-                	this.isFirstQuery = false;
-                	setTimeout(() => {
-			    		this.answers.push(res.q);
-			    		
-			  		}, 1000);
-                },
-                error => {});
-	}
+    public fullTextInput(q: string): void {
+        this.searchService.query(q)
+            .subscribe(
+                (res) => {
+                    this.results = res.results;
+                    this.isFirstQuery = false;
+                    setTimeout(() => {
+                        this.answers.push(res.q);
+                    }, 1000);
+                });
+    }
 
-	public search(): void {
+    public search(): void {
         this.searchService.query(this.query)
             .subscribe(
-                res => {
+                (res) => {
                     this.category = res.cat;
                     this.router.navigate(['/process/']);
-                },
-                error => {});
+                });
     }
 
 }

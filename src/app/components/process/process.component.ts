@@ -1,59 +1,58 @@
-import { Component, ViewEncapsulation, OnInit, Input }  	from '@angular/core';
-import { Router } 											from '@angular/router';
+import { Component, ViewEncapsulation, OnInit, Input }      from '@angular/core';
+import { Router }                                           from '@angular/router';
 
-import { SearchService }						 			from '../../services/search.service';
+import { SearchService }                                    from '../../services/search.service';
 
 @Component({
-	selector: 'fc-process',
-	templateUrl: 'process.component.html',
-	styleUrls: ['process.component.scss'],
-	encapsulation: ViewEncapsulation.None
+    selector: 'fc-process',
+    templateUrl: 'process.component.html',
+    styleUrls: ['process.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 
 export class ProcessComponent implements OnInit {
 
-	private query: string;
-	private category: string;
-	private results: any;
-	private platform: any;
+    public query: string;
+    public category: string;
+    public results: any;
+    public platform: any;
 
-	private attributes: any = {
-		'process': {},
-		'goal': {},
-		'crowd': {},
-		'task': {}
-	};
+    public attributes: any = {
+        'process': {},
+        'goal': {},
+        'crowd': {},
+        'task': {}
+    };
 
-	private goalValueType: string;
-	private taskType: string;
-	private aggregationOfContributions: string;
-	private peerContributionsAccessibility: string;
-	private mainMotivationalDriver: string;
-	private preselectionOfContributors: string;
+    public goalValueType: string;
+    public taskType: string;
+    public aggregationOfContributions: string;
+    public peerContributionsAccessibility: string;
+    public mainMotivationalDriver: string;
+    public preselectionOfContributors: string;
 
-	constructor(
-		private searchService: SearchService,
-		private router: Router
-	) {}
+    constructor(
+        private searchService: SearchService,
+        private router: Router
+    ) {}
 
-	ngOnInit(): void {
-		this.query = this.searchService.getQuery();
-		this.category = this.searchService.getCategory();
-		this.results = this.searchService.getResults();
+    public ngOnInit(): void {
+        this.query = this.searchService.getQuery();
+        this.category = this.searchService.getCategory();
+        this.results = this.searchService.getResults();
 
-		if (!this.query) this.router.navigate(['/index']);
-	}
+        if (!this.query) { this.router.navigate(['/index']); }
+    }
 
-	public handleChange(value: string, key: string, type: string): void {
-		this.attributes[type][key] = value;
-		console.log(this.attributes)
-	}
+    public handleChange(value: string, key: string, type: string): void {
+        this.attributes[type][key] = value;
+    }
 
-	public getPlatformDetail(id: number): void {
-		this.searchService.getPlatform(id)
-			.subscribe(
-                res => { this.platform = res },
-                error => {});
-	}
+    public getPlatformDetail(id: number): void {
+        this.searchService.getPlatform(id)
+            .subscribe(
+                (res) => { this.platform = res; },
+                (error) => {});
+    }
 
 }

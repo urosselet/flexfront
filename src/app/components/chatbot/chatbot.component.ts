@@ -1,37 +1,37 @@
 import { Component, ViewEncapsulation, OnInit, Output, Input, EventEmitter }    from '@angular/core';
-import { Observable } 															from 'rxjs/Observable';
+import { Observable }                                                           from 'rxjs/Observable';
 
-import { SearchService }						 								from '../../services/search.service';
+import { SearchService }                                                        from '../../services/search.service';
 
 @Component({
-	selector: 'fc-chatbot',
-	templateUrl: 'chatbot.component.html',
-	styleUrls: ['chatbot.component.scss'],
-	encapsulation: ViewEncapsulation.None
+    selector: 'fc-chatbot',
+    templateUrl: 'chatbot.component.html',
+    styleUrls: ['chatbot.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 
 export class ChatBotComponent implements OnInit {
 
-	@Input() questions: any[];
-	@Input() answers: any[];
+    @Input() public questions: any[];
+    @Input() public answers: any[];
 
-	@Output() fullTextInput: EventEmitter<string> = new EventEmitter();
+    @Output() public fullTextInput: EventEmitter<string> = new EventEmitter();
 
-	private query: string;
-	private sources: any[] = [];
+    public query: string;
+    public sources: any[] = [];
 
-	constructor(private searchService: SearchService) { }
+    constructor(private searchService: SearchService) { }
 
-	ngOnInit(): void { }
+    public ngOnInit(): void { }
 
-	observableSource(query: any): Observable<any[]> {
-		return this.searchService.autocomplete(query);
-	}
+    public observableSource(query: any): Observable<any[]> {
+        return this.searchService.autocomplete(query);
+    }
 
-	private search(): void {
-		this.questions.push({ 'text': this.query });
-    	this.fullTextInput.emit(this.query);
-		this.query = '';
-	}
+    public search(): void {
+        this.questions.push({ text: this.query });
+        this.fullTextInput.emit(this.query);
+        this.query = '';
+    }
 
 }

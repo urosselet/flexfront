@@ -2,6 +2,7 @@ let webpack = require('webpack');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 let CopyWebpackPlugin = require('copy-webpack-plugin');
+let TSLintPlugin = require('tslint-webpack-plugin');
 let helpers = require('./helpers');
 let path = require('path');
 
@@ -57,6 +58,11 @@ module.exports = {
         }, {
             test: /\.(eot|svg|ttf|woff|woff2)$/,
             loader: 'file-loader?name=assets/fonts/[name].[ext]'
+        }, {
+            test: /\.ts$/,
+            enforce: 'pre',
+            loader: 'tslint-loader',
+            options: { /* Loader options go here */ }
         }]
     },
 
@@ -78,6 +84,10 @@ module.exports = {
             /angular(\\|\/)core(\\|\/)@angular/,
             path.resolve(__dirname, '..')
         ),
+
+        new TSLintPlugin({
+            files: ['./src/**/*.ts']
+        }),
 
         new webpack.ProvidePlugin({
             'window.jQuery': 'jquery',
