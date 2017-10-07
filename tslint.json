@@ -7,13 +7,8 @@
     ],
     "rules": {
         "import-spacing": false,
-        // Custom
-        "trailing-comma": [false, {
-            "multiline": "always",
-            "singleline": "never"
-        }],
+        "trailing-comma": [false, {"multiline": "always", "singleline": "never" }],
         "interface-name": [false, "always-prefix"],
-        // Angular 2
         "component-class-suffix": true,
         "directive-class-suffix": true,
         "import-destructuring-spacing": true,
@@ -23,34 +18,22 @@
         "no-forward-ref": true,
         "no-input-rename": true,
         "no-output-rename": true,
-        "pipe-naming": [true, "camelCase", "my"],
+        "pipe-naming": [true, "camelCase"],
         "templates-use-public": true,
-        "use-host-property-decorator": true,
         "use-input-property-decorator": true,
         "use-life-cycle-interface": true,
         "use-output-property-decorator": true,
         "use-pipe-transform-interface": true,
-        // General
-        "no-console": [true,
-            "time",
-            "timeEnd",
-            "trace"
-        ],
-        "max-line-length": [
-            false,
-            100
-        ],
+        "use-host-property-decorator": false,
+        "no-console": [true, "time", "timeEnd", "trace"],
+        "max-line-length": [false, 100],
         "no-string-literal": false,
         "no-empty": false,
         // "no-use-before-declare": true,
         "object-literal-sort-keys": false,
         "ordered-imports": false,
         "object-literal-key-quotes": [false, "as-needed"],
-        "quotemark": [
-            true,
-            "single",
-            "avoid-escape"
-        ],
+        "quotemark": [true, "single", "avoid-escape"],
         "variable-name": [
             true,
             "allow-leading-underscore",

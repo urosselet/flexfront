@@ -11,7 +11,6 @@ export class SessionService extends CommonService {
      * Session API base Url
      * @type {String}
      */
-
     private baseUrl = process.env.API_URL.concat('session/');
 
     /**
@@ -28,9 +27,9 @@ export class SessionService extends CommonService {
      * @return {Observable<any[]>} [description]
      */
     public getSessionId(): Observable<any> {
-        return this.http.get(this.baseUrl))
-            .map((res: Response) => res.json();)
-            .catch(this.handleError)
+        return this.http.get(this.baseUrl)
+            .map((res: Response) => res.json())
+            .catch(this.handleError);
     }
 
 }
