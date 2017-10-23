@@ -41,7 +41,7 @@ export class ProcessComponent implements OnInit {
         this.category = this.searchService.getCategory();
         this.results = this.searchService.getResults();
 
-        if (!this.query) { this.router.navigate(['/index']); }
+        // if (!this.query) { this.router.navigate(['/index']); }
     }
 
     public handleChange(value: string, key: string, type: string): void {

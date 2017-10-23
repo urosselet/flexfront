@@ -10,101 +10,114 @@
                     <h2 class="found-cat">{{ category }}</h2>
                 </div>
             </div>
-            <div class="row process-wrapper">
-                <div class="col-3 process-column">
-                    <h2>Goal</h2>
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>Main beneficiary</h3>
-                            <mat-radio-group [(ngModel)]="goalValueType" (change)="handleChange($event.value, 'value_type', 'goal')">
-                                <mat-radio-button value="initiator">Initiator</mat-radio-button>
-                                <mat-radio-button value="crowd_community">Crowd/Community</mat-radio-button>
-                            </mat-radio-group>
+            <div class="row wizard-wrapper">
+                <wizard navBarLayout="large-filled">
+
+                    <wizard-step stepTitle="Participation">
+
+                        <div class="row step-content">
+                            <div class="col-4">
+                                <h3>Main beneficiary</h3>
+                                <mat-radio-group [(ngModel)]="goalValueType" (change)="handleChange($event.value, 'value_type', 'goal')">
+                                    <mat-radio-button value="initiator">Initiator</mat-radio-button>
+                                    <mat-radio-button value="crowd_community">Crowd/Community</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                            <div class="col-4">
+                                <h3>Value type</h3>
+                                <mat-radio-group [(ngModel)]="goalValueType" (change)="handleChange($event.value, 'value_type', 'goal')">
+                                    <mat-radio-button value="innovation">Innovation</mat-radio-button>
+                                    <mat-radio-button value="authenticity">Authenticity</mat-radio-button>
+                                    <mat-radio-button value="cost_reduction">Cost Reduction</mat-radio-button>
+                                    <mat-radio-button value="risk_reduction">Risk reduction</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                            <div class="col-4">
+                                <h3>Input Tolerance</h3>
+                                <mat-radio-group [(ngModel)]="goalValueType" (change)="handleChange($event.value, 'value_type', 'goal')">
+                                    <mat-radio-button value="low">Low</mat-radio-button>
+                                    <mat-radio-button value="high">High</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
                         </div>
-                        <div class="col-12">
-                            <h3>Value type</h3>
-                            <mat-radio-group [(ngModel)]="goalValueType" (change)="handleChange($event.value, 'value_type', 'goal')">
-                                <mat-radio-button value="innovation">Innovation</mat-radio-button>
-                                <mat-radio-button value="authenticity">Authenticity</mat-radio-button>
-                                <mat-radio-button value="cost_reduction">Cost Reduction</mat-radio-button>
-                                <mat-radio-button value="risk_reduction">Risk reduction</mat-radio-button>
-                            </mat-radio-group>
+
+                        <button mat-raised-button color="primary" type="button" nextStep>Next</button>
+                    </wizard-step>
+
+                    <wizard-step stepTitle="Realisation">
+                        <div class="row step-content">
+                            <div class="col-3">
+                                <h3>Type</h3>
+                                <mat-radio-group [(ngModel)]="taskType" (change)="handleChange($event.value, 'type', 'task')">
+                                    <mat-radio-button value="creation">Creation</mat-radio-button>
+                                    <mat-radio-button value="evaluation">Evaluation</mat-radio-button>
+                                    <mat-radio-button value="organisation">Organisation</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                            <div class="col-3">
+                                <h3>Task dependency</h3>
+                                <mat-radio-group [(ngModel)]="goalValueType" (change)="handleChange($event.value, 'value_type', 'goal')">
+                                    <mat-radio-button value="coupled">Coupled</mat-radio-button>
+                                    <mat-radio-button value="decoupled">Decoupled</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                            <div class="col-3">
+                                <h3>Aggregation of Contributions</h3>
+                                <mat-radio-group [(ngModel)]="aggregationOfContributions" (change)="handleChange($event.value, 'aggregation_of_contributions', 'process')">
+                                    <mat-radio-button value="integrative">Integrative</mat-radio-button>
+                                    <mat-radio-button value="selective">Selective</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                            <div class="col-3">
+                                <h3>Peer Contributions Accessibility</h3>
+                                <mat-radio-group [(ngModel)]="peerContributionsAccessibility" (change)="handleChange($event.value, 'peer_contributions_accessibility', 'process')">
+                                    <mat-radio-button value="assess">Assess</mat-radio-button>
+                                    <mat-radio-button value="view">View</mat-radio-button>
+                                    <mat-radio-button value="modify">Modify</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
                         </div>
-                        <div class="col-12">
-                            <h3>Input Tolerance</h3>
-                            <mat-radio-group [(ngModel)]="goalValueType" (change)="handleChange($event.value, 'value_type', 'goal')">
-                                <mat-radio-button value="low">Low</mat-radio-button>
-                                <mat-radio-button value="high">High</mat-radio-button>
-                            </mat-radio-group>
+                        <button mat-raised-button color="primary" type="button" previousStep>Previous</button>
+                        <button mat-raised-button color="primary" type="button" nextStep>Next</button>
+                    </wizard-step>
+
+                    <wizard-step stepTitle="Processing">
+                        <div class="row step-content">
+                            
+                            <div class="col-6">
+                                <h3>Main motivational driver</h3>
+                                <mat-radio-group [(ngModel)]="mainMotivationalDriver" (change)="handleChange($event.value, 'main_motivational_driver', 'process')">
+                                    <mat-radio-button value="tangible_reward">Tangible reward</mat-radio-button>
+                                    <mat-radio-button value="personal_achievement_and_learning">Personal achievement and learning</mat-radio-button>
+                                    <mat-radio-button value="social_status_and_reputation">Social status and reputation</mat-radio-button>
+                                    <mat-radio-button value="entertainment">Entertainment</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                            <div class="col-6">
+                                <h3>Preselection of Contributors</h3>
+                                <mat-radio-group [(ngModel)]="preselectionOfContributors" (change)="handleChange($event.value, 'preselection_of_contributors', 'process')">
+                                    <mat-radio-button value="qualification-based">Qualification-based</mat-radio-button>
+                                    <mat-radio-button value="context-specific">Context-specific</mat-radio-button>
+                                    <mat-radio-button value="none">None</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-3 process-column">
-                    <h2>Task</h2>
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>Type</h3>
-                            <mat-radio-group [(ngModel)]="taskType" (change)="handleChange($event.value, 'type', 'task')">
-                                <mat-radio-button value="creation">Creation</mat-radio-button>
-                                <mat-radio-button value="evaluation">Evaluation</mat-radio-button>
-                                <mat-radio-button value="organisation">Organisation</mat-radio-button>
-                            </mat-radio-group>
-                        </div>
-                        <div class="col-12">
-                            <h3>Task dependency</h3>
-                            <mat-radio-group [(ngModel)]="goalValueType" (change)="handleChange($event.value, 'value_type', 'goal')">
-                                <mat-radio-button value="low">Coupled</mat-radio-button>
-                                <mat-radio-button value="high">Decoupled</mat-radio-button>
-                            </mat-radio-group>
-                        </div>
-                        <div class="col-12">
-                            <h3>Aggregation of Contributions</h3>
-                            <mat-radio-group [(ngModel)]="aggregationOfContributions" (change)="handleChange($event.value, 'aggregation_of_contributions', 'process')">
-                                <mat-radio-button value="integrative">Integrative</mat-radio-button>
-                                <mat-radio-button value="selective">Selective</mat-radio-button>
-                            </mat-radio-group>
-                        </div>
-                        <div class="col-12">
-                            <h3>Peer Contributions Accessibility</h3>
-                            <mat-radio-group [(ngModel)]="peerContributionsAccessibility" (change)="handleChange($event.value, 'peer_contributions_accessibility', 'process')">
-                                <mat-radio-button value="assess">Assess</mat-radio-button>
-                                <mat-radio-button value="view">View</mat-radio-button>
-                                <mat-radio-button value="modify">Modify</mat-radio-button>
-                            </mat-radio-group>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 process-column">
-                    <h2>Crowd</h2>
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>Main motivational driver</h3>
-                            <mat-radio-group [(ngModel)]="mainMotivationalDriver" (change)="handleChange($event.value, 'main_motivational_driver', 'process')">
-                                <mat-radio-button value="tangible_reward">Tangible reward</mat-radio-button>
-                                <mat-radio-button value="personal_achievement_and_learning">Personal achievement and learning</mat-radio-button>
-                                <mat-radio-button value="social_status_and_reputation">Social status and reputation</mat-radio-button>
-                                <mat-radio-button value="entertainment">Entertainment</mat-radio-button>
-                            </mat-radio-group>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>Preselection of Contributors</h3>
-                            <mat-radio-group [(ngModel)]="preselectionOfContributors" (change)="handleChange($event.value, 'preselection_of_contributors', 'process')">
-                                <mat-radio-button value="qualification-based">Qualification-based</mat-radio-button>
-                                <mat-radio-button value="context-specific">Context-specific</mat-radio-button>
-                            </mat-radio-group>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 process-column">
-                    <h2>Evaluation</h2>
-                </div>
+                        
+                        <button mat-raised-button color="primary" type="button" previousStep>Previous</button>
+                        <button mat-raised-button color="primary" type="button" nextStep>Next</button>
+                    </wizard-step>
+
+                    <wizard-step stepTitle="Exploitation">
+                        <div>Content of Step 4</div>
+                        <button mat-raised-button color="primary" type="button" previousStep>Previous</button>
+                    </wizard-step>
+
+                </wizard>
             </div>
         </div>
         <div class="col-3 recommandation-wrapper">
             <div class="row">
-                <h1>Mes recommandations</h1>
+                <h1>My recommandations</h1>
                 <div class="result-wrapper">
                     <!-- High score hits -->
                     <div class="row high-scores-hits">

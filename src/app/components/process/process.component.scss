@@ -6,8 +6,30 @@ header {
 
 #process-component {
     position: relative;
-    > .row {
+     > .row {
         align-items: initial;
+    }
+    .wizard-wrapper {
+        display: block;
+
+        margin-top: 2rem;
+        .wizard-steps {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 2rem;
+            .step-content {
+                padding-bottom: 2rem;
+                h3 {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+        .mat-radio-button {
+            display: block;
+            .mat-radio-label {
+                white-space: normal;
+            }
+        }
     }
     .query-cat-wrapper {
         padding: 1rem;
@@ -57,7 +79,7 @@ header {
         background: $fc-medium-orange;
         .result-wrapper {
             width: 100%;
-            > .row {
+             > .row {
                 margin-bottom: 1rem;
             }
             .platforms > .platform {
@@ -72,7 +94,7 @@ header {
                 color: $fc-blue;
             }
         }
-        > .row {
+         > .row {
             padding: 15px;
             h1 {
                 font-size: 1.75rem;
@@ -90,7 +112,7 @@ header {
             &:not(:last-child) {
                 border-right: 3px solid $fc-light-orange;
             }
-            > .row {
+             > .row {
                 justify-content: left;
                 h3 {
                     font-size: 1.05rem;

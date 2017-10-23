@@ -5,13 +5,14 @@ import { FormsModule, ReactiveFormsModule }     from '@angular/forms';
 import { HttpModule, JsonpModule }              from '@angular/http';
 
 /* Angular material modules */
-import { MatRadioModule }                       from '@angular/material';
+import { MatRadioModule, MatButtonModule }      from '@angular/material';
 
 /* Third party modules */
 import { CookieModule }                         from 'ngx-cookie';
 import { NgxAutoScroll }                        from 'ngx-auto-scroll/lib/ngx-auto-scroll.directive';
 import { NguiAutoCompleteModule }               from '@ngui/auto-complete';
 import { MnFullpageModule }                     from 'ngx-fullpage';
+import { ArchwizardModule }                     from 'ng2-archwizard';
 
 /* Application Wide routing */
 import { AppRoutingModule }                     from './app-routing.module';
@@ -44,9 +45,11 @@ import { MapToIterable }                        from '../pipes/application.pipes
         JsonpModule,
         AppRoutingModule,
         MatRadioModule,
+        MatButtonModule,
         NguiAutoCompleteModule,
         CookieModule.forRoot(),
-        MnFullpageModule.forRoot()
+        MnFullpageModule.forRoot(),
+        ArchwizardModule
     ],
     declarations: [
         AppComponent,
