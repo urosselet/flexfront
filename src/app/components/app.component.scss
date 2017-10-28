@@ -4,17 +4,20 @@ body {
     background: $fc-white;
 }
 
+fc-process {
+    display: block;
+
+    height: calc(100vh - 125px);
+}
+
 header {
     background: $fc-white;
     .logo {
-        line-height: 1;
-
         position: relative;
 
         float: left;
 
         width: 25%;
-        min-height: 1px;
         padding: 1em;
         padding-right: 15px;
         padding-left: 15px;
@@ -24,6 +27,7 @@ header {
     }
     .row {
         align-items: center;
+        height: 125px;
     }
     .menu-top {
         position: relative;
@@ -31,7 +35,6 @@ header {
         float: left;
 
         width: 75%;
-        min-height: 1px;
         padding-right: 15px;
         padding-left: 15px;
 
@@ -62,14 +65,14 @@ header {
 
     background-color: $fc-light-orange;
     header > .container-fluid {
-        > .row {
+         > .row {
             img {
                 max-width: 75%;
             }
         }
     }
     .row {
-        justify-content: center;
+        // justify-content: center;
         .avatar > img {
             width: 100%;
         }

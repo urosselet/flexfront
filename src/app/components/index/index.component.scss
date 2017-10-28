@@ -7,15 +7,19 @@ header {
 #index-component {
     display: flex;
 
-    height: calc(100vh - 105px);
+    height: calc(100vh - 125px);
 
     text-align: left;
+
     h1 {
         font-size: 1.75rem;
 
         margin-bottom: 2rem;
 
         color: $fc-blue;
+    }
+     > .row {
+        align-items: center;
     }
 }
 

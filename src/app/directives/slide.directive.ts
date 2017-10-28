@@ -14,8 +14,7 @@ export class SlideDirective {
 
         jQuery(element)
             .on('click', '.platform', (e: any, args: any) => {
-                jQuery(element).toggleClass('slide-platform-section');
-                jQuery(element).toggleClass('slide-in slide-out');
+                jQuery(element).toggleClass('slide-active');
             });
 
     }

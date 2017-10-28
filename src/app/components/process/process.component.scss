@@ -6,15 +6,66 @@ header {
 
 #process-component {
     position: relative;
+
+    height: 100%;
+
+    .process-view-wrapper {
+        height: 100%;
+
+        &.slide-active {
+            .main-wrapper {
+                margin-left: -25%;
+
+                transition: margin-left .2s ease-in-out;
+            }
+            .platform-detail-wrapper {
+                display: block;
+            }
+        }
+    }
+
      > .row {
-        align-items: initial;
+        display: flex;
+
+        flex-flow: row;
+
+        .main-wrapper {
+            max-width: 100%;
+
+            transition: margin-left .5s ease-in-out;
+
+            flex: 0 0 100%;
+             > .row {
+                height: 100%;
+            }
+        }
+
+        .platform-detail-wrapper {
+            display: none;
+        }
     }
     .wizard-wrapper {
         display: block;
 
         margin-top: 2rem;
+
+        .dimension-wizard {
+            margin-top: 2rem;
+            padding-top: 2rem;
+
+            border-top: 2px solid #fff;
+
+            .wizard-steps {
+                padding-top: 0;
+            }
+
+            h1 {
+                padding-bottom: 2rem;
+            }
+        }
+
         .wizard-steps {
-            width: 80%;
+            width: 90%;
             margin: 0 auto;
             padding-top: 2rem;
             .step-content {
