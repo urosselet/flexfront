@@ -7,7 +7,7 @@ body {
 fc-process {
     display: block;
 
-    height: calc(100vh - 125px);
+    height: calc(100vh - 85px);
 }
 
 header {
@@ -18,7 +18,6 @@ header {
         float: left;
 
         width: 25%;
-        padding: 1em;
         padding-right: 15px;
         padding-left: 15px;
         img {
@@ -26,8 +25,9 @@ header {
         }
     }
     .row {
+        height: 85px;
+
         align-items: center;
-        height: 125px;
     }
     .menu-top {
         position: relative;
@@ -39,14 +39,17 @@ header {
         padding-left: 15px;
 
         text-align: right;
-        ul li {
-            display: inline-block;
+        ul {
+            margin: 0;
+            li {
+                display: inline-block;
 
-            padding: 0 0 0 2em;
+                padding: 0 0 0 2em;
 
-            list-style: none outside none;
-            a {
-                color: $fc-blue;
+                list-style: none outside none;
+                a {
+                    color: $fc-blue;
+                }
             }
         }
     }

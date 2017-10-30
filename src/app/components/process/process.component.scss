@@ -49,6 +49,21 @@ header {
 
         margin-top: 2rem;
 
+        h1 {
+            font-size: 1rem;
+        }
+
+        .process-wizard {
+            .steps-indicator {
+                 > li.done:after {
+                    background-color: #ed6a20;
+                }
+                 > li.editing:after {
+                    background-color: #ebdeb2;
+                }
+            }
+        }
+
         .dimension-wizard {
             margin-top: 2rem;
             padding-top: 2rem;
@@ -60,7 +75,27 @@ header {
             }
 
             h1 {
-                padding-bottom: 2rem;
+                padding-bottom: 1rem;
+            }
+
+            wizard-navigation-bar.vertical {
+                width: 35%;
+                max-width: 400px;
+                .steps-indicator {
+                    li {
+                        padding-bottom: 25px;
+                        &.done:after {
+                            background-color: #2da5b6;
+                        }
+                        &.editing:after {
+                            background-color: rgba(45, 165, 182, 4.5);
+                        }
+                    }
+
+                    a {
+                        text-transform: capitalize;
+                    }
+                }
             }
         }
 
@@ -69,7 +104,7 @@ header {
             margin: 0 auto;
             padding-top: 2rem;
             .step-content {
-                padding-bottom: 2rem;
+                padding-bottom: 1rem;
                 h3 {
                     font-size: 1.25rem;
                 }
@@ -83,7 +118,7 @@ header {
         }
     }
     .query-cat-wrapper {
-        padding: 1rem;
+        padding: 10px;
 
         color: $fc-white;
         background: $fc-blue;
