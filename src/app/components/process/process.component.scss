@@ -55,10 +55,10 @@ header {
 
         .process-wizard {
             .steps-indicator {
-                 > li.done:after {
+                > li.done:after {
                     background-color: #ed6a20;
                 }
-                 > li.editing:after {
+                > li.editing:after {
                     background-color: #ebdeb2;
                 }
             }
