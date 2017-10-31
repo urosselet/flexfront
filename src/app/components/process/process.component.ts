@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation, OnInit, Input }      from '@angular/core'
 import { Router }                                           from '@angular/router';
 
 import { SearchService }                                    from '../../services/search.service';
+import { CSProcessService }                                 from '../../services/csprocess.service';
 
 @Component({
     selector: 'fc-process',
@@ -16,6 +17,8 @@ export class ProcessComponent implements OnInit {
     public category: string;
     public results: any;
     public platform: any;
+    public isDataLoaded: boolean = false;
+    public csprocesses: any[] = [];
 
     public attributes: any = {
         'process': {},
@@ -33,6 +36,7 @@ export class ProcessComponent implements OnInit {
 
     constructor(
         private searchService: SearchService,
+        private csProcessService: CSProcessService,
         private router: Router
     ) {}
 
@@ -40,6 +44,14 @@ export class ProcessComponent implements OnInit {
         this.query = this.searchService.getQuery();
         this.category = this.searchService.getCategory();
         this.results = this.searchService.getResults();
+
+        this.csProcessService.findOne()
+            .subscribe(
+                (res) => { 
+                    this.isDataLoaded = true;
+                    this.csprocesses = res; 
+                },
+                (error) => {});
 
         // if (!this.query) { this.router.navigate(['/index']); }
     }

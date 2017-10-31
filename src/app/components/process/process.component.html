@@ -19,142 +19,25 @@
                     </div>
 
                     <!-- Main wizard section -->
-                    <div class="row wizard-wrapper">
+                    <div class="row wizard-wrapper" *ngIf="isDataLoaded">
 
                         <wizard class="process-wizard" navBarLayout="large-filled" navigationMode="free">
 
-                            <!-- Participation wizard -->
-                            <wizard-step stepTitle="Participation">
-                                <h1>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.</h1>
-                                <wizard class="dimension-wizard" navBarLayout="small" navBarLocation="left" navigationMode="free">
+                            <wizard-step stepTitle="{{ csprocess._source.process_name}}" *ngFor="let csprocess of csprocesses">
+                                <h1>{{ csprocess._source.data.labels.default.description }}</h1>
 
-                                    <wizard-step stepTitle="Main beneficiary">
+                                <wizard class="dimension-wizard" navBarLayout="small" navBarLocation="left" navigationMode="free">
+                                     <wizard-step stepTitle="Main beneficiary">
                                         <h1>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</h1>
                                         <mat-radio-group [(ngModel)]="goalValueType" (change)="handleChange($event.value, 'value_type', 'goal')">
                                             <mat-radio-button value="initiator">Initiator</mat-radio-button>
                                             <mat-radio-button value="crowd_community">Crowd/Community</mat-radio-button>
                                         </mat-radio-group>
                                     </wizard-step>
-
-                                    <wizard-step stepTitle="Value type">
-                                        <h1>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</h1>
-                                        <mat-radio-group [(ngModel)]="goalValueType" (change)="handleChange($event.value, 'value_type', 'goal')">
-                                            <mat-radio-button value="innovation">Innovation</mat-radio-button>
-                                            <mat-radio-button value="authenticity">Authenticity</mat-radio-button>
-                                            <mat-radio-button value="cost_reduction">Cost Reduction</mat-radio-button>
-                                            <mat-radio-button value="risk_reduction">Risk reduction</mat-radio-button>
-                                        </mat-radio-group>
-                                    </wizard-step>
-
-                                    <wizard-step stepTitle="Input Tolerance">
-                                        <h1>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</h1>
-                                        <mat-radio-group [(ngModel)]="goalValueType" (change)="handleChange($event.value, 'value_type', 'goal')">
-                                            <mat-radio-button value="low">Low</mat-radio-button>
-                                            <mat-radio-button value="high">High</mat-radio-button>
-                                        </mat-radio-group>
-                                    </wizard-step>
-
                                 </wizard>
 
                             </wizard-step>
-                            <!-- END::Participation wizard -->
-
-                            <!-- Realisation wizard -->
-                            <wizard-step stepTitle="Realisation">
-
-                                <h1>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.</h1>
-
-                                <wizard class="dimension-wizard" navBarLayout="small" navBarLocation="left" navigationMode="free">
-                                    <wizard-step stepTitle="Type">
-                                        <h1>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</h1>
-                                        <mat-radio-group [(ngModel)]="taskType" (change)="handleChange($event.value, 'type', 'task')">
-                                            <mat-radio-button value="creation">Creation</mat-radio-button>
-                                            <mat-radio-button value="evaluation">Evaluation</mat-radio-button>
-                                            <mat-radio-button value="organisation">Organisation</mat-radio-button>
-                                        </mat-radio-group>
-                                    </wizard-step>
-
-                                    <wizard-step stepTitle="Task dependency">
-                                        <h1>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</h1>
-                                        <mat-radio-group [(ngModel)]="goalValueType" (change)="handleChange($event.value, 'value_type', 'goal')">
-                                            <mat-radio-button value="coupled">Coupled</mat-radio-button>
-                                            <mat-radio-button value="decoupled">Decoupled</mat-radio-button>
-                                        </mat-radio-group>
-                                    </wizard-step>
-
-                                    <wizard-step stepTitle="Aggregation of Contributions">
-                                        <h1>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</h1>
-                                        <mat-radio-group [(ngModel)]="aggregationOfContributions" (change)="handleChange($event.value, 'aggregation_of_contributions', 'process')">
-                                            <mat-radio-button value="integrative">Integrative</mat-radio-button>
-                                            <mat-radio-button value="selective">Selective</mat-radio-button>
-                                        </mat-radio-group>
-                                    </wizard-step>
-
-                                    <wizard-step stepTitle="Peer Contributions Accessibility">
-                                        <h1>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</h1>
-                                        <mat-radio-group [(ngModel)]="peerContributionsAccessibility" (change)="handleChange($event.value, 'peer_contributions_accessibility', 'process')">
-                                            <mat-radio-button value="assess">Assess</mat-radio-button>
-                                            <mat-radio-button value="view">View</mat-radio-button>
-                                            <mat-radio-button value="modify">Modify</mat-radio-button>
-                                        </mat-radio-group>
-                                    </wizard-step>
-
-                                </wizard>
-
-                            </wizard-step>
-                            <!-- END::Realisation wizard -->
-
-                            <!-- Processing wizard -->
-                            <wizard-step stepTitle="Processing">
-
-                                <h1>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.</h1>
-
-                                <wizard class="dimension-wizard" navBarLayout="small" navBarLocation="left" navigationMode="free">
-
-                                    <wizard-step stepTitle="Main motivational driver">
-                                        <h1>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</h1>
-                                        <mat-radio-group [(ngModel)]="mainMotivationalDriver" (change)="handleChange($event.value, 'main_motivational_driver', 'process')">
-                                            <mat-radio-button value="tangible_reward">Tangible reward</mat-radio-button>
-                                            <mat-radio-button value="personal_achievement_and_learning">Personal achievement and learning</mat-radio-button>
-                                            <mat-radio-button value="social_status_and_reputation">Social status and reputation</mat-radio-button>
-                                            <mat-radio-button value="entertainment">Entertainment</mat-radio-button>
-                                        </mat-radio-group>
-                                    </wizard-step>
-
-                                    <wizard-step stepTitle="Preselection of Contributors">
-                                        <h1>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</h1>
-                                        <mat-radio-group [(ngModel)]="goalValueType" (change)="handleChange($event.value, 'value_type', 'goal')">
-                                            <mat-radio-button value="coupled">Coupled</mat-radio-button>
-                                            <mat-radio-button value="decoupled">Decoupled</mat-radio-button>
-                                        </mat-radio-group>
-                                    </wizard-step>
-
-                                    <wizard-step stepTitle="Aggregation of Contributions">
-                                        <h1>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</h1>
-                                        <mat-radio-group [(ngModel)]="aggregationOfContributions" (change)="handleChange($event.value, 'aggregation_of_contributions', 'process')">
-                                            <mat-radio-button value="integrative">Integrative</mat-radio-button>
-                                            <mat-radio-button value="selective">Selective</mat-radio-button>
-                                        </mat-radio-group>
-                                    </wizard-step>
-
-                                    <wizard-step stepTitle="Peer Contributions Accessibility">
-                                        <h1>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</h1>
-                                        <mat-radio-group [(ngModel)]="preselectionOfContributors" (change)="handleChange($event.value, 'preselection_of_contributors', 'process')">
-                                            <mat-radio-button value="qualification-based">Qualification-based</mat-radio-button>
-                                            <mat-radio-button value="context-specific">Context-specific</mat-radio-button>
-                                            <mat-radio-button value="none">None</mat-radio-button>
-                                        </mat-radio-group>
-                                    </wizard-step>
-
-                                </wizard>
-
-                            </wizard-step>
-                            <!-- END::Processing wizard -->
-
-                            <wizard-step stepTitle="Exploitation">
-                                <div class="row">Exploitation content</div>
-                            </wizard-step>
-
+                           
                         </wizard>
                     </div>
                 </div>

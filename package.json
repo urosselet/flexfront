@@ -30,7 +30,7 @@
         "@angular/platform-browser-dynamic": "^4.4.6",
         "@angular/router": "^4.4.6",
         "@ngui/auto-complete": "^0.16.0",
-        "@types/jquery": "^3.2.15",
+        "@types/jquery": "^3.2.16",
         "bootstrap": "^4.0.0-alpha.6",
         "core-js": "^2.5.1",
         "escape-html": "^1.0.3",

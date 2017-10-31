@@ -17,9 +17,6 @@ import { ArchwizardModule }                     from 'ng2-archwizard';
 /* Application Wide routing */
 import { AppRoutingModule }                     from './app-routing.module';
 
-/* API Services */
-import { SearchService }                        from '../services/search.service';
-
 /* Bootstrap Component */
 import { AppComponent }                         from '../components/app.component';
 
@@ -34,6 +31,10 @@ import { SlideDirective }                       from '../directives/slide.direct
 
 /* Pipes */
 import { MapToIterable }                        from '../pipes/application.pipes';
+
+/* App Services */
+import { SearchService }                        from '../services/search.service';
+import { CSProcessService }                     from '../services/csprocess.service';
 
 @NgModule({
     imports: [
@@ -62,7 +63,8 @@ import { MapToIterable }                        from '../pipes/application.pipes
         SlideDirective
     ],
     providers: [
-        SearchService
+        SearchService,
+        CSProcessService
     ],
     bootstrap: [ AppComponent ]
 })
