@@ -1,4 +1,4 @@
-<section id="process-component" class="container-fluid slide-in" slide>
+<section id="process-component" class="container-fluid slide-in">
 
     <div class="row process-view-wrapper" slide>
 
@@ -17,29 +17,27 @@
                             <h2 class="found-cat">{{ category }}</h2>
                         </div>
                     </div>
-
-                    <!-- Main wizard section -->
-                    <div class="row wizard-wrapper" *ngIf="isDataLoaded">
-
+                    <!-- Wizards wrapper section -->
+                    <div class="row wizard-wrapper">
+                        <!-- Process wizard -->
                         <wizard class="process-wizard" navBarLayout="large-filled" navigationMode="free">
-
-                            <wizard-step stepTitle="{{ csprocess._source.process_name}}" *ngFor="let csprocess of csprocesses">
-                                <h1>{{ csprocess._source.data.labels.default.description }}</h1>
-
+                            <wizard-step stepTitle="{{ csprocess.process_name}}" *ngFor="let csprocess of csprocesses">
+                                <h1>{{ csprocess.label.default.description }}</h1>
+                                <!-- Dimension wizard -->
                                 <wizard class="dimension-wizard" navBarLayout="small" navBarLocation="left" navigationMode="free">
-                                     <wizard-step stepTitle="Main beneficiary">
-                                        <h1>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</h1>
+                                    <wizard-step stepTitle="{{ subdimension.label.default.title }}" *ngFor="let subdimension of csprocess.dimensions.subdimensions">
+                                        <h1>{{ subdimension.label.default.description }}</h1>
                                         <mat-radio-group [(ngModel)]="goalValueType" (change)="handleChange($event.value, 'value_type', 'goal')">
-                                            <mat-radio-button value="initiator">Initiator</mat-radio-button>
-                                            <mat-radio-button value="crowd_community">Crowd/Community</mat-radio-button>
+                                            <mat-radio-button value="initiator" *ngFor="let characteristic of subdimension.label.default.characteristics.default">{{ characteristic.title }} | {{ characteristic.description }}</mat-radio-button>
                                         </mat-radio-group>
                                     </wizard-step>
                                 </wizard>
-
+                                <!-- END::Dimension wizard -->
                             </wizard-step>
-                           
                         </wizard>
+                        <!-- END::Process wizard -->
                     </div>
+                    <!-- END::Wizards wrapper section -->
                 </div>
 
                 <!-- Recommandation section -->

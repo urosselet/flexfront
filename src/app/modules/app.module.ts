@@ -36,6 +36,9 @@ import { MapToIterable }                        from '../pipes/application.pipes
 import { SearchService }                        from '../services/search.service';
 import { CSProcessService }                     from '../services/csprocess.service';
 
+/* Resolvers */
+import { CSProcessResolver }                    from '../services/resolvers/csprocess.resolver';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -64,7 +67,8 @@ import { CSProcessService }                     from '../services/csprocess.serv
     ],
     providers: [
         SearchService,
-        CSProcessService
+        CSProcessService,
+        CSProcessResolver
     ],
     bootstrap: [ AppComponent ]
 })
