@@ -28,7 +28,7 @@ export class CSProcessService extends CommonService {
      * @return {Observable<any[]>} [description]
      */
     public findOne(): Observable<any> {
-        return this.http.get(this.baseUrl)
+        return this.http.get(this.baseUrl + 'wizard')
             .map((res: Response) => res.json())
             .catch(this.handleError);
     }
