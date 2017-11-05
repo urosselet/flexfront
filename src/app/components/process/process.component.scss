@@ -1,21 +1,16 @@
 @import 'src/assets/sass/variables';
-
 header {
     background: $fc-white;
 }
 
 #process-component {
     position: relative;
-
     height: 100%;
-
     .process-view-wrapper {
         height: 100%;
-
         &.slide-active {
             .main-wrapper {
                 margin-left: -25%;
-
                 transition: margin-left .2s ease-in-out;
             }
             .platform-detail-wrapper {
@@ -23,61 +18,50 @@ header {
             }
         }
     }
-
-     > .row {
+    >.row {
         display: flex;
-
         flex-flow: row;
-
         .main-wrapper {
             max-width: 100%;
-
             transition: margin-left .5s ease-in-out;
-
             flex: 0 0 100%;
-             > .row {
+            >.row {
                 height: 100%;
             }
         }
-
         .platform-detail-wrapper {
             display: none;
         }
     }
     .wizard-wrapper {
         display: block;
-
         margin-top: 2rem;
-
         h1 {
             font-size: 1rem;
         }
-
+        .steps-indicator li {
+            font-family: "hk-regular", Helvetica, Arial, sans-serif !important;
+        }
         .process-wizard {
             .steps-indicator {
-                > li.done:after {
+                >li.done:after {
                     background-color: #ed6a20;
                 }
-                > li.editing:after {
+                >li.editing:after {
                     background-color: #ebdeb2;
                 }
             }
         }
-
         .dimension-wizard {
             margin-top: 2rem;
             padding-top: 2rem;
-
             border-top: 2px solid #fff;
-
             .wizard-steps {
                 padding-top: 0;
             }
-
             h1 {
                 padding-bottom: 1rem;
             }
-
             wizard-navigation-bar.vertical {
                 width: 35%;
                 max-width: 400px;
@@ -91,14 +75,12 @@ header {
                             background-color: rgba(45, 165, 182, 4.5);
                         }
                     }
-
                     a {
                         text-transform: capitalize;
                     }
                 }
             }
         }
-
         .wizard-steps {
             width: 90%;
             margin: 0 auto;
@@ -119,42 +101,33 @@ header {
     }
     .query-cat-wrapper {
         padding: 10px;
-
         color: $fc-white;
         background: $fc-blue;
         .fa {
             font-size: 2rem;
-
             padding-right: 1rem;
         }
         h1 {
             font-size: 1.75rem;
-
             display: inline;
         }
         h2 {
             font-size: 1.35rem;
-
             display: inline;
             &:before,
             &:after {
                 font-family: 'FontAwesome';
                 font-size: .85rem;
-
                 position: relative;
-
                 display: inline-flex;
-
                 padding-top: 20px;
             }
             &:before {
                 padding-right: 10px;
-
                 content: '\f10d';
             }
             &:after {
                 padding-left: 10px;
-
                 content: '\f10e';
             }
         }
@@ -165,26 +138,21 @@ header {
         background: $fc-medium-orange;
         .result-wrapper {
             width: 100%;
-             > .row {
+            >.row {
                 margin-bottom: 1rem;
             }
-            .platforms > .platform {
+            .platforms>.platform {
                 font-size: 1rem;
-
                 display: inline-block;
-
                 padding-right: 10px;
-
                 text-decoration: underline;
-
                 color: $fc-blue;
             }
         }
-         > .row {
+        >.row {
             padding: 15px;
             h1 {
                 font-size: 1.75rem;
-
                 width: 100%;
                 margin-bottom: 2em;
             }
@@ -198,24 +166,20 @@ header {
             &:not(:last-child) {
                 border-right: 3px solid $fc-light-orange;
             }
-             > .row {
+            >.row {
                 justify-content: left;
                 h3 {
                     font-size: 1.05rem;
                     font-weight: bold;
-
                     padding-top: 1rem;
                     padding-bottom: .5rem;
-
                     color: $fc-orange;
                 }
             }
             h2 {
                 font-size: 1.25rem;
                 font-weight: bold;
-
                 padding-top: 1rem;
-
                 color: $fc-blue;
             }
             .mat-radio-button {
@@ -230,36 +194,30 @@ header {
         position: absolute;
         top: -2px;
         right: -490px;
-
         width: 35%;
         height: 100%;
         padding: 15px;
-
         border: 2px solid #fff;
         background: #e7d8a5;
         .header {
             h2 {
                 font-weight: bold;
-
                 color: $fc-blue;
             }
             .description {
                 padding-top: 2em;
             }
         }
-        .logo > span {
+        .logo>span {
             display: block;
-
             width: 100px;
             height: 100px;
             padding: 1em;
-
             border-radius: 50%;
             background: $fc-white;
             img {
                 width: 100%;
                 height: 100%;
-
                 object-fit: contain;
             }
         }
@@ -267,19 +225,16 @@ header {
             width: 100%;
             h3 {
                 font-size: 1.45em;
-
                 color: $fc-blue;
             }
             ul {
                 margin-top: 1em;
                 padding-left: 1em;
-
                 list-style-type: none;
                 li {
                     padding-bottom: .5em;
                     i.fa {
                         padding-right: 5px;
-
                         color: $fc-blue;
                     }
                 }
@@ -288,10 +243,12 @@ header {
     }
 }
 
+
 /* Slide animation */
+
 .slide-platform-section {
     -webkit-transform: translateX(-35%);
-            transform: translateX(-35%);
+    transform: translateX(-35%);
     .platform-detail {
         right: -15px;
     }
@@ -299,12 +256,12 @@ header {
 
 .slide-in {
     -webkit-animation: slide-in .5s forwards;
-            animation: slide-in .5s forwards;
+    animation: slide-in .5s forwards;
 }
 
 .slide-out {
     -webkit-animation: slide-out .5s forwards;
-            animation: slide-out .5s forwards;
+    animation: slide-out .5s forwards;
 }
 
 @keyframes slide-in {
