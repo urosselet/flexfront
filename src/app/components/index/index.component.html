@@ -1,13 +1,41 @@
-<div id="index-component" class="container intro-section">
-    <div class="row text">
-        <div class="col col-5 avatar">
-            <img type="image/svg+xml" [src]="'assets/images/avatar.svg'" class="fill" alt="flex-avatar" />
+<section class="welcome-section">
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="logo">
+                    <a href="/">
+                        <img [src]="'assets/images/logo.png'" alt="flex-logo">
+                    </a>
+                </div>
+                <div class="menu-top">
+                    <ul>
+                        <li>
+                            <a href="#">About us</a>
+                        </li>
+                        <li>
+                            <a href="#">Our services</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="col col-7 search-wrapper">
-            <h1>Finding the right crowdsourcing platform for your business has never been easier!</h1>
-            <div class="search-input">
-                <input type="text" list-formatter="text" min-chars="2" ngui-auto-complete (keyup.enter)="search()" [(ngModel)]="query" [source]="observableSource.bind(this)" />
+    </header>
+
+    <div id="index-component" class="container intro-section">
+        <div class="row text">
+            <div class="col col-5 avatar">
+                <img type="image/svg+xml" [src]="'assets/images/avatar.svg'" class="fill" alt="flex-avatar" />
+            </div>
+            <div class="col col-7 search-wrapper">
+                <h1>Finding the right crowdsourcing platform for your business has never been easier!</h1>
+                <div class="search-input">
+                    <input type="text" list-formatter="text" min-chars="2" ngui-auto-complete (keyup.enter)="search()" [(ngModel)]="query" [source]="observableSource.bind(this)"
+                    />
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>

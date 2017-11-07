@@ -1,5 +1,7 @@
-import { Component, ViewEncapsulation, OnInit }      from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, ViewChild }      from '@angular/core';
 import { ActivatedRoute }                            from '@angular/router';
+
+import { SwiperComponent, SwiperDirective, SwiperConfigInterface } from 'ngx-swiper-wrapper';
 
 import { SearchService }                             from '../../services/search.service';
 import { CSProcessService }                          from '../../services/csprocess.service';
@@ -27,6 +29,16 @@ export class ProcessComponent implements OnInit {
     public peerContributionsAccessibility: string;
     public mainMotivationalDriver: string;
     public preselectionOfContributors: string;
+
+    @ViewChild(SwiperDirective) swiper: SwiperDirective;
+
+    public config: SwiperConfigInterface = {
+        mousewheelControl: false,
+        scrollbarDraggable: false,
+        noSwiping: true,
+        simulateTouch: false,
+        effect: 'flip'
+    };
 
     constructor(
         private searchService: SearchService,

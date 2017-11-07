@@ -36,6 +36,9 @@
 /* Plugins styles */
 @import url('plugins/jquery.fullpage.css');
 @import url('plugins/deeppurple-amber.css');
+@import url('plugins/swiper.min.css');
+
+@import 'box-layout';
 
 $custom-typography: mat-typography-config(
     $font-family: 'hk-regular, monospace',

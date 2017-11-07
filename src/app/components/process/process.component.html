@@ -1,116 +1,128 @@
-<section id="process-component" class="container-fluid slide-in">
+<section id="process-component" class="container-fluid">
 
-    <div class="row process-view-wrapper" slide>
+    <div class="row">
+        
+        <!-- Process Section -->
+        <div class="col-8 processes-wrapper" box-layout>
 
-        <div class="col-9 main-wrapper">
+            <div id="bl-main" class="bl-main col-8">
 
-            <div class="row">
+                <section *ngFor="let csprocess of csprocesses">
 
-                <div class="col-9">
-                    <!-- Query and result section -->
-                    <div class="row query-cat-wrapper">
-                        <div class="col-12">
-                            <i class="fa fa-question-circle" aria-hidden="true"></i>
-                            <h1>{{ query }}</h1>
-                        </div>
-                        <div class="col-12">
-                            <h2 class="found-cat">{{ category }}</h2>
-                        </div>
+                    <div class="bl-box">
+                        <h2><span><i class="fa fa-crosshairs" aria-hidden="true"></i></span> {{ csprocess.process_name}}</h2>
                     </div>
-                    <!-- Wizards wrapper section -->
-                    <div class="row wizard-wrapper">
-                        <!-- Process wizard -->
-                        <wizard class="process-wizard" navBarLayout="large-filled" navigationMode="free">
-                            <wizard-step stepTitle="{{ csprocess.process_name}}" *ngFor="let csprocess of csprocesses">
-                                <h1>{{ csprocess.label.default.description }}</h1>
-                                <!-- Dimension wizard -->
-                                <wizard class="dimension-wizard" navBarLayout="small" navBarLocation="left" navigationMode="free">
-                                    <wizard-step stepTitle="{{ subdimension.label.default.title }}" *ngFor="let subdimension of csprocess.dimensions.subdimensions">
-                                        <h1>{{ subdimension.label.default.description }}</h1>
-                                        <mat-radio-group [(ngModel)]="goalValueType" (change)="handleChange($event.value, 'value_type', 'goal')">
-                                            <mat-radio-button value="initiator" *ngFor="let characteristic of subdimension.label.default.characteristics.default">{{ characteristic.title }} | {{ characteristic.description }}</mat-radio-button>
-                                        </mat-radio-group>
-                                    </wizard-step>
-                                </wizard>
-                                <!-- END::Dimension wizard -->
-                            </wizard-step>
-                        </wizard>
-                        <!-- END::Process wizard -->
-                    </div>
-                    <!-- END::Wizards wrapper section -->
-                </div>
-
-                <!-- Recommandation section -->
-                <div class="col-3 recommandation-wrapper">
-                    <div class="row">
-                        <h1>My recommandations</h1>
-                        <div class="result-wrapper">
-                            <!-- High score hits -->
-                            <div class="row high-scores-hits">
-                                <div class="col-3 flex-middle">
-                                    <div class="avatar">
-                                        <img type="image/svg+xml" [src]="'assets/images/avatar.svg'" class="fill" alt="flex-avatar" />
-                                    </div>
-                                </div>
-                                <div class="col-9 flex-middle">
-                                    <div class="platforms">
-                                        <span class="platform" (click)="getPlatformDetail(platform.id)" *ngFor="let platform of results?.high_hits">{{ platform.name }}</span>
-                                    </div>
-                                </div>
+                    
+                    <!-- Content wrapper -->
+                    <div class="bl-content">
+                        <span class="bl-icon-close"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                        
+                        <!-- Process infos -->
+                        <div class="row process-detail">
+                            <div class="col col-2 icon">
+                                <span><i class="fa fa-crosshairs" aria-hidden="true"></i></span>
                             </div>
-                            <!-- Medium score hits -->
-                            <div class="row medium-scores-hits">
-                                <div class="col-3 flex-middle">
-                                    <div class="avatar">
-                                        <img type="image/svg+xml" [src]="'assets/images/avatar-sad.svg'" class="fill" alt="flex-avatar" />
-                                    </div>
-                                </div>
-                                <div class="col-9 flex-middle">
-                                    <div class="platforms">
-                                        <span class="platform" (click)="getPlatformDetail(platform.id)" *ngFor="let platform of results?.medium_hits">{{ platform.name }}</span>
-                                    </div>
-                                </div>
+                            <div class="col col-10 description">
+                                <h2>{{ csprocess.label.default.title }}</h2>
+                                <p>{{ csprocess.label.default.description }}</p>
                             </div>
                         </div>
+                        <!-- END::Process infos -->
+                        
+                        <!-- Dimension wrapper -->
+                        <div class="row">
+                            <div class="col col-12">
+
+                                <div class="swiper-container" [swiper]="config" [(index)]="index">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide" *ngFor="let subdimension of csprocess.dimensions.subdimensions">
+                                            <h3>{{ subdimension.label.default.title }}</h3>
+                                            <p>{{ subdimension.label.default.description }}</p>
+                                            
+                                            <div class="row subdimensions-wrapper">
+                                                <div class="col" *ngFor="let characteristic of subdimension.label.default.characteristics.default">
+                                                    <div class="radio-tile-group">
+                                                        <div class="input-container">
+                                                            <input id="walk" class="radio-button" type="radio" name="radio" />
+                                                            <div class="radio-tile">
+                                                                <label for="walk" class="radio-tile-label">{{ characteristic.title }}</label>
+                                                                <div class="icon">
+                                                                    <i class="fa fa-cubes" aria-hidden="true"></i>
+                                                                </div>
+                                                                <p>{{ characteristic.description }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="navigation-wrapper">
+                                    <div class="icon" (click)="swiper.prevSlide()"><span class="fa fa-chevron-left" aria-hidden="true"></span></div>
+                                    <div class="index">{{ swiper?.getIndex() + 1 }} / {{ csprocess.dimensions.subdimensions.length }}</div>
+                                    <div class="icon" (click)="swiper.nextSlide()"><span class="fa fa-chevron-right" aria-hidden="true"></span></div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!-- END::Dimension wrapper -->
                     </div>
-                </div>
+                    <!-- END::Content wrapper -->
+                </section>
+
+                <section>
+                    <div class="bl-box">
+                        <h2 class="bl-icon bl-icon-contact"><span><i class="fa fa-tachometer" aria-hidden="true"></i></span> Evaluation</h2>
+                    </div>
+                    <div class="bl-content">
+                        <h2>Get in touch</h2>
+                        <p>Pinterest semiotics single-origin coffee craft beer thundercats irony, tumblr bushwick intelligentsia pickled.
+                            Narwhal mustache godard master cleanse street art, occupy ugh selfies put a bird on it cray salvia four
+                            loko gluten-free shoreditch. Occupy american apparel freegan cliche. Mustache trust fund 8-bit jean shorts
+                            mumblecore thundercats. Pour-over small batch forage cray, banjo post-ironic flannel keffiyeh cred ethnic
+                            semiotics next level tousled fashion axe. Sustainable cardigan keytar fap bushwick bespoke.
+                        </p>
+                    </div>
+                    <span class="bl-icon-close"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                </section>
 
             </div>
+
         </div>
 
-        <!-- Platform details -->
-        <div class="col-3 platform-detail-wrapper">
-            <div class="col-9 header">
-                <h2>{{ platform?.name }}</h2>
-                <div class="link">
-                    <a href="{{ platform?.platform_website }}" target="_blank">{{ platform?.platform_website }}</a>
-                </div>
-                <div class="description">
-                    <p>{{ platform?.description }}</p>
-                </div>
-            </div>
-            <div class="col-3 logo">
-                <span *ngIf="platform?.platform_img_url === ''">
-                    <img [src]="'assets/images/avatar.svg'">
-                </span>
-                <span *ngIf="platform?.platform_img_url !== ''">
-                    <img [src]="platform?.platform_img_url">
-                </span>
-            </div>
-            <div class="row attributes">
-                <div class="col">
-                    <h3>Par rapport à vos besoins</h3>
-                    <ul>
-                        <li><i class="fa fa-check" aria-hidden="true"></i> Facilité d’utilisation</li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i> Lorem ipsum</li>
-                        <li><i class="fa fa-minus" aria-hidden="true"></i> Lorem ipsum</li>
-                        <li><i class="fa fa-minus" aria-hidden="true"></i> Sit amet</li>
-                        <li><i class="fa fa-times" aria-hidden="true"></i> Hich et nunc</li>
-                        <li><i class="fa fa-times" aria-hidden="true"></i> Hich et nunc</li>
-                    </ul>
+        <!-- Recommendation Section -->
+        <div class="col-4">
+            <div class="recommendation-section">
+                <div class="row">
+                    <h1>My recommandations</h1>
+                    <div class="col-12 result-wrapper">
+                        <!-- High score hits -->
+                        <div class="high-scores-hits">
+                            <h2>First choices</h2>
+                            <div class="flex-middle">
+                                <div class="platforms">
+                                    <span class="platform" (click)="getPlatformDetail(platform.id)" *ngFor="let platform of results?.high_hits">{{ platform.name }}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Medium score hits -->
+                        <div class="medium-scores-hits">
+                            <h2>Alternatives</h2>
+                            <div class="flex-middle">
+                                <div class="platforms">
+                                    <span class="platform" (click)="getPlatformDetail(platform.id)" *ngFor="let platform of results?.medium_hits">{{ platform.name }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
     </div>
+    
 </section>

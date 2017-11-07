@@ -14,6 +14,12 @@ import { NguiAutoCompleteModule }               from '@ngui/auto-complete';
 import { MnFullpageModule }                     from 'ngx-fullpage';
 import { ArchwizardModule }                     from 'ng2-archwizard';
 
+import { 
+    SwiperModule, 
+    SWIPER_CONFIG, 
+    SwiperConfigInterface 
+}                                               from 'ngx-swiper-wrapper';
+
 /* Application Wide routing */
 import { AppRoutingModule }                     from './app-routing.module';
 
@@ -22,12 +28,10 @@ import { AppComponent }                         from '../components/app.componen
 
 /* Application Components */
 import { IndexComponent }                       from '../components/index/index.component';
-import { ChatBotComponent }                     from '../components/chatbot/chatbot.component';
-import { ResultComponent }                      from '../components/result/result.component';
 import { ProcessComponent }                     from '../components/process/process.component';
 
 /* Directives */
-import { SlideDirective }                       from '../directives/slide.directive';
+import { BoxLayoutDirective }                   from '../directives/boxlayout.directive';
 
 /* Pipes */
 import { MapToIterable }                        from '../pipes/application.pipes';
@@ -51,19 +55,18 @@ import { CSProcessResolver }                    from '../services/resolvers/cspr
         MatRadioModule,
         MatButtonModule,
         NguiAutoCompleteModule,
+        SwiperModule,
+        ArchwizardModule,
         CookieModule.forRoot(),
-        MnFullpageModule.forRoot(),
-        ArchwizardModule
+        MnFullpageModule.forRoot()
     ],
     declarations: [
         AppComponent,
         IndexComponent,
-        ChatBotComponent,
-        ResultComponent,
         ProcessComponent,
         NgxAutoScroll,
         MapToIterable,
-        SlideDirective
+        BoxLayoutDirective
     ],
     providers: [
         SearchService,
