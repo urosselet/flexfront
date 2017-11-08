@@ -1,10 +1,8 @@
-import { Component, ViewEncapsulation, OnInit, ViewChild }      from '@angular/core';
-import { ActivatedRoute }                            from '@angular/router';
+import { Component, ViewEncapsulation, OnInit }               from '@angular/core';
+import { ActivatedRoute }                                     from '@angular/router';
 
-import { SwiperComponent, SwiperDirective, SwiperConfigInterface } from 'ngx-swiper-wrapper';
-
-import { SearchService }                             from '../../services/search.service';
-import { CSProcessService }                          from '../../services/csprocess.service';
+import { SearchService }                                      from '../../services/search.service';
+import { CSProcessService }                                   from '../../services/csprocess.service';
 
 @Component({
     selector: 'fc-process',
@@ -30,20 +28,10 @@ export class ProcessComponent implements OnInit {
     public mainMotivationalDriver: string;
     public preselectionOfContributors: string;
 
-    @ViewChild(SwiperDirective) swiper: SwiperDirective;
-
-    public config: SwiperConfigInterface = {
-        mousewheelControl: false,
-        scrollbarDraggable: false,
-        noSwiping: true,
-        simulateTouch: false,
-        effect: 'flip'
-    };
-
     constructor(
+        private route: ActivatedRoute,
         private searchService: SearchService,
-        private csProcessService: CSProcessService,
-        private route: ActivatedRoute
+        private csProcessService: CSProcessService
     ) { }
 
     public ngOnInit(): void {

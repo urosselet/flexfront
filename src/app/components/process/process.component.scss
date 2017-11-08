@@ -80,11 +80,13 @@
                 }
             }
 
-            .swiper-slide h3 {
-                font-size: 1.45rem;
-                font-weight: bold;
+            .swiper-slide {
+                h3 {
+                    font-size: 1.45rem;
+                    font-weight: bold;
 
-                color: #888;
+                    color: #888;
+                }
             }
         }
         .navigation-wrapper {
@@ -139,8 +141,10 @@
     /* Radio button styles */
     .radio-tile-group {
         $primary-color: #2da5b6;
+        height: 100%;
         .input-container {
             position: relative;
+            height: 100%;
             p {
                 line-height: 1.2;
 

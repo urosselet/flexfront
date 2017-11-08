@@ -62,6 +62,8 @@ export class BoxLayoutDirective implements AfterViewInit {
                             $el.addClass( 'bl-expand-item' );	
                         }
 
+                        $(element).resize();
+
                     } ).find( 'span.bl-icon-close' ).on( 'click', function() {
                         
                         // close the expanded section and scale up the others

@@ -27,6 +27,8 @@ import { AppRoutingModule }                     from './app-routing.module';
 import { AppComponent }                         from '../components/app.component';
 
 /* Application Components */
+import { DimensionSwiperComponent }             from '../components/_dimension-swiper/dimension-swiper.component';
+
 import { IndexComponent }                       from '../components/index/index.component';
 import { ProcessComponent }                     from '../components/process/process.component';
 
@@ -64,6 +66,7 @@ import { CSProcessResolver }                    from '../services/resolvers/cspr
         AppComponent,
         IndexComponent,
         ProcessComponent,
+        DimensionSwiperComponent,
         NgxAutoScroll,
         MapToIterable,
         BoxLayoutDirective

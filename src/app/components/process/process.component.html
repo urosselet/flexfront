@@ -7,10 +7,10 @@
 
             <div id="bl-main" class="bl-main col-8">
 
-                <section *ngFor="let csprocess of csprocesses">
+                <section *ngFor="let csprocess of csprocesses; let i = index; ">
 
                     <div class="bl-box">
-                        <h2><span><i class="fa fa-crosshairs" aria-hidden="true"></i></span> {{ csprocess.process_name}}</h2>
+                        <h2><span><i class="{{ csprocess.icon }}" aria-hidden="true"></i></span> {{ csprocess.process_name}}</h2>
                     </div>
                     
                     <!-- Content wrapper -->
@@ -20,7 +20,7 @@
                         <!-- Process infos -->
                         <div class="row process-detail">
                             <div class="col col-2 icon">
-                                <span><i class="fa fa-crosshairs" aria-hidden="true"></i></span>
+                                <span><i class="{{ csprocess.icon }}" aria-hidden="true"></i></span>
                             </div>
                             <div class="col col-10 description">
                                 <h2>{{ csprocess.label.default.title }}</h2>
@@ -32,40 +32,7 @@
                         <!-- Dimension wrapper -->
                         <div class="row">
                             <div class="col col-12">
-
-                                <div class="swiper-container" [swiper]="config" [(index)]="index">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide" *ngFor="let subdimension of csprocess.dimensions.subdimensions">
-                                            <h3>{{ subdimension.label.default.title }}</h3>
-                                            <p>{{ subdimension.label.default.description }}</p>
-                                            
-                                            <div class="row subdimensions-wrapper">
-                                                <div class="col" *ngFor="let characteristic of subdimension.label.default.characteristics.default">
-                                                    <div class="radio-tile-group">
-                                                        <div class="input-container">
-                                                            <input id="walk" class="radio-button" type="radio" name="radio" />
-                                                            <div class="radio-tile">
-                                                                <label for="walk" class="radio-tile-label">{{ characteristic.title }}</label>
-                                                                <div class="icon">
-                                                                    <i class="fa fa-cubes" aria-hidden="true"></i>
-                                                                </div>
-                                                                <p>{{ characteristic.description }}</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="navigation-wrapper">
-                                    <div class="icon" (click)="swiper.prevSlide()"><span class="fa fa-chevron-left" aria-hidden="true"></span></div>
-                                    <div class="index">{{ swiper?.getIndex() + 1 }} / {{ csprocess.dimensions.subdimensions.length }}</div>
-                                    <div class="icon" (click)="swiper.nextSlide()"><span class="fa fa-chevron-right" aria-hidden="true"></span></div>
-                                </div>
-                                
+                                <dimension-swiper [subdimensions]="csprocess.dimensions.subdimensions"></dimension-swiper>
                             </div>
                         </div>
                         <!-- END::Dimension wrapper -->
@@ -78,15 +45,18 @@
                         <h2 class="bl-icon bl-icon-contact"><span><i class="fa fa-tachometer" aria-hidden="true"></i></span> Evaluation</h2>
                     </div>
                     <div class="bl-content">
-                        <h2>Get in touch</h2>
-                        <p>Pinterest semiotics single-origin coffee craft beer thundercats irony, tumblr bushwick intelligentsia pickled.
-                            Narwhal mustache godard master cleanse street art, occupy ugh selfies put a bird on it cray salvia four
-                            loko gluten-free shoreditch. Occupy american apparel freegan cliche. Mustache trust fund 8-bit jean shorts
-                            mumblecore thundercats. Pour-over small batch forage cray, banjo post-ironic flannel keffiyeh cred ethnic
-                            semiotics next level tousled fashion axe. Sustainable cardigan keytar fap bushwick bespoke.
-                        </p>
+                        <span class="bl-icon-close"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+
+                        <div class="row process-detail">
+                            <div class="col col-2 icon">
+                                <span><i class="fa fa-crosshairs" aria-hidden="true"></i></span>
+                            </div>
+                            <div class="col col-10 description">
+                                <h2>Evaluation</h2>
+                                <p>Pinterest semiotics single-origin coffee craft beer thundercats irony, tumblr bushwick intelligentsia pickled. Narwhal mustache godard master cleanse street art, occupy ugh selfies put a bird on it cray salvia four loko gluten-free shoreditch.</p>
+                            </div>
+                        </div>
                     </div>
-                    <span class="bl-icon-close"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
                 </section>
 
             </div>
