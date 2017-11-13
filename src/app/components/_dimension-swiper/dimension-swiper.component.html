@@ -1,26 +1,25 @@
 <!-- Swiper container -->
 <div class="swiper-container" [swiper]="config">
     <div class="swiper-wrapper">
-        <div class="swiper-slide" *ngFor="let subdimension of subdimensions">
-            <h3>{{ subdimension.label.default.title }}</h3>
-            <p>{{ subdimension.label.default.description }}</p>
+        <div class="swiper-slide" *ngFor="let activity of activities">
+            <h3>{{ activity.label.default.title }}</h3>
+            <p>{{ activity.label.default.description }}</p>
             <div class="row subdimensions-wrapper">
-                <div class="col" *ngFor="let characteristic of subdimension.label.default.characteristics.default">
+                <div class="col" *ngFor="let card of activity.label.default.cards.default">
                     <div class="radio-tile-group">
                         <div class="input-container">
                             <input id="walk" class="radio-button" type="radio" name="radio" />
                             <div class="radio-tile">
-                                <label for="walk" class="radio-tile-label">{{ characteristic.title }}</label>
+                                <label for="walk" class="radio-tile-label">{{ card.title }}</label>
                                 <div class="icon">
                                     <i class="fa fa-cubes" aria-hidden="true"></i>
                                 </div>
-                                <p>{{ characteristic.description }}</p>
+                                <p>{{ card.description }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
 </div> 
@@ -29,7 +28,7 @@
 <!-- Swiper navigation -->
 <div class="navigation-wrapper">
     <div class="icon" (click)="swiper.prevSlide()"><span class="fa fa-chevron-left" aria-hidden="true"></span></div>
-    <div class="index">{{ swiper?.getIndex() + 1 }} / {{ subdimensions.length }}</div>
+    <div class="index">{{ swiper?.getIndex() + 1 }} / {{ activities.length }}</div>
     <div class="icon" (click)="swiper.nextSlide()"><span class="fa fa-chevron-right" aria-hidden="true"></span></div>
-</div>
+</div> 
 <!-- END::Swiper navigation -->

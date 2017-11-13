@@ -12,13 +12,11 @@ import { SwiperDirective, SwiperConfigInterface }           			from 'ngx-swiper-
 
 export class DimensionSwiperComponent implements AfterViewInit {
 
-    @Input() subdimensions: any = []; 
+    @Input() activities: any = []; 
 
 	@ViewChild(SwiperDirective) swiper: SwiperDirective;
 
     public config: SwiperConfigInterface = {
-        mousewheelControl: false,
-        scrollbarDraggable: false,
         noSwiping: true,
         simulateTouch: true,
         slidesPerColumnFill: 'row',
@@ -27,6 +25,6 @@ export class DimensionSwiperComponent implements AfterViewInit {
 
     constructor() { }
 
-    ngAfterViewInit(): void { }
+    ngAfterViewInit(): void { console.log(this.activities) }
 
 }

@@ -13,6 +13,7 @@ export class CSProcessService extends CommonService {
      * @type {String}
      */
     private baseUrl = process.env.API_URL.concat('csprocess/');
+    private activityUrl = process.env.API_URL.concat('csactivity/');
 
     /**
      * Class constructor
@@ -28,7 +29,7 @@ export class CSProcessService extends CommonService {
      * @return {Observable<any[]>} [description]
      */
     public findOne(): Observable<any> {
-        return this.http.get(this.baseUrl + 'wizard')
+        return this.http.get(this.activityUrl + 'wizard')
             .map((res: Response) => res.json())
             .catch(this.handleError);
     }

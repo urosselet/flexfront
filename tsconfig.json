@@ -1,6 +1,11 @@
 {
     "compilerOptions": {
         "baseUrl": "",
+        "paths": {
+            "@angular/*": [
+                "../node_modules/@angular/*"
+            ]
+        },
         "target": "es5",
         "module": "commonjs",
         "moduleResolution": "node",
@@ -12,9 +17,9 @@
         "experimentalDecorators": true,
         "noImplicitAny": false,
         "suppressImplicitAnyIndexErrors": true,
-	    "allowSyntheticDefaultImports": true,
-	    "noEmit": true,
-	    "noEmitHelpers": true,
+        "allowSyntheticDefaultImports": true,
+        "noEmit": true,
+        "noEmitHelpers": true,
         "importHelpers": true,
         "allowJs": true
     },

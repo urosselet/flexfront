@@ -3,9 +3,6 @@ import { Router }                                           from '@angular/route
 
 import { Observable }                                       from 'rxjs/Observable';
 
-import { CookieService }                                    from 'ngx-cookie';
-import { MnFullpageOptions, MnFullpageService }             from 'ngx-fullpage/index';
-
 import { SearchService }                                    from '../../services/search.service';
 
 @Component({
@@ -29,7 +26,6 @@ export class IndexComponent {
 
     constructor(
         private searchService: SearchService,
-        private cookieService: CookieService,
         private router: Router
     ) { }
 

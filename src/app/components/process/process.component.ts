@@ -17,7 +17,7 @@ export class ProcessComponent implements OnInit {
     public category: string;
     public results: any;
     public platform: any;
-    public csprocesses: any[] = [];
+    public csactivities: any[] = [];
 
     public attributes: any = { 'process': {}, 'goal': {}, 'crowd': {}, 'task': {} };
 
@@ -37,7 +37,7 @@ export class ProcessComponent implements OnInit {
     public ngOnInit(): void {
 
         this.route.data.subscribe(resolved => {
-            this.csprocesses = resolved.csprocess;
+            this.csactivities = resolved.csactivities;
         });
 
         this.query = this.searchService.getQuery();

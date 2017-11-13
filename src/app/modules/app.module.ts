@@ -8,17 +8,9 @@ import { HttpModule, JsonpModule }              from '@angular/http';
 import { MatRadioModule, MatButtonModule }      from '@angular/material';
 
 /* Third party modules */
-import { CookieModule }                         from 'ngx-cookie';
 import { NgxAutoScroll }                        from 'ngx-auto-scroll/lib/ngx-auto-scroll.directive';
 import { NguiAutoCompleteModule }               from '@ngui/auto-complete';
-import { MnFullpageModule }                     from 'ngx-fullpage';
-import { ArchwizardModule }                     from 'ng2-archwizard';
-
-import { 
-    SwiperModule, 
-    SWIPER_CONFIG, 
-    SwiperConfigInterface 
-}                                               from 'ngx-swiper-wrapper';
+import { SwiperModule }                         from 'ngx-swiper-wrapper';
 
 /* Application Wide routing */
 import { AppRoutingModule }                     from './app-routing.module';
@@ -57,10 +49,7 @@ import { CSProcessResolver }                    from '../services/resolvers/cspr
         MatRadioModule,
         MatButtonModule,
         NguiAutoCompleteModule,
-        SwiperModule,
-        ArchwizardModule,
-        CookieModule.forRoot(),
-        MnFullpageModule.forRoot()
+        SwiperModule
     ],
     declarations: [
         AppComponent,

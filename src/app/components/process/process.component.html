@@ -7,10 +7,10 @@
 
             <div id="bl-main" class="bl-main col-8">
 
-                <section *ngFor="let csprocess of csprocesses; let i = index; ">
+                <section *ngFor="let csactivity of csactivities; let i = index; ">
 
                     <div class="bl-box">
-                        <h2><span><i class="{{ csprocess.icon }}" aria-hidden="true"></i></span> {{ csprocess.process_name}}</h2>
+                        <h2><span><i class="{{ csactivity.icon }}" aria-hidden="true"></i></span> {{ csactivity.activity_name}}</h2>
                     </div>
                     
                     <!-- Content wrapper -->
@@ -20,11 +20,11 @@
                         <!-- Process infos -->
                         <div class="row process-detail">
                             <div class="col col-2 icon">
-                                <span><i class="{{ csprocess.icon }}" aria-hidden="true"></i></span>
+                                <span><i class="{{ csactivity.icon }}" aria-hidden="true"></i></span>
                             </div>
                             <div class="col col-10 description">
-                                <h2>{{ csprocess.label.default.title }}</h2>
-                                <p>{{ csprocess.label.default.description }}</p>
+                                <h2>{{ csactivity.label.default.title }}</h2>
+                                <p>{{ csactivity.label.default.description }}</p>
                             </div>
                         </div>
                         <!-- END::Process infos -->
@@ -32,7 +32,7 @@
                         <!-- Dimension wrapper -->
                         <div class="row">
                             <div class="col col-12">
-                                <dimension-swiper [subdimensions]="csprocess.dimensions.subdimensions"></dimension-swiper>
+                                <dimension-swiper [activities]="csactivity.activities"></dimension-swiper>
                             </div>
                         </div>
                         <!-- END::Dimension wrapper -->
