@@ -59,7 +59,7 @@ export class BoxLayoutDirective implements AfterViewInit {
 
                         if ( !$section.data( 'open' ) ) {
                             $section.data( 'open', true ).addClass( 'bl-expand bl-expand-top' );
-                            $el.addClass( 'bl-expand-item' );	
+                            $el.addClass( 'bl-expand-item' );
                         }
 
                     } ).find( 'span.bl-icon-close' ).on( 'click', function() {
