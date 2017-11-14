@@ -42,7 +42,7 @@ module.exports = webpackMerge(commonConfig, {
             'process.env': {
                 'ENV': JSON.stringify('DEV'),
                 'NODE_ENV': JSON.stringify('DEV'),
-                'API_URL': JSON.stringify('https://api.flexcrowd.org:'),
+                'API_URL': JSON.stringify('https://api.flexcrowd.org'),
                 'SOCKET_URL': JSON.stringify('https://dev.flexcrowd.org'),
             }
         }),
