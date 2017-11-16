@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, AfterViewInit, Input, ViewChild }      	from '@angular/core';
 
-import { SwiperDirective, SwiperConfigInterface }           			from 'ngx-swiper-wrapper';
+import { SwiperDirective, SwiperConfigInterface }           			        from 'ngx-swiper-wrapper';
 
 
 @Component({
@@ -25,6 +25,6 @@ export class DimensionSwiperComponent implements AfterViewInit {
 
     constructor() { }
 
-    ngAfterViewInit(): void { console.log(this.activities) }
+    ngAfterViewInit(): void { }
 
 }

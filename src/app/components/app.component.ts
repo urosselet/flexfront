@@ -7,10 +7,6 @@ import { SearchService }                                            from '../ser
 
 import { slideInOutAnimation }                                      from '../directives/router.transition';
 
-import * as jQuery                                                  from 'jquery';
-
-import 'fullpage.js';
-
 @Component({
     selector: 'fc-app',
     templateUrl: 'app.component.html',

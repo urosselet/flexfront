@@ -10,7 +10,7 @@
                 <section *ngFor="let csactivity of csactivities; let i = index; ">
 
                     <div class="bl-box">
-                        <h2><span><i class="{{ csactivity.icon }}" aria-hidden="true"></i></span> {{ csactivity.activity_name}}</h2>
+                        <h2><span><i class="icon flx-{{ csactivity.icon }}" aria-hidden="true"></i></span> {{ csactivity.label.default.title }}</h2>
                     </div>
                     
                     <!-- Content wrapper -->
@@ -20,7 +20,7 @@
                         <!-- Process infos -->
                         <div class="row process-detail">
                             <div class="col col-2 icon">
-                                <span><i class="{{ csactivity.icon }}" aria-hidden="true"></i></span>
+                                <span><i class="icon flx-{{ csactivity.icon }}" aria-hidden="true"></i></span>
                             </div>
                             <div class="col col-10 description">
                                 <h2>{{ csactivity.label.default.title }}</h2>
@@ -40,26 +40,6 @@
                     <!-- END::Content wrapper -->
                 </section>
                 
-                <!--
-                <section>
-                    <div class="bl-box">
-                        <h2 class="bl-icon bl-icon-contact"><span><i class="fa fa-tachometer" aria-hidden="true"></i></span> Evaluation</h2>
-                    </div>
-                    <div class="bl-content">
-                        <span class="bl-icon-close"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
-
-                        <div class="row process-detail">
-                            <div class="col col-2 icon">
-                                <span><i class="fa fa-crosshairs" aria-hidden="true"></i></span>
-                            </div>
-                            <div class="col col-10 description">
-                                <h2>Evaluation</h2>
-                                <p>Pinterest semiotics single-origin coffee craft beer thundercats irony, tumblr bushwick intelligentsia pickled. Narwhal mustache godard master cleanse street art, occupy ugh selfies put a bird on it cray salvia four loko gluten-free shoreditch.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                -->
             </div>
 
         </div>
