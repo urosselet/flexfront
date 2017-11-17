@@ -11,6 +11,7 @@ import { MatRadioModule, MatButtonModule }      from '@angular/material';
 import { NgxAutoScroll }                        from 'ngx-auto-scroll/lib/ngx-auto-scroll.directive';
 import { NguiAutoCompleteModule }               from '@ngui/auto-complete';
 import { SwiperModule }                         from 'ngx-swiper-wrapper';
+import { ArchwizardModule }                     from 'ng2-archwizard';
 
 /* Application Wide routing */
 import { AppRoutingModule }                     from './app-routing.module';
@@ -49,7 +50,8 @@ import { CSProcessResolver }                    from '../services/resolvers/cspr
         MatRadioModule,
         MatButtonModule,
         NguiAutoCompleteModule,
-        SwiperModule
+        SwiperModule,
+        ArchwizardModule
     ],
     declarations: [
         AppComponent,

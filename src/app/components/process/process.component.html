@@ -5,43 +5,18 @@
         <!-- Process Section -->
         <div class="col-8 processes-wrapper" box-layout>
 
-            <div id="bl-main" class="bl-main col-8">
-
-                <section *ngFor="let csactivity of csactivities; let i = index; ">
-
+            <div id="bl-main" class="bl-main">
+                <section *ngFor="let csactivity of csactivities">
                     <div class="bl-box">
                         <h2><span><i class="icon flx-{{ csactivity.icon }}" aria-hidden="true"></i></span> {{ csactivity.label.default.title }}</h2>
                     </div>
-                    
                     <!-- Content wrapper -->
                     <div class="bl-content">
-                        <span class="bl-icon-close"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
-                        
-                        <!-- Process infos -->
-                        <div class="row process-detail">
-                            <div class="col col-2 icon">
-                                <span><i class="icon flx-{{ csactivity.icon }}" aria-hidden="true"></i></span>
-                            </div>
-                            <div class="col col-10 description">
-                                <h2>{{ csactivity.label.default.title }}</h2>
-                                <p>{{ csactivity.label.default.description }}</p>
-                            </div>
-                        </div>
-                        <!-- END::Process infos -->
-                        
-                        <!-- Dimension wrapper -->
-                        <div class="row">
-                            <div class="col col-12">
-                                <dimension-swiper [activities]="csactivity.activities"></dimension-swiper>
-                            </div>
-                        </div>
-                        <!-- END::Dimension wrapper -->
+                        <dimension-swiper [activities]="csactivity.activities"></dimension-swiper>
                     </div>
                     <!-- END::Content wrapper -->
                 </section>
-                
             </div>
-
         </div>
 
         <!-- Recommendation Section -->

@@ -12,7 +12,7 @@ import { SwiperDirective, SwiperConfigInterface }           			        from 'ngx
 
 export class DimensionSwiperComponent implements AfterViewInit {
 
-    @Input() activities: any = []; 
+    @Input() activities: any[] = []; 
 
 	@ViewChild(SwiperDirective) swiper: SwiperDirective;
 
