@@ -7,16 +7,35 @@
 
     .processes-wrapper {
         padding: 2rem;
-        .bl-box h2 span {
-            font-size: 8rem;
 
-            display: block;
+        #bl-main > .not-active {
+            background: #aaa;
+        }
+
+        #bl-main > .active {
+            background: #2da5b6;
+        }
+
+        .bl-box {
+            .activity-status {
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 1rem;
+                i { font-size: 2rem; }
+            }
+            h2 span {
+                font-size: 8rem;
+
+                display: block;
+            }
         }
         .bl-content {
             height: 100%;
             padding-right: 2rem;
 
             border-right: 2px solid #2da5b6;
+
             .bl-icon-close i {
                 font-size: 1.5rem;
 
@@ -47,9 +66,9 @@
         h2 {
             font-size: 1.5rem;
 
-            color: #888;
-
             text-transform: uppercase;
+
+            color: #888;
         }
         .result-wrapper {
             margin-top: 2rem;

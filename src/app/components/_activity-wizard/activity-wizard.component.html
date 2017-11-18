@@ -1,0 +1,96 @@
+<span class="bl-icon-close"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+
+<wizard id="wizard-container" navBarLocation="left" navBarLayout="large-empty-symbols">
+
+    <div *ngFor="let activity of activities; let activityIndex = index; ">
+
+        <wizard-step stepTitle="{{ activity.label.default.title }}" navigationSymbol="&#xe377;" navigationSymbolFontFamily="flexcrowd" *ngIf="activityIndex < activities.length - 1 ">
+            
+            <!-- Activity detail section -->
+            <div class="row activity-wrapper">
+                <div class="col-9">
+                    <h1>{{ activity.label.default.title }}</h1>
+                    <p>{{ activity.label.default.description }}</p>
+                </div>
+                <div class="col-3 activity-icon">
+                    <span><i class="icon flx-{{ activity.label.default.icon }}" aria-hidden="true"></i></span>
+                </div>
+            </div>
+            
+            <!-- Cards section -->
+            <div class="row cards-wrapper">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col radio-tile-group" *ngFor="let card of activity.label.default.cards.default; let cardIndex = index; ">
+                            <div class="input-container">
+                                <input id="card_{{ cardIndex }}" class="radio-button" type="radio" name="activity-card_{{ activityIndex }}" [value]="card?.cs_initiatives" (change)="onSelectCard(activityIndex, card?.cs_initiatives)" />
+                                <div class="radio-tile">
+                                    <label for="card_{{ cardIndex }}" class="radio-tile-label">{{ card.title }}</label>
+                                    <div class="icon">
+                                        <i class="icon flx-{{ card.icon }}" aria-hidden="true"></i>
+                                    </div>
+                                    <p>{{ card.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wizard-navigation">
+                        <button class="btn btn-success" type="button" previousStep *ngIf="activityIndex > 0"><i class="icon flx-arrow-left-8"></i>Back</button>
+                        <button class="btn btn-success float-right" type="button" nextStep *ngIf="activityIndex !== activities.length - 1">Next decision <i class="icon flx-arrow-right-8"></i></button>
+                    </div>
+                </div>
+            </div>
+
+        </wizard-step>
+
+        <wizard-completion-step stepTitle="{{ activity.label.default.title }}" navigationSymbol="&#xe377;" navigationSymbolFontFamily="flexcrowd" *ngIf="activityIndex === activities.length - 1" enableBackLinks>
+            
+            <!-- Activity detail section -->
+            <div class="row activity-wrapper">
+                <div class="col-9">
+                    <h1>{{ activity.label.default.title }}</h1>
+                    <p>{{ activity.label.default.description }}</p>
+                </div>
+                <div class="col-3 activity-icon">
+                    <span><i class="icon flx-{{ activity.label.default.icon }}" aria-hidden="true"></i></span>
+                </div>
+            </div>
+            
+            <!-- Cards section -->
+            <div class="row cards-wrapper">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col radio-tile-group" *ngFor="let card of activity.label.default.cards.default; let cardIndex = index; ">
+                            <div class="input-container">
+                                
+                                <input id="card_{{ cardIndex }}" class="radio-button" type="radio" name="activity-card_{{ activityIndex }}" [value]="card?.cs_initiatives" (change)="onSelectCard(activityIndex, card?.cs_initiatives)" />
+                                
+                                <div class="radio-tile">
+                                    
+                                    <label for="card_{{ cardIndex }}" class="radio-tile-label">{{ card.title }}</label>
+                                    
+                                    <div class="icon">
+                                        <i class="icon flx-{{ card.icon }}" aria-hidden="true"></i>
+                                    </div>
+                                    
+                                    <p>{{ card.description }}</p>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wizard-navigation">
+                        <button class="btn btn-success" type="button" previousStep *ngIf="activityIndex > 0"><i class="icon flx-arrow-left-8"></i>Back</button>
+                        <button class="btn btn-success float-right" type="button" *ngIf="activityIndex === activities.length - 1" (click)="finalizeStep(index)"><i class="icon flx-check-1"></i> Next Quadrant</button>
+                    </div>
+                </div>
+            </div>
+
+        </wizard-completion-step>
+
+    </div>
+
+</wizard>

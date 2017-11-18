@@ -8,9 +8,7 @@ import { HttpModule, JsonpModule }              from '@angular/http';
 import { MatRadioModule, MatButtonModule }      from '@angular/material';
 
 /* Third party modules */
-import { NgxAutoScroll }                        from 'ngx-auto-scroll/lib/ngx-auto-scroll.directive';
 import { NguiAutoCompleteModule }               from '@ngui/auto-complete';
-import { SwiperModule }                         from 'ngx-swiper-wrapper';
 import { ArchwizardModule }                     from 'ng2-archwizard';
 
 /* Application Wide routing */
@@ -20,7 +18,7 @@ import { AppRoutingModule }                     from './app-routing.module';
 import { AppComponent }                         from '../components/app.component';
 
 /* Application Components */
-import { DimensionSwiperComponent }             from '../components/_dimension-swiper/dimension-swiper.component';
+import { ActivityWizardComponent }              from '../components/_activity-wizard/activity-wizard.component';
 
 import { IndexComponent }                       from '../components/index/index.component';
 import { ProcessComponent }                     from '../components/process/process.component';
@@ -50,15 +48,13 @@ import { CSProcessResolver }                    from '../services/resolvers/cspr
         MatRadioModule,
         MatButtonModule,
         NguiAutoCompleteModule,
-        SwiperModule,
         ArchwizardModule
     ],
     declarations: [
         AppComponent,
         IndexComponent,
         ProcessComponent,
-        DimensionSwiperComponent,
-        NgxAutoScroll,
+        ActivityWizardComponent,
         MapToIterable,
         BoxLayoutDirective
     ],

@@ -95,8 +95,7 @@ module.exports = {
             jquery: 'jquery',
       		$: 'jquery',
             Popper: ['popper.js', 'default'],
-            Hammer: 'hammerjs/hammer',
-            swiper: 'swiper'
+            Hammer: 'hammerjs/hammer'
 		})
 
     ]

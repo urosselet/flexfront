@@ -1,8 +1,10 @@
-import { Component, ViewEncapsulation, OnInit }               from '@angular/core';
-import { ActivatedRoute }                                     from '@angular/router';
+import { Component, ViewEncapsulation, OnInit, ViewChild, Output, EventEmitter }    from '@angular/core';
+import { ActivatedRoute }                                                           from '@angular/router';
 
-import { SearchService }                                      from '../../services/search.service';
-import { CSProcessService }                                   from '../../services/csprocess.service';
+import { BoxLayoutDirective }                                                       from '../../directives/boxlayout.directive';
+
+import { SearchService }                                                            from '../../services/search.service';
+import { CSProcessService }                                                         from '../../services/csprocess.service';
 
 @Component({
     selector: 'fc-process',
@@ -13,20 +15,17 @@ import { CSProcessService }                                   from '../../servic
 
 export class ProcessComponent implements OnInit {
 
+    @Output() change = new EventEmitter();
+
+    @ViewChild(BoxLayoutDirective) boxLayout: BoxLayoutDirective;
+
     public query: string;
     public category: string;
     public results: any;
     public platform: any;
     public csactivities: any[] = [];
-
-    public attributes: any = { 'process': {}, 'goal': {}, 'crowd': {}, 'task': {} };
-
-    public goalValueType: string;
-    public taskType: string;
-    public aggregationOfContributions: string;
-    public peerContributionsAccessibility: string;
-    public mainMotivationalDriver: string;
-    public preselectionOfContributors: string;
+    public activitiesStatus: any[] = [];
+    public attributesArray: any[] = [];
 
     constructor(
         private route: ActivatedRoute,
@@ -37,18 +36,28 @@ export class ProcessComponent implements OnInit {
     public ngOnInit(): void {
 
         this.route.data.subscribe(resolved => {
+
             this.csactivities = resolved.csactivities;
+
+            this.csactivities.forEach((item, index) => {
+
+                let activity = null;
+
+                if (index === 0) {
+                    activity = { 'index': index, 'actitity': 'activity_' + index, 'state': 'active', 'isCompleted': false };
+                } else {
+                    activity = { 'index': index, 'actitity': 'activity_' + index, 'state': 'not-active', 'isCompleted': false };
+                }
+
+                this.activitiesStatus.push(activity);
+                
+            });
+
         });
 
         this.query = this.searchService.getQuery();
         this.category = this.searchService.getCategory();
         this.results = this.searchService.getResults();
-
-        // if (!this.query) { this.router.navigate(['/index']); }
-    }
-
-    public handleChange(value: string, key: string, type: string): void {
-        this.attributes[type][key] = value;
     }
 
     public getPlatformDetail(id: number): void {

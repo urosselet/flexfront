@@ -62,8 +62,6 @@ a:hover {
 .bl-main > section:first-child {
     top: 0;
     left: 0;
-
-    background: #2da5b6;
 }
 
 .bl-main > section:nth-child(2) {
@@ -388,16 +386,16 @@ div.bl-panel-items > div.bl-hide-current-work {
 }
 
 .bl-main > section:first-child.bl-expand {
-    background: #fff;
+    background: #fff !important;
 }
 .bl-main > section:nth-child(2).bl-expand {
-    background: #fff;
+    background: #fff !important;
 }
 .bl-main > section:nth-child(3).bl-expand {
-    background: #fff;
+    background: #fff !important;
 }
 .bl-main > section:nth-child(4).bl-expand {
-    background: #fff;
+    background: #fff !important;
 }
 
 .bl-main.bl-expand-item > section:not(.bl-expand),

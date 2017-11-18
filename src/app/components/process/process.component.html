@@ -3,19 +3,33 @@
     <div class="row">
         
         <!-- Process Section -->
-        <div class="col-8 processes-wrapper" box-layout>
+        <div class="col-8 processes-wrapper" boxLayout>
 
             <div id="bl-main" class="bl-main">
-                <section *ngFor="let csactivity of csactivities">
+
+                <section class="{{ activitiesStatus[i].state }}" *ngFor="let csactivity of csactivities; let i = index; ">
+
                     <div class="bl-box">
+                        <div class="activity-status" *ngIf="activitiesStatus[i].isCompleted"><i class="icon flx-check-badge"></i></div>
                         <h2><span><i class="icon flx-{{ csactivity.icon }}" aria-hidden="true"></i></span> {{ csactivity.label.default.title }}</h2>
                     </div>
+
                     <!-- Content wrapper -->
                     <div class="bl-content">
-                        <dimension-swiper [activities]="csactivity.activities"></dimension-swiper>
+
+                        <activity-wizard 
+                            [activities]="csactivity.activities" 
+                            [index]="activitiesStatus[i].index"
+                            [activitiesStatus]="activitiesStatus"
+                            [attributesArray]="attributesArray">
+                            
+                        </activity-wizard>
+
                     </div>
                     <!-- END::Content wrapper -->
+
                 </section>
+
             </div>
         </div>
 
