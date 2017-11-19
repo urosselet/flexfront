@@ -20,7 +20,7 @@ export class BoxLayoutDirective implements AfterViewInit {
         
         this.zone.run(() => {
 
-            var $el = jQuery('#bl-main', element),
+            let $el = jQuery('#bl-main', element),
                 $sections = jQuery($el).children( 'section' ),
                 transEndEventNames = {
                     'WebkitTransition' : 'webkitTransitionEnd',
@@ -81,20 +81,49 @@ export class BoxLayoutDirective implements AfterViewInit {
         const element = this.el.nativeElement;
 
         let $el = jQuery('#bl-main', element),
-            $sections = jQuery($el).children( 'section' );
+            $sections = jQuery($el).children( 'section' ),
+            transEndEventNames = {
+                    'WebkitTransition' : 'webkitTransitionEnd',
+                    'MozTransition' : 'transitionend',
+                    'OTransition' : 'oTransitionEnd',
+                    'msTransition' : 'MSTransitionEnd',
+                    'transition' : 'transitionend'
+                },
+            transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
+            supportTransitions = Modernizr.csstransitions;
         
         this.zone.run(() => {
 
             if (index <= 2) {
 
-                jQuery($sections[index]).removeClass( 'bl-expand bl-expand-top' );
+                jQuery($sections[index]).removeClass( 'bl-expand' ).on( transEndEventName, function( event ) {
+
+                    $( this ).data( 'open', false );
+
+                    if ( !$( event.target ).is( 'section' ) ) return false;
+
+                    $( this ).off( transEndEventName ).removeClass( 'bl-expand-top' );
+
+                });
+
+                if ( !supportTransitions ) {
+                    jQuery($sections[index]).removeClass( 'bl-expand-top' );
+                }
+
                 $el.removeClass( 'bl-expand-item' );
 
                 Observable.interval(1000).take(4).subscribe(() => {
+
                     jQuery($sections[index + 1]).data( 'open', true ).addClass( 'bl-expand bl-expand-top' );
                     $el.addClass( 'bl-expand-item' );
+
                 });
+
+                return false;
+
+
             } else {
+
                 jQuery($sections[index]).removeClass( 'bl-expand bl-expand-top' );
                 $el.removeClass( 'bl-expand-item' );
             }
