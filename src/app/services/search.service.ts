@@ -78,8 +78,19 @@ export class SearchService extends CommonService {
      * @param  {any}             query [description]
      * @return {Observable<any>}       [description]
      */
-    public getPlatform(id: number): Observable<any> {
+    public getPlatform(id: number): Observable<number> {
         return this.http.get(this.platformBaseUrl + 'getplatformdetail/' + id, new RequestOptions({}))
+            .map((res: Response) => res.json())
+            .catch(this.handleError);
+    }
+
+    /**
+     * Get platforms by attributes
+     * @param  {any}             query [description]
+     * @return {Observable<any>}       [description]
+     */
+    public getPlatforms(attributes: any): Observable<any> {
+        return this.http.post(this.baseUrl + 'platforms', attributes)
             .map((res: Response) => res.json())
             .catch(this.handleError);
     }

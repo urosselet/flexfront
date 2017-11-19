@@ -1,8 +1,16 @@
 #wizard-container {
     height: 100%;
-    margin-top: 4rem;
+    margin-top: 2rem;
 
     align-items: baseline;
+
+    .wizard-steps {
+        display: block;
+
+        padding-top: 2rem;
+
+        border-top: 2px solid #2da5b6;
+    }
 
     wizard-navigation-bar {
         width: 25%;
@@ -10,20 +18,25 @@
 
         ul {
             padding: 5px 5px 5px 35px;
+            padding-top: 2.2rem;
+
+            border-top: 2px solid #2da5b6;
 
             li {
-                font-size: 1.75rem;
+                font-size: 1.5rem;
 
                 padding-bottom: 0;
                 a {
-                    line-height: 1.5;
+                    line-height: 1.2;
 
                     margin-left: 0;
                     padding: 0;
-                    padding-top: 10px;
 
                     letter-spacing: 0;
                     text-transform: capitalize;
+                }
+                &:after {
+                    line-height: 1.4;
                 }
             }
             li > div {
@@ -153,7 +166,8 @@
                 justify-content: center;
 
                 .icon > i {
-                    font-size: 5rem;
+                    font-size: 4rem;
+                    line-height: 0;
                 }
             }
             .radio-tile-label {
@@ -169,7 +183,7 @@
 
             //active tile styles
             .radio-button:checked + .radio-tile {
-                transform: scale(1.1, 1.1);
+                transform: scale(1.025, 1.025);
 
                 color: white;
                 border: 2px solid $primary-color;

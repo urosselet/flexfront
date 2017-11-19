@@ -13,9 +13,12 @@ export class ActivityWizardComponent implements AfterViewInit {
 
     public card: any;
 
-    private allActivities: any = [];
+    private activity: any = [];
 
-    @Output() change: EventEmitter<number> = new EventEmitter<number>()
+    @Output() change: EventEmitter<number> = new EventEmitter<number>();
+    @Output() filter: EventEmitter<any> = new EventEmitter<any>();
+
+    @Input() quadrants: any[] = [];
 
     @Input() attributesArray: any[] = [];
     @Input() activities: any[] = [];
@@ -31,18 +34,25 @@ export class ActivityWizardComponent implements AfterViewInit {
         this.activitiesStatus[index].isCompleted = true;
         this.activitiesStatus[index].state = 'active';
 
+        this.quadrants.push(this.activity);
+
         this.change.emit(index);
+
+        this.filter.emit(this.quadrants);
 
     }
 
     public onSelectCard(activityIndex: number, attributes: any): void {
 
-        /* if (attributes) {
-            this.allActivities[this.index][activityIndex] = attributes;
+        if (attributes) {
+            this.activity[activityIndex] = attributes;
         } else {
-            this.allActivities[this.index][activityIndex] = null;
-        }*/
+            this.activity[activityIndex] = null;
+        }
 
+        this.activity = _.without(this.activity, null);
+        this.activity = _.without(this.activity, undefined);
+        
     }
 
 }

@@ -25,6 +25,8 @@ export class ProcessComponent implements OnInit {
     public activitiesStatus: any[] = [];
     public attributesArray: any[] = [];
 
+    public quadrants: any[] = [];
+
     constructor(
         private route: ActivatedRoute,
         private searchService: SearchService,
@@ -67,6 +69,13 @@ export class ProcessComponent implements OnInit {
 
     public activityCompleted(event: any): void {
         this.boxLayout.activateBox(event);
+    }
+
+    public filterPlatform(attributes: any): void {
+        this.searchService.getPlatforms(attributes[0][0])
+            .subscribe(
+                (res) => { console.log('ok') },
+                (error) => {});
     }
 
 }

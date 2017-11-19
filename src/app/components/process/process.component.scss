@@ -21,8 +21,11 @@
                 position: absolute;
                 top: 0;
                 right: 0;
+
                 padding: 1rem;
-                i { font-size: 2rem; }
+                i {
+                    font-size: 2rem;
+                }
             }
             h2 span {
                 font-size: 8rem;
@@ -69,6 +72,9 @@
             text-transform: uppercase;
 
             color: #888;
+        }
+        .query-detail {
+            background: #2da5b6;
         }
         .result-wrapper {
             margin-top: 2rem;
