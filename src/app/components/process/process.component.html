@@ -21,7 +21,8 @@
                             [activities]="csactivity.activities" 
                             [index]="activitiesStatus[i].index"
                             [activitiesStatus]="activitiesStatus"
-                            [attributesArray]="attributesArray">
+                            [attributesArray]="attributesArray"
+                            (change)="activityCompleted($event)">
                             
                         </activity-wizard>
 

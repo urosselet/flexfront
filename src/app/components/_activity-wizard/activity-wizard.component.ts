@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, AfterViewInit, Input, ViewChild }      	from '@angular/core';
+import { Component, ViewEncapsulation, AfterViewInit, Input, Output, EventEmitter }      	from '@angular/core';
 
 import * as _ from 'underscore'
 
@@ -15,6 +15,8 @@ export class ActivityWizardComponent implements AfterViewInit {
 
     private allActivities: any = [];
 
+    @Output() change: EventEmitter<number> = new EventEmitter<number>()
+
     @Input() attributesArray: any[] = [];
     @Input() activities: any[] = [];
     @Input() activitiesStatus: any[] = [];
@@ -25,8 +27,12 @@ export class ActivityWizardComponent implements AfterViewInit {
     ngAfterViewInit(): void { }
 
     public finalizeStep(index: number): void {
+
         this.activitiesStatus[index].isCompleted = true;
         this.activitiesStatus[index].state = 'active';
+
+        this.change.emit(index);
+
     }
 
     public onSelectCard(activityIndex: number, attributes: any): void {

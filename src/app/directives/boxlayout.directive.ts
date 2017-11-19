@@ -1,4 +1,5 @@
 import { Directive, ElementRef, Renderer, AfterViewInit, NgZone }     from '@angular/core';
+import { Observable }                                                 from 'rxjs/Rx';
 
 import * as jQuery                                                    from 'jquery';
 
@@ -73,6 +74,32 @@ export class BoxLayoutDirective implements AfterViewInit {
             initEvents();
 
         });
+    }
+
+    public activateBox(index: number): void {
+
+        const element = this.el.nativeElement;
+
+        let $el = jQuery('#bl-main', element),
+            $sections = jQuery($el).children( 'section' );
+        
+        this.zone.run(() => {
+
+            if (index <= 2) {
+
+                jQuery($sections[index]).removeClass( 'bl-expand bl-expand-top' );
+                $el.removeClass( 'bl-expand-item' );
+
+                Observable.interval(1000).take(4).subscribe(() => {
+                    jQuery($sections[index + 1]).data( 'open', true ).addClass( 'bl-expand bl-expand-top' );
+                    $el.addClass( 'bl-expand-item' );
+                });
+            } else {
+                jQuery($sections[index]).removeClass( 'bl-expand bl-expand-top' );
+                $el.removeClass( 'bl-expand-item' );
+            }
+        });
+
     }
 
 }

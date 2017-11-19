@@ -15,8 +15,6 @@ import { CSProcessService }                                                     
 
 export class ProcessComponent implements OnInit {
 
-    @Output() change = new EventEmitter();
-
     @ViewChild(BoxLayoutDirective) boxLayout: BoxLayoutDirective;
 
     public query: string;
@@ -65,6 +63,10 @@ export class ProcessComponent implements OnInit {
             .subscribe(
                 (res) => { this.platform = res; },
                 (error) => {});
+    }
+
+    public activityCompleted(event: any): void {
+        this.boxLayout.activateBox(event);
     }
 
 }

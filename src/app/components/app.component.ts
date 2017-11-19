@@ -18,7 +18,6 @@ import { slideInOutAnimation }                                      from '../dir
 
 export class AppComponent implements OnInit {
 
-
     @ViewChild(IndexComponent) private indexComponent: IndexComponent;
 
     private query: string;
