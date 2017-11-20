@@ -72,9 +72,9 @@ export class ProcessComponent implements OnInit {
     }
 
     public filterPlatform(attributes: any): void {
-        this.searchService.getPlatforms(attributes[0][0])
+        this.searchService.getPlatforms(attributes)
             .subscribe(
-                (res) => { console.log('ok') },
+                (res) => { this.results = res.results; },
                 (error) => {});
     }
 
