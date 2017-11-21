@@ -4,19 +4,14 @@
         
         <!-- Process Section -->
         <div class="col-9 processes-wrapper" boxLayout>
-
             <div id="bl-main" class="bl-main">
-
                 <section class="{{ activitiesStatus[i].state }}" *ngFor="let csactivity of csactivities; let i = index; ">
-
                     <div class="bl-box">
                         <div class="activity-status" *ngIf="activitiesStatus[i].isCompleted"><i class="icon flx-check-badge"></i></div>
                         <h2><span><i class="icon flx-{{ csactivity.icon }}" aria-hidden="true"></i></span> {{ csactivity.label.default.title }}</h2>
                     </div>
-
                     <!-- Content wrapper -->
                     <div class="bl-content">
-
                         <activity-wizard 
                             [activities]="csactivity.activities" 
                             [index]="activitiesStatus[i].index"
@@ -27,12 +22,9 @@
                             (filter)="filterPlatform($event)">
                             
                         </activity-wizard>
-
                     </div>
                     <!-- END::Content wrapper -->
-
                 </section>
-
             </div>
         </div>
 
@@ -40,7 +32,6 @@
         <div class="col-3">
             <div class="recommendation-section">
                 <h1>My recommandations</h1>
-                
                 <div class="result-wrapper">
                     <!-- High score hits -->
                     <div class="high-scores-hits" *ngIf="results?.high_hits">
@@ -48,8 +39,8 @@
                         <div class="platforms">
                             <span class="platform" (click)="getPlatformDetail(platform.id)" *ngFor="let platform of results?.high_hits">{{ platform.name }}</span>
                         </div>
+                        <div style="margin-top:4rem; color: #000">{{ results?.high_hits.length }} Platforms</div>
                     </div>
-
                     <!-- Medium score hits -->
                     <div class="medium-scores-hits" *ngIf="results?.medium_hits">
                         <h2>Alternatives</h2>
@@ -57,16 +48,13 @@
                             <span class="platform" (click)="getPlatformDetail(platform.id)" *ngFor="let platform of results?.medium_hits">{{ platform.name }}</span>
                         </div>
                     </div>
-                    
                     <!--
                     <div class="query-detail">
                         <div>{{ query }}</div>
                         <div>{{ category }}</div>
                     </div>
                     -->
-
                 </div>
-
             </div>
         </div>
 
