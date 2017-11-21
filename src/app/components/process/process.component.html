@@ -39,37 +39,31 @@
         <!-- Recommendation Section -->
         <div class="col-3">
             <div class="recommendation-section">
-                <div class="row">
-                    <h1>My recommandations</h1>
-                    <div class="col-12 result-wrapper">
-                        <!-- High score hits -->
-                        <div class="high-scores-hits">
-                            <h2>First choices</h2>
-                            <div class="flex-middle">
-                                <div class="platforms">
-                                    <span class="platform" (click)="getPlatformDetail(platform.id)" *ngFor="let platform of results?.high_hits">{{ platform.name }}</span>
-                                </div>
-                            </div>
+                <h1>My recommandations</h1>
+                
+                <div class="result-wrapper">
+                    <!-- High score hits -->
+                    <div class="high-scores-hits" *ngIf="results?.high_hits">
+                        <h2>First choices</h2>
+                        <div class="platforms">
+                            <span class="platform" (click)="getPlatformDetail(platform.id)" *ngFor="let platform of results?.high_hits">{{ platform.name }}</span>
                         </div>
-
-                        <!-- Medium score hits -->
-                        <div class="medium-scores-hits" *ngIf="results?.medium_hits">
-                            <h2>Alternatives</h2>
-                            <div class="flex-middle">
-                                <div class="platforms">
-                                    <span class="platform" (click)="getPlatformDetail(platform.id)" *ngFor="let platform of results?.medium_hits">{{ platform.name }}</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!--
-                        <div class="query-detail">
-                            <div>{{ query }}</div>
-                            <div>{{ category }}</div>
-                        </div>
-                        -->
-
                     </div>
+
+                    <!-- Medium score hits -->
+                    <div class="medium-scores-hits" *ngIf="results?.medium_hits">
+                        <h2>Alternatives</h2>
+                        <div class="platforms">
+                            <span class="platform" (click)="getPlatformDetail(platform.id)" *ngFor="let platform of results?.medium_hits">{{ platform.name }}</span>
+                        </div>
+                    </div>
+                    
+                    <!--
+                    <div class="query-detail">
+                        <div>{{ query }}</div>
+                        <div>{{ category }}</div>
+                    </div>
+                    -->
 
                 </div>
 

@@ -48,7 +48,7 @@ export class SearchService extends CommonService {
     ) { super(); }
 
     /**
-     * User query
+     * Fulltext search
      * @return {Observable<any[]>} [description]
      */
     public query(query: any): Observable<any> {

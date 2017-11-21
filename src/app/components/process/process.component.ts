@@ -58,6 +58,13 @@ export class ProcessComponent implements OnInit {
         this.query = this.searchService.getQuery();
         this.category = this.searchService.getCategory();
         this.results = this.searchService.getResults();
+
+        if (!this.results) {
+            this.searchService.query('')
+                .subscribe(
+                    (res) => { this.results = res.results; },
+                    (error) => {});
+        }
     }
 
     public getPlatformDetail(id: number): void {

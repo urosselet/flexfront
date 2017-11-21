@@ -57,9 +57,9 @@
     }
 
     .recommendation-section {
-        padding: 4rem 0;
+        position: relative;
 
-        background: #fff;
+        padding: 2.5rem 0;
         h1 {
             font-size: 2rem;
             font-weight: bold;
@@ -85,7 +85,8 @@
             .platforms span {
                 font-size: 1.25rem;
 
-                margin-right: 1rem;
+                display: inline-block;
+                padding-right: 1rem;
 
                 text-decoration: underline;
 
