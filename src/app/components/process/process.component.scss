@@ -6,52 +6,52 @@
     }
 
     .processes-wrapper {
-        padding: 2rem;
+        padding: 2rem 0 2rem 2rem;
 
-        #bl-main > .not-active {
-            background: #aaa;
-        }
+        #bl-main {
+             > .not-active {
+                background: #aaa;
+            }
+            .active {
+                background: #2da5b6;
+            }
+            .bl-box {
+                .activity-status {
+                    position: absolute;
+                    top: -15px;
+                    right: -15px;
 
-        #bl-main > .active {
-            background: #2da5b6;
-        }
+                    padding: 0 .5rem;
+                    i {
+                        font-size: 2rem;
+                    }
+                }
+                h2 span {
+                    font-size: 8rem;
 
-        .bl-box {
-            .activity-status {
-                position: absolute;
-                top: 0;
-                right: 0;
-
-                padding: 1rem;
-                i {
-                    font-size: 2rem;
+                    display: block;
                 }
             }
-            h2 span {
-                font-size: 8rem;
+            .bl-content {
+                height: 100%;
+                padding-right: 2rem;
 
-                display: block;
+                border-right: 1px solid rgba(0, 0, 0, .15);
+
+                .bl-icon-close i {
+                    font-size: 1rem;
+
+                    color: #2da5b6;
+                }
+
+                .cards-wrapper {
+                    display: none;
+                }
             }
-        }
-        .bl-content {
-            height: 100%;
-            padding-right: 2rem;
-
-            border-right: 2px solid #2da5b6;
-
-            .bl-icon-close i {
-                font-size: 1.5rem;
-
-                color: #ccc;
-            }
-
-            .cards-wrapper {
-                display: none;
-            }
-        }
-        .bl-expand {
-            .bl-content .cards-wrapper {
-                display: block;
+            .bl-expand {
+                .bl-content .cards-wrapper {
+                    display: block;
+                }
             }
         }
     }
@@ -59,17 +59,22 @@
     .recommendation-section {
         position: relative;
 
-        padding: 2.5rem 0;
-        h1 {
-            font-size: 1.5rem;
+        padding: 2.2rem 0;
+        h1,
+        h2 {
             font-weight: bold;
+
             text-transform: uppercase;
+        }
+        h1 {
+            font-size: 1.35rem;
+
             color: #2da5b6;
         }
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.15rem;
 
-            color: #888;
+            color: #555;
         }
         .query-detail {
             background: #2da5b6;
@@ -84,6 +89,7 @@
                 font-size: 1rem;
 
                 display: inline-block;
+
                 padding-right: 1rem;
 
                 text-decoration: underline;

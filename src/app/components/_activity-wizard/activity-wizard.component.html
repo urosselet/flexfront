@@ -1,4 +1,4 @@
-<span class="bl-icon-close"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+<span class="bl-icon-close"><i class="icon flx-close" aria-hidden="true"></i></span>
 
 <wizard id="wizard-container" navBarLocation="left" navBarLayout="large-empty-symbols">
 
@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col radio-tile-group" *ngFor="let card of activity.label.default.cards.default; let cardIndex = index; ">
                             <div class="input-container">
-                                <input id="card_{{ cardIndex }}" class="radio-button" type="radio" name="activity-card_{{ activityIndex }}" [value]="card?.cs_initiatives" (change)="onSelectCard(activityIndex, card?.cs_initiatives)" />
+                                <input id="card_{{ cardIndex }}" class="radio-button" type="radio" name="activity-card_{{ activityIndex }}" [value]="card?.cs_initiatives" (change)="onSelectCard(activityIndex, card)" />
                                 <div class="radio-tile">
                                     <div class="top-section">
                                         <div class="icon"><i class="icon flx-{{ card.icon }}" aria-hidden="true"></i></div>

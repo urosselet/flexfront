@@ -15,7 +15,9 @@ export class ActivityWizardComponent implements AfterViewInit {
 
     public card: any;
 
-    private activity: any = [];
+    private activity: any[] = [];
+
+    private selectedCardsArray: any[] = [];
 
     @Output() change: EventEmitter<number> = new EventEmitter<number>();
     @Output() filter: EventEmitter<any> = new EventEmitter<any>();
@@ -31,6 +33,10 @@ export class ActivityWizardComponent implements AfterViewInit {
 
     ngAfterViewInit(): void { }
 
+    /**
+     * On finilasing activity last step action
+     * @param {number} index [description]
+     */
     public finalizeStep(index: number): void {
 
         this.activitiesStatus[index].isCompleted = true;
@@ -44,10 +50,23 @@ export class ActivityWizardComponent implements AfterViewInit {
 
     }
 
-    public onSelectCard(activityIndex: number, attributes: any): void {
+    /**
+     * On card selection action
+     * @param {number} activityIndex [description]
+     * @param {any}    card          [description]
+     */
+    public onSelectCard(activityIndex: number, card: any): void {
 
-        if (attributes) {
-            this.activity[activityIndex] = attributes;
+        if (!this.selectedCardsArray[activityIndex]) {
+            this.selectedCardsArray[activityIndex] = [];
+        }
+
+        this.selectedCardsArray[activityIndex].push({ 'icon': card.icon, 'title': card.title });
+
+        console.log(this.selectedCardsArray);
+
+        if (card.cs_initiatives) {
+            this.activity[activityIndex] = card.cs_initiatives;
         } else {
             this.activity[activityIndex] = null;
         }
