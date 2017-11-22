@@ -132,21 +132,8 @@
             p {
                 line-height: 1.2;
 
+                margin: 0;
                 padding: .5rem .75rem;
-                /*&:before {
-                    position: absolute;
-                    top: 50%;
-                    right: 0;
-                    left: 0;
-
-                    width: 50%;
-                    margin: 0 auto;
-                    padding-bottom: 5px;
-
-                    content: '';
-
-                    border-bottom: 1px solid rgba(255, 255, 255, .45);
-                }*/
             }
             .radio-button {
                 position: absolute;
@@ -178,12 +165,29 @@
                 align-items: center;
 
                 .top-section {
+                    position: relative;
+
                     padding: 0 1rem 1rem 1rem;
 
                     text-align: center;
                     .icon > i {
                         font-size: 4rem;
                         line-height: 0;
+                    }
+
+                    &:after {
+                        position: absolute;
+                        right: 0;
+                        bottom: 5px;
+                        left: 0;
+
+                        width: 50%;
+                        margin: 0 auto;
+                        padding-bottom: 5px;
+
+                        content: '';
+
+                        border-bottom: 1px solid rgba(255, 255, 255, .45);
                     }
                 }
             }
