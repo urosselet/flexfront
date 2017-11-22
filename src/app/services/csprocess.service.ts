@@ -5,14 +5,27 @@ import { Observable }                           from 'rxjs/Rx';
 
 import { CommonService }                        from './common.service';
 
+import * as io                                  from 'socket.io-client';
+
 @Injectable()
 export class CSProcessService extends CommonService {
 
     /**
-     * search API base Url
+     * Socket object
+     * @type {any}
+     */
+    private socket: any;
+
+    /**
+     * CS Process API base Url
      * @type {String}
      */
     private baseUrl = process.env.API_URL.concat('csprocess/');
+
+    /**
+     * Activities API base Url
+     * @type {String}
+     */
     private activityUrl = process.env.API_URL.concat('csactivity/');
 
     /**
@@ -25,13 +38,28 @@ export class CSProcessService extends CommonService {
     ) { super(); }
 
     /**
-     * Get CS Process based on ID
+     * Get CS activities
      * @return {Observable<any[]>} [description]
      */
-    public findOne(): Observable<any> {
+    public findAll(): Observable<any> {
         return this.http.get(this.activityUrl + 'wizard')
             .map((res: Response) => res.json())
             .catch(this.handleError);
+    }
+
+    public getUpdatedActivity(): Observable<any> {
+        let observable = new Observable(observer => {
+
+            this.socket = io(process.env.API_URL);
+
+            this.socket.on('activityUpdate', (data) => {
+                observer.next(data);
+            });
+
+            return () => { this.socket.disconnect(); };
+            
+        });
+        return observable;
     }
 
 }

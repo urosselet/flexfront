@@ -61,15 +61,13 @@
 
         padding: 2.5rem 0;
         h1 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
-
+            text-transform: uppercase;
             color: #2da5b6;
         }
         h2 {
             font-size: 1.5rem;
-
-            text-transform: uppercase;
 
             color: #888;
         }
@@ -83,7 +81,7 @@
                 margin-top: 2rem;
             }
             .platforms span {
-                font-size: 1.25rem;
+                font-size: 1rem;
 
                 display: inline-block;
                 padding-right: 1rem;

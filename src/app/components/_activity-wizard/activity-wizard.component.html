@@ -25,10 +25,10 @@
                             <div class="input-container">
                                 <input id="card_{{ cardIndex }}" class="radio-button" type="radio" name="activity-card_{{ activityIndex }}" [value]="card?.cs_initiatives" (change)="onSelectCard(activityIndex, card?.cs_initiatives)" />
                                 <div class="radio-tile">
-                                    <div class="icon">
-                                        <i class="icon flx-{{ card.icon }}" aria-hidden="true"></i>
+                                    <div class="top-section">
+                                        <div class="icon"><i class="icon flx-{{ card.icon }}" aria-hidden="true"></i></div>
+                                        <label for="card_{{ cardIndex }}" class="radio-tile-label">{{ card.title }}</label>
                                     </div>
-                                    <label for="card_{{ cardIndex }}" class="radio-tile-label">{{ card.title }}</label>
                                     <p>{{ card.description }}</p>
                                 </div>
                             </div>
@@ -65,10 +65,10 @@
                             <div class="input-container">
                                 <input id="card_{{ cardIndex }}" class="radio-button" type="radio" name="activity-card_{{ activityIndex }}" [value]="card?.cs_initiatives" (change)="onSelectCard(activityIndex, card?.cs_initiatives)" />
                                 <div class="radio-tile">
-                                    <div class="icon">
-                                        <i class="icon flx-{{ card.icon }}" aria-hidden="true"></i>
+                                    <div class="top-section">
+                                        <div class="icon"><i class="icon flx-{{ card.icon }}" aria-hidden="true"></i></div>
+                                        <label for="card_{{ cardIndex }}" class="radio-tile-label">{{ card.title }}</label>
                                     </div>
-                                    <label for="card_{{ cardIndex }}" class="radio-tile-label">{{ card.title }}</label>
                                     <p>{{ card.description }}</p>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
 
                     <div class="wizard-navigation">
                         <button class="btn btn-success" type="button" previousStep *ngIf="activityIndex > 0"><i class="icon flx-arrow-left-8"></i>Back</button>
-                        <button class="btn btn-success float-right" type="button" *ngIf="activityIndex === activities.length - 1" (click)="finalizeStep(index)">Next Quadrant</button>
+                        <button class="btn btn-success float-right" type="button" *ngIf="activityIndex === activities.length - 1" (click)="finalizeStep(index)">Next Quadrant <i class="icon flx-arrow-right-8"></i></button>
                     </div>
                 </div>
             </div>

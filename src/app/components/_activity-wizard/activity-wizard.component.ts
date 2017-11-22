@@ -1,5 +1,7 @@
 import { Component, ViewEncapsulation, AfterViewInit, Input, Output, EventEmitter }      	from '@angular/core';
 
+import { CSProcessService }                                                                 from '../../services/csprocess.service';
+
 import * as _ from 'underscore'
 
 @Component({
@@ -25,7 +27,7 @@ export class ActivityWizardComponent implements AfterViewInit {
     @Input() activitiesStatus: any[] = [];
     @Input() index: number;
 
-    constructor() { }
+    constructor(private csProcessService: CSProcessService) { }
 
     ngAfterViewInit(): void { }
 

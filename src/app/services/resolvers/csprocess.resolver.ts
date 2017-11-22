@@ -13,7 +13,7 @@ export class CSProcessResolver implements Resolve<any> {
 
     resolve(route: ActivatedRouteSnapshot): Observable<any> {
 
-        return this.csProcessService.findOne();
+        return this.csProcessService.findAll();
 
     }
 

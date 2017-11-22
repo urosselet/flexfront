@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit, ViewChild, Output, EventEmitter }    from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, ViewChild }                          from '@angular/core';
 import { ActivatedRoute }                                                           from '@angular/router';
 
 import { BoxLayoutDirective }                                                       from '../../directives/boxlayout.directive';
@@ -41,16 +41,16 @@ export class ProcessComponent implements OnInit {
 
             this.csactivities.forEach((item, index) => {
 
-                let activity = null;
+                let activity = { 'index': index, 'actitity': 'activity_' + index, 'isCompleted': false };
 
                 if (index === 0) {
-                    activity = { 'index': index, 'actitity': 'activity_' + index, 'state': 'active', 'isCompleted': false };
+                    activity['state'] = 'active';
                 } else {
-                    activity = { 'index': index, 'actitity': 'activity_' + index, 'state': 'not-active', 'isCompleted': false };
+                    activity['state'] = 'not-active';
                 }
 
                 this.activitiesStatus.push(activity);
-                
+
             });
 
         });
