@@ -23,11 +23,11 @@
                     <div class="row">
                         <div class="col radio-tile-group" *ngFor="let card of activity.label.default.cards.default; let cardIndex = index; ">
                             <div class="input-container">
-                                <input id="card_{{ cardIndex }}" class="radio-button" type="radio" name="activity-card_{{ activityIndex }}" [value]="card?.cs_initiatives" (change)="onSelectCard(activityIndex, card)" />
+                                <input id="{{ card.id }}" class="radio-button" type="radio" name="activity-card_{{ activityIndex }}" [value]="card?.cs_initiatives" (change)="onSelectCard(activityIndex, card)" />
                                 <div class="radio-tile">
                                     <div class="top-section">
                                         <div class="icon"><i class="icon flx-{{ card.icon }}" aria-hidden="true"></i></div>
-                                        <label for="card_{{ cardIndex }}" class="radio-tile-label">{{ card.title }}</label>
+                                        <label for="{{ card.id }}" class="radio-tile-label">{{ card.title }}</label>
                                     </div>
                                     <p>{{ card.description }}</p>
                                 </div>
@@ -63,11 +63,11 @@
                     <div class="row">
                         <div class="col radio-tile-group" *ngFor="let card of activity.label.default.cards.default; let cardIndex = index; ">
                             <div class="input-container">
-                                <input id="card_{{ cardIndex }}" class="radio-button" type="radio" name="activity-card_{{ activityIndex }}" [value]="card?.cs_initiatives" (change)="onSelectCard(activityIndex, card?.cs_initiatives)" />
+                                <input id="{{ card.id }}" class="radio-button" type="radio" name="activity-card_{{ activityIndex }}" [value]="card?.cs_initiatives" (change)="onSelectCard(activityIndex, card)" />
                                 <div class="radio-tile">
                                     <div class="top-section">
                                         <div class="icon"><i class="icon flx-{{ card.icon }}" aria-hidden="true"></i></div>
-                                        <label for="card_{{ cardIndex }}" class="radio-tile-label">{{ card.title }}</label>
+                                        <label for="{{ card.id }}" class="radio-tile-label">{{ card.title }}</label>
                                     </div>
                                     <p>{{ card.description }}</p>
                                 </div>

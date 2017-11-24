@@ -8,7 +8,18 @@
                 <section class="{{ activitiesStatus[i].state }}" *ngFor="let csactivity of csactivities; let i = index; ">
                     <div class="bl-box">
                         <div class="activity-status" *ngIf="activitiesStatus[i].isCompleted"><i class="icon flx-check-badge"></i></div>
-                        <h2><span><i class="icon flx-{{ csactivity.icon }}" aria-hidden="true"></i></span> {{ csactivity.label.default.title }}</h2>
+                        <h2>
+                            <span><i class="icon flx-{{ csactivity.icon }}" aria-hidden="true"></i></span> 
+                            {{ csactivity.label.default.title }}
+                        </h2>
+                        <div class="seleted-cards-wrapper" *ngIf="activitiesStatus[i].isCompleted">
+                            <ul>
+                                <li *ngFor="let selectedCard of selectedCardsArray[i];">
+                                    <i class="icon flx-{{ selectedCard.icon }}"></i>
+                                    <span>{{ selectedCard.title }} <title></title></span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <!-- Content wrapper -->
                     <div class="bl-content">
@@ -18,6 +29,7 @@
                             [activitiesStatus]="activitiesStatus"
                             [attributesArray]="attributesArray"
                             [quadrants]="quadrants"
+                            [selectedCardsArray]="selectedCardsArray"
                             (change)="activityCompleted($event)"
                             (filter)="filterPlatform($event)">
                             

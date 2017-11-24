@@ -24,6 +24,7 @@ export class ProcessComponent implements OnInit {
     public csactivities: any[] = [];
     public activitiesStatus: any[] = [];
     public attributesArray: any[] = [];
+    public selectedCardsArray: any[] = [];
 
     public quadrants: any[] = [];
 

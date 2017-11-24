@@ -16,6 +16,19 @@
                 background: #2da5b6;
             }
             .bl-box {
+                .seleted-cards-wrapper {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    padding: 1rem;
+                    ul {
+                        margin: 0;
+                        padding: 0;
+
+                        list-style-type: none;
+                    }
+                }
                 .activity-status {
                     position: absolute;
                     top: -15px;
