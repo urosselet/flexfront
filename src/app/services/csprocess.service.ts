@@ -41,8 +41,8 @@ export class CSProcessService extends CommonService {
      * Get CS activities
      * @return {Observable<any[]>} [description]
      */
-    public findAll(): Observable<any> {
-        return this.http.get(this.activityUrl + 'wizard')
+    public findAll(sessionId: string): Observable<any> {
+        return this.http.get(`${this.activityUrl}wizard/${sessionId}`)
             .map((res: Response) => res.json())
             .catch(this.handleError);
     }

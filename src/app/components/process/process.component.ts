@@ -17,16 +17,19 @@ export class ProcessComponent implements OnInit {
 
     @ViewChild(BoxLayoutDirective) boxLayout: BoxLayoutDirective;
 
+    private sessionId: string = localStorage.getItem('currentSession');
+
     public query: string;
     public category: string;
     public results: any;
     public platform: any;
     public csactivities: any[] = [];
+    
     public activitiesStatus: any[] = [];
     public attributesArray: any[] = [];
     public selectedCardsArray: any[] = [];
-
     public quadrants: any[] = [];
+    public sessionData: any[] = [];
 
     constructor(
         private route: ActivatedRoute,
@@ -37,23 +40,8 @@ export class ProcessComponent implements OnInit {
     public ngOnInit(): void {
 
         this.route.data.subscribe(resolved => {
-
-            this.csactivities = resolved.csactivities;
-
-            this.csactivities.forEach((item, index) => {
-
-                let activity = { 'index': index, 'actitity': 'activity_' + index, 'isCompleted': false };
-
-                if (index === 0) {
-                    activity['state'] = 'active';
-                } else {
-                    activity['state'] = 'not-active';
-                }
-
-                this.activitiesStatus.push(activity);
-
-            });
-
+            this.csactivities = resolved.csactivities.activities;
+            this.processActivities()
         });
 
         this.query = this.searchService.getQuery();
@@ -79,11 +67,23 @@ export class ProcessComponent implements OnInit {
         this.boxLayout.activateBox(event);
     }
 
-    public filterPlatform(attributes: any): void {
-        this.searchService.getPlatforms(attributes)
+    public filterPlatform(data: any): void {
+        this.searchService.getPlatforms(data.quadrants, this.sessionId, data.sessionData)
             .subscribe(
                 (res) => { this.results = res.results; },
                 (error) => {});
+    }
+
+    private processActivities(): void {
+        this.csactivities.forEach((item, index) => {
+            let activity = { 'index': index, 'actitity': 'activity_' + index, 'isCompleted': false };
+            if (index === 0) {
+                activity['state'] = 'active';
+            } else {
+                activity['state'] = 'not-active';
+            }
+            this.activitiesStatus.push(activity);
+        });
     }
 
 }

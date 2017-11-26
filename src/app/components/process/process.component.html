@@ -15,8 +15,8 @@
                         <div class="seleted-cards-wrapper" *ngIf="activitiesStatus[i].isCompleted">
                             <ul>
                                 <li *ngFor="let selectedCard of selectedCardsArray[i];">
-                                    <i class="icon flx-{{ selectedCard.icon }}"></i>
-                                    <span>{{ selectedCard.title }} <title></title></span>
+                                    <i class="icon flx-{{ selectedCard?.icon }}"></i>
+                                    <span>{{ selectedCard?.title }} <title></title></span>
                                 </li>
                             </ul>
                         </div>
@@ -24,12 +24,14 @@
                     <!-- Content wrapper -->
                     <div class="bl-content">
                         <activity-wizard 
+                            [title]="csactivity.label.default.title" 
                             [activities]="csactivity.activities" 
                             [index]="activitiesStatus[i].index"
                             [activitiesStatus]="activitiesStatus"
                             [attributesArray]="attributesArray"
                             [quadrants]="quadrants"
                             [selectedCardsArray]="selectedCardsArray"
+                            [sessionData]="sessionData"
                             (change)="activityCompleted($event)"
                             (filter)="filterPlatform($event)">
                             
@@ -61,12 +63,6 @@
                         </div>
                         <div style="margin-top:1rem; color: #fff; padding: 0.25rem; background: #2da5b6; width: 7rem; text-align: center;">{{ results.medium_hits.length }} Platforms</div>
                     </div>
-                    <!--
-                    <div class="query-detail">
-                        <div>{{ query }}</div>
-                        <div>{{ category }}</div>
-                    </div>
-                    -->
                 </div>
             </div>
         </div>

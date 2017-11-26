@@ -9,7 +9,7 @@ import { CSProcessResolver }            from '../services/resolvers/csprocess.re
 const routes: Routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'index', component: IndexComponent },
-    { path: 'process', component: ProcessComponent, resolve: { csactivities: CSProcessResolver } }
+    { path: 'process/:sessionId', component: ProcessComponent, resolve: { csactivities: CSProcessResolver } }
 ];
 
 @NgModule({
@@ -17,4 +17,4 @@ const routes: Routes = [
     exports: [ RouterModule ]
 })
 
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -5,6 +5,8 @@ import { Observable }                                       from 'rxjs/Observabl
 
 import { SearchService }                                    from '../../services/search.service';
 
+import * as uuid                                            from 'uuid/v4';
+
 @Component({
     selector: 'fc-index',
     templateUrl: 'index.component.html',
@@ -20,6 +22,7 @@ export class IndexComponent {
     private questions: any[] = [];
     private answers: any[] = [];
     private isFirstQuery: boolean = true;
+    private session: string;
 
     private results: any;
     private platform: any;
@@ -27,7 +30,14 @@ export class IndexComponent {
     constructor(
         private searchService: SearchService,
         private router: Router
-    ) { }
+    ) {
+        if (!JSON.parse(localStorage.getItem('sessionID'))) {
+            this.session = uuid();
+            localStorage.setItem('currentSession',this.session);
+        } else {
+            this.session = JSON.parse(localStorage.getItem('currentSession'));
+        }
+    }
 
     public observableSource(query: any): Observable<any[]> {
         return this.searchService.autocomplete(query);
@@ -55,7 +65,7 @@ export class IndexComponent {
             .subscribe(
                 (res) => {
                     this.category = res.cat;
-                    this.router.navigate(['/process/']);
+                    this.router.navigate(['/process', this.session ]);
                 });
     }
 
