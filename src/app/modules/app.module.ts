@@ -28,7 +28,7 @@ import { BoxLayoutDirective }                   from '../directives/boxlayout.di
 import { SlidePushDirective }                   from '../directives/slide-push.directive';
 
 /* Pipes */
-import { MapToIterable }                        from '../pipes/application.pipes';
+import { MapToIterable, MapIdToText }           from '../pipes/application.pipes';
 
 /* App Services */
 import { SearchService }                        from '../services/search.service';
@@ -57,6 +57,7 @@ import { CSProcessResolver }                    from '../services/resolvers/cspr
         ProcessComponent,
         ActivityWizardComponent,
         MapToIterable,
+        MapIdToText,
         BoxLayoutDirective,
         SlidePushDirective
     ],

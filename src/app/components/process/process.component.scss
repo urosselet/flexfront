@@ -105,9 +105,25 @@
 
                 padding-right: 1rem;
 
+                cursor: pointer;
                 text-decoration: underline;
 
                 color: #555;
+                &:hover {
+                    font-weight: bold;
+
+                    text-decoration: none;
+
+                    color: #2da5b6;
+                }
+                &.active-platform {
+                    font-size: 1.75rem;
+                    font-weight: bold;
+
+                    text-decoration: none;
+
+                    color: #2da5b6;
+                }
             }
         }
     }
@@ -118,7 +134,7 @@
 
             display: inline-table;
 
-            padding: 4rem;
+            padding: 2rem 4rem;
 
             background: #e0cd8a;
             box-shadow: 0 0 25px 5px rgba(0, 0, 0, .05);
@@ -131,24 +147,48 @@
             }
              > .row {
                 align-items: flex-start;
+                .attributes-wrapper {
+                    color: #333;
+                    span {
+                        display: block;
+                    }
+                    .characteristic > span:first-child {
+                        font-weight: bold;
+
+                        color: rgba(0, 0, 0, .5);
+                    }
+
+                    .characteristic > span:last-child {
+                        padding-bottom: .5rem;
+                    }
+                }
             }
             h1,
             h2 {
                 color: #2da5b6;
             }
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.25rem;
+
+                padding-bottom: 1rem;
+            }
             a,
-            p {
+            p,
+            h3 {
                 color: #333;
             }
             a {
-                font-size: 1.2rem;
+                font-size: 1rem;
 
                 text-transform: lowercase;
             }
             p {
                 font-size: 1rem;
 
-                padding-top: 2rem;
+                padding-top: 1rem;
             }
             img {
                 width: 100%;

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit, ViewChild }                          from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, ViewChild, Renderer }                from '@angular/core';
 import { ActivatedRoute }                                                           from '@angular/router';
 
 import { BoxLayoutDirective }                                                       from '../../directives/boxlayout.directive';
@@ -20,6 +20,7 @@ export class ProcessComponent implements OnInit {
     @ViewChild(SlidePushDirective) slidePush: SlidePushDirective;
 
     private sessionId: string = localStorage.getItem('currentSession');
+    private targetPlatform: EventTarget;
 
     public assetUrl: string = process.env.ASSET_URL;
 
@@ -37,6 +38,7 @@ export class ProcessComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
+        private renderer: Renderer,
         private searchService: SearchService,
         private csProcessService: CSProcessService
     ) { }
@@ -60,8 +62,12 @@ export class ProcessComponent implements OnInit {
         }
     }
 
-    public getPlatformDetail(id: number): void {
+    public getPlatformDetail(id: number, event: Event): void {
+
+        this.targetPlatform = event.target;
+        this.renderer.setElementClass(this.targetPlatform, 'active-platform', true);
         this.slidePush.open();
+
         this.searchService.getPlatform(id)
             .subscribe(
                 (res) => { this.platform = res; },
@@ -69,6 +75,7 @@ export class ProcessComponent implements OnInit {
     }
 
     public closeDetail(): void {
+        this.renderer.setElementClass(this.targetPlatform, 'active-platform', false);
         this.slidePush.close();
     }
 

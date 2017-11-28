@@ -51,7 +51,7 @@
                     <div class="high-scores-hits" *ngIf="results?.high_hits">
                         <h2>First choices</h2>
                         <div class="platforms">
-                            <span class="platform" (click)="getPlatformDetail(platform.id)" *ngFor="let platform of results?.high_hits">{{ platform.name }}</span>
+                            <span (click)="getPlatformDetail(platform.id, $event)" *ngFor="let platform of results?.high_hits">{{ platform.name }}</span>
                         </div>
                         <div style="margin-top:1rem; color: #fff; padding: 0.25rem; background: #2da5b6; width: 7rem; text-align: center;">{{ results.high_hits.length }} Platforms</div>
                     </div>
@@ -59,7 +59,7 @@
                     <div class="medium-scores-hits" *ngIf="results?.medium_hits">
                         <h2>Alternatives</h2>
                         <div class="platforms">
-                            <span class="platform" (click)="getPlatformDetail(platform.id)" *ngFor="let platform of results?.medium_hits">{{ platform.name }}</span>
+                            <span (click)="getPlatformDetail(platform.id, $event)" *ngFor="let platform of results?.medium_hits">{{ platform.name }}</span>
                         </div>
                         <div style="margin-top:1rem; color: #fff; padding: 0.25rem; background: #2da5b6; width: 7rem; text-align: center;">{{ results.medium_hits.length }} Platforms</div>
                     </div>
@@ -85,11 +85,16 @@
             <div class="row">
                 <div class="col-12">
                     <h2>{{ platform?.name }} caracteristics</h2>
-                    <ul>
-                        <li>skjhdkas</li>
-                        <li>skaljdsjlda</li>
-                        <li>skaldslakjdlsak</li>
-                    </ul>
+                    <h3>Cluster {{ platform?.cluster }}</h3>
+                    <div class="row attributes-wrapper">
+                        <div class="col" *ngFor="let attribute of platform?.attributes | mapToIterable">
+                            <h4>{{ attribute | mapIdToText }}</h4>
+                            <div class="characteristic" *ngFor="let item of platform?.attributes[attribute] | mapToIterable">
+                                <span>{{ item | mapIdToText }}</span> 
+                                <span>{{ platform?.attributes[attribute][item] | mapIdToText }}</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
