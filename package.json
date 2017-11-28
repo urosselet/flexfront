@@ -75,11 +75,11 @@
     "tslint": "^5.8.0",
     "tslint-loader": "^3.5.3",
     "tslint-webpack-plugin": "^1.0.0",
-    "typescript": "^2.6.1",
+    "typescript": "^2.6.2",
     "uglify-js-plugin": "0.0.6",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.4",
-    "webpack-hot-middleware": "^2.20.0",
+    "webpack-dev-server": "^2.9.5",
+    "webpack-hot-middleware": "^2.21.0",
     "webpack-merge": "^4.1.1"
   },
   "repository": {

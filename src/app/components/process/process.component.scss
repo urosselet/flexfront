@@ -111,4 +111,48 @@
             }
         }
     }
+
+    .platform-detail-wrapper {
+        .container {
+            position: relative;
+
+            display: inline-table;
+
+            padding: 4rem;
+
+            background: #e0cd8a;
+            box-shadow: 0 0 25px 5px rgba(0, 0, 0, .05);
+            .bl-icon-close {
+                position: absolute;
+                top: 5px;
+                right: 10px;
+
+                cursor: pointer;
+            }
+             > .row {
+                align-items: flex-start;
+            }
+            h1,
+            h2 {
+                color: #2da5b6;
+            }
+            a,
+            p {
+                color: #333;
+            }
+            a {
+                font-size: 1.2rem;
+
+                text-transform: lowercase;
+            }
+            p {
+                font-size: 1rem;
+
+                padding-top: 2rem;
+            }
+            img {
+                width: 100%;
+            }
+        }
+    }
 }

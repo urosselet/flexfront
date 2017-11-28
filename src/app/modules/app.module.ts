@@ -25,6 +25,7 @@ import { ProcessComponent }                     from '../components/process/proc
 
 /* Directives */
 import { BoxLayoutDirective }                   from '../directives/boxlayout.directive';
+import { SlidePushDirective }                   from '../directives/slide-push.directive';
 
 /* Pipes */
 import { MapToIterable }                        from '../pipes/application.pipes';
@@ -56,7 +57,8 @@ import { CSProcessResolver }                    from '../services/resolvers/cspr
         ProcessComponent,
         ActivityWizardComponent,
         MapToIterable,
-        BoxLayoutDirective
+        BoxLayoutDirective,
+        SlidePushDirective
     ],
     providers: [
         SearchService,

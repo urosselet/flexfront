@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation, OnInit, ViewChild }                      
 import { ActivatedRoute }                                                           from '@angular/router';
 
 import { BoxLayoutDirective }                                                       from '../../directives/boxlayout.directive';
+import { SlidePushDirective }                                                       from '../../directives/slide-push.directive';
 
 import { SearchService }                                                            from '../../services/search.service';
 import { CSProcessService }                                                         from '../../services/csprocess.service';
@@ -16,8 +17,11 @@ import { CSProcessService }                                                     
 export class ProcessComponent implements OnInit {
 
     @ViewChild(BoxLayoutDirective) boxLayout: BoxLayoutDirective;
+    @ViewChild(SlidePushDirective) slidePush: SlidePushDirective;
 
     private sessionId: string = localStorage.getItem('currentSession');
+
+    public assetUrl: string = process.env.ASSET_URL;
 
     public query: string;
     public category: string;
@@ -57,10 +61,15 @@ export class ProcessComponent implements OnInit {
     }
 
     public getPlatformDetail(id: number): void {
+        this.slidePush.open();
         this.searchService.getPlatform(id)
             .subscribe(
                 (res) => { this.platform = res; },
                 (error) => {});
+    }
+
+    public closeDetail(): void {
+        this.slidePush.close();
     }
 
     public activityCompleted(event: any): void {

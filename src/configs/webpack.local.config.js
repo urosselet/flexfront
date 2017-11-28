@@ -32,6 +32,7 @@ module.exports = webpackMerge(commonConfig, {
                 'ENV': JSON.stringify('LOCAL'),
                 'NODE_ENV': JSON.stringify('LOCAL'),
                 'API_URL': JSON.stringify('http://localhost:1338/'),
+                'ASSET_URL': JSON.stringify('http://localhost:1338/upload/'),
                 'SOCKET_URL': JSON.stringify('http://localhost:1338')
             }
         })

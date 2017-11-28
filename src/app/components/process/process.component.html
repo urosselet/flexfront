@@ -1,4 +1,4 @@
-<section id="process-component" class="container-fluid">
+<section id="process-component" class="container-fluid cbp-spmenu-push" slidePush>
 
     <div class="row">
         
@@ -45,7 +45,7 @@
         <!-- Recommendation Section -->
         <div class="col-3">
             <div class="recommendation-section">
-                <h1>My recommandations</h1>
+                <h1 id="showRightPush">My recommandations</h1>
                 <div class="result-wrapper">
                     <!-- High score hits -->
                     <div class="high-scores-hits" *ngIf="results?.high_hits">
@@ -68,5 +68,31 @@
         </div>
 
     </div>
+
+    <aside id="cbp-spmenu-s2" class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right platform-detail-wrapper">
+        <div class="container">
+            <span class="bl-icon-close" (click)="closeDetail()"><i class="icon flx-close" aria-hidden="true"></i></span>
+            <div class="row">
+                <div class="col-8">
+                    <h1>{{ platform?.name }}</h1>
+                    <a href="{{ platform?.platform_website }}" target="_blank">{{ platform?.platform_website }}</a>
+                    <p>{{ platform?.description }}</p>
+                </div>
+                <div class="col-4">
+                    <img [src]=" assetUrl + platform?.platform_img_url">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h2>{{ platform?.name }} caracteristics</h2>
+                    <ul>
+                        <li>skjhdkas</li>
+                        <li>skaljdsjlda</li>
+                        <li>skaldslakjdlsak</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside>
     
 </section>
