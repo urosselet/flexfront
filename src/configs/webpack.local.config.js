@@ -8,7 +8,7 @@ module.exports = webpackMerge(commonConfig, {
 
     devServer: {
     	host: 'localhost',
-    	port: 3001,
+    	port: 1400,
         inline: true,
         historyApiFallback: true,
         disableHostCheck: true,
@@ -31,9 +31,9 @@ module.exports = webpackMerge(commonConfig, {
             'process.env': {
                 'ENV': JSON.stringify('LOCAL'),
                 'NODE_ENV': JSON.stringify('LOCAL'),
-                'API_URL': JSON.stringify('http://localhost:1338/'),
-                'ASSET_URL': JSON.stringify('http://localhost:1338/upload/'),
-                'SOCKET_URL': JSON.stringify('http://localhost:1338')
+                'API_URL': JSON.stringify('http://localhost:1401/'),
+                'ASSET_URL': JSON.stringify('http://localhost:1401/upload/'),
+                'SOCKET_URL': JSON.stringify('http://localhost:1401')
             }
         })
 
