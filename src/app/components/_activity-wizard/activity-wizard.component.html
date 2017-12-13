@@ -5,7 +5,7 @@
     <div *ngFor="let activity of activities; let activityIndex = index; ">
 
         <wizard-step stepTitle="{{ activity.label.default.title }}" navigationSymbol="&#xe377;" navigationSymbolFontFamily="flexcrowd" *ngIf="activityIndex < activities.length - 1 ">
-            
+
             <!-- Activity detail section -->
             <div class="row activity-wrapper">
                 <div class="col-9">
@@ -16,14 +16,31 @@
                     <span><i class="icon flx-{{ activity.label.default.icon }}" aria-hidden="true"></i></span>
                 </div>
             </div>
-            
+
             <!-- Cards section -->
             <div class="row cards-wrapper">
                 <div class="col-12">
                     <div class="row">
                         <div class="col radio-tile-group" *ngFor="let card of activity.label.default.cards.default; let cardIndex = index; ">
                             <div class="input-container">
-                                <input id="{{ card.id }}" class="radio-button" type="radio" name="activity-card_{{ activityIndex }}" [value]="card?.cs_initiatives" (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title)" />
+                                <input
+                                    id="{{ card.id }}"
+                                    name="activity-card_{{ activityIndex }}"
+                                    type="checkbox"
+                                    class="radio-button"
+                                    *ngIf="activity.label.default.is_multiple_choice"
+                                    [value]="card?.cs_initiatives"
+                                    (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title)"
+                                />
+                                <input
+                                    id="{{ card.id }}"
+                                    name="activity-card_{{ activityIndex }}"
+                                    type="radio"
+                                    class="radio-button"
+                                    *ngIf="!activity.label.default.is_multiple_choice"
+                                    [value]="card?.cs_initiatives"
+                                    (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title)"
+                                />
                                 <div class="radio-tile">
                                     <div class="top-section">
                                         <div class="icon"><i class="icon flx-{{ card.icon }}" aria-hidden="true"></i></div>
@@ -45,7 +62,7 @@
         </wizard-step>
 
         <wizard-completion-step stepTitle="{{ activity.label.default.title }}" navigationSymbol="&#xe377;" navigationSymbolFontFamily="flexcrowd" *ngIf="activityIndex === activities.length - 1" enableBackLinks>
-            
+
             <!-- Activity detail section -->
             <div class="row activity-wrapper">
                 <div class="col-9">
@@ -56,14 +73,31 @@
                     <span><i class="icon flx-{{ activity.label.default.icon }}" aria-hidden="true"></i></span>
                 </div>
             </div>
-            
+
             <!-- Cards section -->
             <div class="row cards-wrapper">
                 <div class="col-12">
                     <div class="row">
                         <div class="col radio-tile-group" *ngFor="let card of activity.label.default.cards.default; let cardIndex = index; ">
                             <div class="input-container">
-                                <input id="{{ card.id }}" class="radio-button" type="radio" name="activity-card_{{ activityIndex }}" [value]="card?.cs_initiatives" (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title)" />
+                                <input 
+                                    id="{{ card.id }}" 
+                                    type="checkbox" 
+                                    name="activity-card_{{ activityIndex }}" 
+                                    class="radio-button" 
+                                    *ngIf="activity.label.default.is_multiple_choice"
+                                    [value]="card?.cs_initiatives" 
+                                    (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title)" 
+                                />
+                                <input 
+                                    id="{{ card.id }}" 
+                                    type="radio" 
+                                    name="activity-card_{{ activityIndex }}" 
+                                    class="radio-button" 
+                                    *ngIf="!activity.label.default.is_multiple_choice"
+                                    [value]="card?.cs_initiatives" 
+                                    (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title)" 
+                                />
                                 <div class="radio-tile">
                                     <div class="top-section">
                                         <div class="icon"><i class="icon flx-{{ card.icon }}" aria-hidden="true"></i></div>
