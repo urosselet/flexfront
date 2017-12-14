@@ -26,6 +26,7 @@ export class ProcessComponent implements OnInit {
 
     public query: string;
     public category: string;
+    public hidePlatformDetail: boolean = true;
     public results: any;
     public platform: any;
     public csactivities: any[] = [];
@@ -62,7 +63,15 @@ export class ProcessComponent implements OnInit {
         }
     }
 
+    private unsetActivePlatform(): void {
+        this.renderer.setElementClass(this.targetPlatform, 'active-platform', false);
+    }
+
     public getPlatformDetail(id: number, event: Event): void {
+
+        if (this.targetPlatform) {
+            this.unsetActivePlatform();
+        }
 
         this.targetPlatform = event.target;
         this.renderer.setElementClass(this.targetPlatform, 'active-platform', true);
@@ -70,7 +79,10 @@ export class ProcessComponent implements OnInit {
 
         this.searchService.getPlatform(id)
             .subscribe(
-                (res) => { this.platform = res; },
+                (res) => { 
+                    this.platform = res;
+                    this.platform.platform_img_url = this.assetUrl + this.platform.platform_img_url;
+                },
                 (error) => {});
     }
 

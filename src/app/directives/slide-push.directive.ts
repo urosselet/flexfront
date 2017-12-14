@@ -27,9 +27,11 @@ export class SlidePushDirective implements AfterViewInit {
 
     public open(): void {
 
-        this.showRightPush.classList.add( 'active' );
-        this.renderer.setElementClass(this.el.nativeElement, 'cbp-spmenu-push-toleft', true);
-        this.menuRight.classList.add( 'cbp-spmenu-open' );
+        if (!this.showRightPush.classList.contains('active')) {
+            this.showRightPush.classList.add( 'active' );
+            this.renderer.setElementClass(this.el.nativeElement, 'cbp-spmenu-push-toleft', true);
+            this.menuRight.classList.add( 'cbp-spmenu-open' );
+        }
 
     }
 

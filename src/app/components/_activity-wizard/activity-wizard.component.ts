@@ -28,6 +28,7 @@ export class ActivityWizardComponent implements AfterViewInit {
     @Input() quadrants;
     @Input() selectedCardsArray;
     @Input() sessionData;
+    @Input() isMultipleChoice;
     
     constructor(private csProcessService: CSProcessService) { }
 
@@ -57,7 +58,7 @@ export class ActivityWizardComponent implements AfterViewInit {
      * @param {number} activityIndex [description]
      * @param {any}    card          [description]
      */
-    public onSelectCard(activityIndex: number, card: any, activityName: string, label: string): void {
+    public onSelectCard(activityIndex: number, card: any, activityName: string, label: string, isMultipleChoice: boolean): void {
 
         if (!this.selectedCards[activityIndex]) {
             this.selectedCards[activityIndex] = [];
@@ -72,7 +73,24 @@ export class ActivityWizardComponent implements AfterViewInit {
         this.formattedArray[activityIndex] = this.selectedCards[activityIndex];
 
         if (card.cs_initiatives) {
-            this.activity[activityIndex] = card.cs_initiatives;
+            if (isMultipleChoice) {
+                if (!this.activity[activityIndex]) {
+                    this.activity[activityIndex] = {};
+                    this.activity[activityIndex] = card.cs_initiatives;
+                } else {
+                    for (let act in this.activity[activityIndex]) {
+                        
+                       for (let act2 in card.cs_initiatives) {
+                           if (act === act2) {
+                               this.activity[activityIndex][act] = _.extend(this.activity[activityIndex][act], card.cs_initiatives[act2]);
+                           }
+                       }
+                    }
+                }
+                
+            } else {
+                this.activity[activityIndex] = card.cs_initiatives;
+            }
         } else {
             this.activity[activityIndex] = null;
         }
