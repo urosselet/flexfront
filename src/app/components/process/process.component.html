@@ -15,7 +15,7 @@
                         <div class="seleted-cards-wrapper" *ngIf="activitiesStatus[i].isCompleted">
                             <ul>
                                 <li *ngFor="let selectedCard of selectedCardsArray[i];">
-                                    <i class="icon flx-{{ selectedCard?.icon }}"></i>
+                                    <!-- <i class="icon flx-{{ selectedCard?.icon }}"></i> -->
                                     <span>{{ selectedCard?.title }} <title></title></span>
                                 </li>
                             </ul>
@@ -68,7 +68,8 @@
         </div>
 
     </div>
-
+    
+    <!-- Platform detail -->
     <aside id="cbp-spmenu-s2" class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right platform-detail-wrapper">
         <div class="container">
             <span class="bl-icon-close" (click)="closeDetail()"><i class="icon flx-close" aria-hidden="true"></i></span>
