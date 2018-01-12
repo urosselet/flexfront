@@ -10,6 +10,7 @@ import { MatRadioModule, MatButtonModule }      from '@angular/material';
 /* Third party modules */
 import { NguiAutoCompleteModule }               from '@ngui/auto-complete';
 import { ArchwizardModule }                     from 'ng2-archwizard';
+import { ScrollToModule }                       from '@nicky-lenaers/ngx-scroll-to';
 
 /* Application Wide routing */
 import { AppRoutingModule }                     from './app-routing.module';
@@ -22,6 +23,7 @@ import { ActivityWizardComponent }              from '../components/_activity-wi
 
 import { IndexComponent }                       from '../components/index/index.component';
 import { ProcessComponent }                     from '../components/process/process.component';
+import { AboutServicesComponent }               from '../components/about-services/about-services.component';
 
 /* Directives */
 import { BoxLayoutDirective }                   from '../directives/boxlayout.directive';
@@ -49,13 +51,15 @@ import { CSProcessResolver }                    from '../services/resolvers/cspr
         MatRadioModule,
         MatButtonModule,
         NguiAutoCompleteModule,
-        ArchwizardModule
+        ArchwizardModule,
+        ScrollToModule.forRoot()
     ],
     declarations: [
         AppComponent,
         IndexComponent,
         ProcessComponent,
         ActivityWizardComponent,
+        AboutServicesComponent,
         MapToIterable,
         MapIdToText,
         BoxLayoutDirective,

@@ -39,11 +39,14 @@ header {
             li {
                 display: inline-block;
 
-                padding: 0 0 0 2em;
+                padding: 0 0 0 1em;
 
                 list-style: none outside none;
                 a {
-                    color: $fc-blue;
+                    color: $fc-blue !important;
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
             }
         }

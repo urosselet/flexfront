@@ -1,7 +1,7 @@
 /* General styles for all menus */
 .cbp-spmenu {
 	padding: 2rem;
-	position: fixed;
+	position: absolute;
 }
 
 /* Orientation-dependent styles for the content of the menu */
@@ -48,7 +48,7 @@
 }
 
 .cbp-spmenu-right.cbp-spmenu-open {
-	right: 0px;
+	// right: 0px;
 }
 
 /* Horizontal menu that slides from the top or bottom */
@@ -70,7 +70,7 @@
 
 /* Push classes applied to the body */
 .cbp-spmenu-push {
-	overflow-x: hidden;
+	// overflow-x: hidden;
 	position: relative;
 	left: 0;
 }

@@ -44,6 +44,19 @@
 
                     display: block;
                 }
+                h2.completed {
+                    font-size: 1.25em;
+
+                    position: absolute;
+                    right: 25px;
+                    bottom: 25px;
+                    span {
+                        font-size: initial;
+                         > i {
+                            font-size: 5rem;
+                        }
+                    }
+                }
             }
             .bl-content {
                 height: 100%;
@@ -64,6 +77,27 @@
             .bl-expand {
                 .bl-content .cards-wrapper {
                     display: block;
+                }
+            }
+        }
+    }
+
+    .bottom-nav {
+        position: fixed;
+        right: 15px;
+        bottom: 20px;
+        ul {
+            display: inline-flex;
+
+            width: 100%;
+
+            list-style-type: none;
+
+            justify-content: flex-end;
+            a {
+                color: #2da5b6;
+                &:hover {
+                    cursor: pointer;
                 }
             }
         }
