@@ -32,7 +32,7 @@
     "@angular/router": "^5.2.0",
     "@ngui/auto-complete": "^0.16.1",
     "@nicky-lenaers/ngx-scroll-to": "^0.5.0",
-    "@types/jquery": "^3.2.17",
+    "@types/jquery": "^3.2.18",
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.5.3",
     "escape-html": "^1.0.3",
@@ -78,7 +78,7 @@
     "typescript": "^2.6.2",
     "uglify-js-plugin": "0.0.6",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.10.1",
+    "webpack-dev-server": "^2.11.0",
     "webpack-hot-middleware": "^2.21.0",
     "webpack-merge": "^4.1.1"
   },

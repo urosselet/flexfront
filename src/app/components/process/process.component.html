@@ -26,6 +26,7 @@
                     <div class="bl-content">
                         <activity-wizard 
                             [title]="csactivity.label.default.title" 
+                            [summary]="csactivity.label.default.summary" 
                             [activities]="csactivity.activities" 
                             [index]="activitiesStatus[i].index"
                             [activitiesStatus]="activitiesStatus"
@@ -62,9 +63,12 @@
                         <div class="platforms">
                             <span (click)="getPlatformDetail(platform.id, $event)" *ngFor="let platform of results?.medium_hits">{{ platform.name }}</span>
                         </div>
-                        <div style="margin-top:1rem; color: #fff; padding: 0.25rem; background: #2da5b6; width: 7rem; text-align: center;">{{ results.medium_hits.length }} Platforms</div>
+                        <div style="margin-top:1rem; color: #fff; padding: 0.25rem; width: 7rem; text-align: left; color: #2da5b6;">{{ results.medium_hits.length }} Platforms</div>
                     </div>
                 </div>
+            </div>
+            <div *ngIf="isCompleted">
+                <a class="btn btn-info" [routerLink]="['/summary', sessionId]">Summary</a>
             </div>
             <div class="bottom-nav">
                 <ul>
@@ -100,3 +104,5 @@
 </section>
 
 <fc-about-services></fc-about-services>
+
+

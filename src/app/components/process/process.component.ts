@@ -24,6 +24,7 @@ export class ProcessComponent implements OnInit {
 
     public assetUrl: string = process.env.ASSET_URL;
 
+    public isCompleted: boolean = false;
     public query: string;
     public category: string;
     public hidePlatformDetail: boolean = true;
@@ -111,6 +112,9 @@ export class ProcessComponent implements OnInit {
                 activity['state'] = 'not-active';
             }
             this.activitiesStatus.push(activity);
+            if (this.activitiesStatus.length === 3) {
+                this.isCompleted = true;
+            }
         });
     }
 

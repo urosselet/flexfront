@@ -32,4 +32,17 @@ export class SessionService extends CommonService {
             .catch(this.handleError);
     }
 
+    /**
+     * Session handler
+     * @return {Observable<any[]>} [description]
+     */
+    public getSessionData(): Observable<any> {
+
+        let sessionID = String(localStorage.getItem('currentSession'));
+
+        return this.http.get(this.baseUrl + sessionID )
+            .map((res: Response) => res.json())
+            .catch(this.handleError);
+    }
+
 }

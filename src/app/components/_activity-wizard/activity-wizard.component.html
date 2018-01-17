@@ -30,7 +30,7 @@
                                     class="radio-button"
                                     *ngIf="activity.label.default.is_multiple_choice"
                                     [value]="card?.cs_initiatives"
-                                    (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title, activity.label.default.is_multiple_choice)"
+                                    (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title, activity.label.default.summary, activity.label.default.is_multiple_choice)"
                                 />
                                 <input
                                     id="{{ card.id }}"
@@ -39,7 +39,7 @@
                                     class="radio-button"
                                     *ngIf="!activity.label.default.is_multiple_choice"
                                     [value]="card?.cs_initiatives"
-                                    (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title, activity.label.default.is_multiple_choice)"
+                                    (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title, activity.label.default.summary, activity.label.default.is_multiple_choice)"
                                 />
                                 <div class="radio-tile">
                                     <div class="top-section">
@@ -87,7 +87,7 @@
                                     class="radio-button" 
                                     *ngIf="activity.label.default.is_multiple_choice"
                                     [value]="card?.cs_initiatives" 
-                                    (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title, activity.label.default.is_multiple_choice)" 
+                                    (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title, activity.label.default.summary, activity.label.default.is_multiple_choice)" 
                                 />
                                 <input 
                                     id="{{ card.id }}" 
@@ -96,7 +96,7 @@
                                     class="radio-button" 
                                     *ngIf="!activity.label.default.is_multiple_choice"
                                     [value]="card?.cs_initiatives" 
-                                    (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title, activity.label.default.is_multiple_choice)" 
+                                    (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title, activity.label.default.summary, activity.label.default.is_multiple_choice)" 
                                 />
                                 <div class="radio-tile">
                                     <div class="top-section">

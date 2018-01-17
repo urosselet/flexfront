@@ -1,0 +1,39 @@
+@import 'src/assets/sass/variables';
+
+#summary-component {
+	color: #888;
+    .header {
+        background: #ebdeb2;
+        .logo img {
+            width: 40%;
+            padding: 1rem;
+        }
+        .title {
+            position: relative;
+
+            display: inline-flex;
+
+            justify-content: flex-end;
+            align-items: center;
+            h1 {
+                font-size: 1.25rem;
+
+                color: #53c4d4;
+            }
+        }
+    }
+    .activity-wrapper {
+        &:not(:last-child) {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+			padding-bottom: 1rem;
+            border-bottom: 4px solid #53c4d4;
+        }
+        h1 {
+            color: #53c4d4;
+        }
+        .summary-wrapper {
+        	display: flex;
+        }
+    }
+}

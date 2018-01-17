@@ -24,6 +24,7 @@ import { ActivityWizardComponent }              from '../components/_activity-wi
 import { IndexComponent }                       from '../components/index/index.component';
 import { ProcessComponent }                     from '../components/process/process.component';
 import { AboutServicesComponent }               from '../components/about-services/about-services.component';
+import { SummaryComponent }                     from '../components/summary/summary.component';
 
 /* Directives */
 import { BoxLayoutDirective }                   from '../directives/boxlayout.directive';
@@ -35,6 +36,7 @@ import { MapToIterable, MapIdToText }           from '../pipes/application.pipes
 /* App Services */
 import { SearchService }                        from '../services/search.service';
 import { CSProcessService }                     from '../services/csprocess.service';
+import { SessionService }                       from '../services/session.service';
 
 /* Resolvers */
 import { CSProcessResolver }                    from '../services/resolvers/csprocess.resolver';
@@ -60,6 +62,7 @@ import { CSProcessResolver }                    from '../services/resolvers/cspr
         ProcessComponent,
         ActivityWizardComponent,
         AboutServicesComponent,
+        SummaryComponent,
         MapToIterable,
         MapIdToText,
         BoxLayoutDirective,
@@ -68,6 +71,7 @@ import { CSProcessResolver }                    from '../services/resolvers/cspr
     providers: [
         SearchService,
         CSProcessService,
+        SessionService,
         CSProcessResolver
     ],
     bootstrap: [ AppComponent ]

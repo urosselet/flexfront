@@ -21,6 +21,7 @@ export class ActivityWizardComponent implements AfterViewInit {
     @Output() filter: EventEmitter<any> = new EventEmitter<any>();
 
     @Input() title;
+    @Input() summary;
     @Input() activities;
     @Input() index;
     @Input() activitiesStatus;
@@ -58,7 +59,7 @@ export class ActivityWizardComponent implements AfterViewInit {
      * @param {number} activityIndex [description]
      * @param {any}    card          [description]
      */
-    public onSelectCard(activityIndex: number, card: any, activityName: string, label: string, isMultipleChoice: boolean): void {
+    public onSelectCard(activityIndex: number, card: any, activityName: string, label: string, summary: string, isMultipleChoice: boolean): void {
 
         if (!this.selectedCards[activityIndex]) {
             this.selectedCards[activityIndex] = [];
@@ -68,7 +69,7 @@ export class ActivityWizardComponent implements AfterViewInit {
             this.formattedArray[activityName] = [];
         }
 
-        this.selectedCards[activityIndex] = { 'id': card.id, 'label': label, 'icon': card.icon, 'title': card.title };
+        this.selectedCards[activityIndex] = { 'id': card.id, 'label': label, 'summary': summary, 'icon': card.icon, 'title': card.title, 'todos': card.todos };
 
         this.formattedArray[activityIndex] = this.selectedCards[activityIndex];
 
