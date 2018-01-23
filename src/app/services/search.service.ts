@@ -89,8 +89,8 @@ export class SearchService extends CommonService {
      * @param  {any}             query [description]
      * @return {Observable<any>}       [description]
      */
-    public getPlatforms(attributes: any, sessionId: string, sessionData: any): Observable<any> {
-        let request = { 'attributes': attributes, 'sessionId': sessionId, 'data': sessionData };
+    public getPlatforms(sessionId: string, sessionData: any): Observable<any> {
+        let request = { 'sessionId': sessionId, 'data': sessionData };
         return this.http.post(this.baseUrl + 'platforms', request)
             .map((res: Response) => res.json())
             .catch(this.handleError);

@@ -14,19 +14,29 @@
     <div class="container">
     	<div class="row activity-wrapper" *ngFor="let summary of summaries">
 			
-			<div class="col-2">
-				<h1>{{ summary.activity }}</h1>
+			<div class="col-3">
+				<h2>{{ summary.label.default.title }}</h2>
 			</div>
 
-			<div class="col-10">
-				<div class="summary-wrapper" *ngFor="let data of summary.data">
-					<div class="col-8">
-						<h2>{{ data.label }}</h2>
-						<p>{{ data.summary }}</p>
-					</div>
+			<div class="col-9">
+				<div class="summary-wrapper" *ngFor="let activity of summary.activities">
 					<div class="col-4">
-						<h2>To Dos</h2>
-						<ul *ngFor="let todo of data.todos">
+						<h3>{{ activity.label.default.title }}</h3>
+						<p>{{ activity.label.default.summary }}</p>
+					</div>
+					
+					<div class="cards-wrapper">
+						<ng-container *ngFor="let card of activity.label.default.cards.default">
+							<div *ngIf="card?.is_selected">
+								<h4>{{ card.title }}</h4>
+								<p>{{ card.description }}</p>
+							</div>
+						</ng-container>
+					</div>
+
+					<div class="col-4">
+						<h3>To Dos</h3>
+						<ul *ngFor="let todo of data?.todos">
 							<li>{{ todo.description }}</li>	
 						</ul>
 					</div>

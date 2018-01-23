@@ -1,6 +1,6 @@
 #wizard-container {
     height: 100%;
-    margin-top: 2rem;
+    // margin-top: 2rem;
 
     align-items: baseline;
 
@@ -86,9 +86,26 @@
         left: 0;
 
         width: 100%;
+        .mc-indicator {
+            padding: 0 30px;
+            h2 {
+                font-size: 1rem;
 
+                display: inline-flex;
+
+                margin-bottom: 0;
+
+                color: #2da5b6;
+
+                align-items: center;
+                i {
+                    padding-right: 10px;
+                }
+            }
+        }
         .row {
-            margin: 4rem 0 2rem 0;
+            margin: 2rem 0 2rem 0;
+
             justify-content: center;
         }
 

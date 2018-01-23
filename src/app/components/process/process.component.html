@@ -1,3 +1,10 @@
+<header class="my-header" [ngClass]= "{'page-scroll-header': isScrolled}">
+     <div class="logo">
+        <a href="/">
+            <img [src]="'assets/images/logo.png'" alt="flex-logo">
+        </a>
+    </div>
+</header>
 <section id="process-component" class="container-fluid cbp-spmenu-push" slidePush>
 
     <div class="row">
@@ -10,17 +17,23 @@
                         <div class="activity-status" *ngIf="activitiesStatus[i].isCompleted">
                             <i class="icon flx-check-badge"></i>
                         </div>
+
                         <h2 [ngClass]="{'completed': activitiesStatus[i].isCompleted === true}">
                             <span><i class="icon flx-{{ csactivity.icon }}" aria-hidden="true"></i></span> 
                             {{ csactivity.label.default.title }}
                         </h2>
+                        
+                        <!-- selected cards list -->
                         <div class="seleted-cards-wrapper" *ngIf="activitiesStatus[i].isCompleted">
-                            <ul>
-                                <li *ngFor="let selectedCard of selectedCardsArray[i];">
-                                    <span><i class="icon flx-check-circle-1"></i> {{ selectedCard?.title }}</span>
+                            <ul *ngFor="let act of sessionData[i]?.activities;">
+                                <h5>{{ act.label.default.title }}</h5>
+                                <li *ngFor="let card of act.label.default.cards.default;">
+                                    <span *ngIf="card.is_selected"><i class="icon flx-check-circle-1"></i> {{ card.title }}</span>
                                 </li>
                             </ul>
                         </div>
+                        <!-- END::selected cards list -->
+
                     </div>
                     <!-- Content wrapper -->
                     <div class="bl-content">
@@ -28,7 +41,8 @@
                             [title]="csactivity.label.default.title" 
                             [summary]="csactivity.label.default.summary" 
                             [activities]="csactivity.activities" 
-                            [index]="activitiesStatus[i].index"
+                            [activity]="csactivity" 
+                            [index]="i"
                             [activitiesStatus]="activitiesStatus"
                             [attributesArray]="attributesArray"
                             [quadrants]="quadrants"
@@ -70,6 +84,7 @@
             <div *ngIf="isCompleted">
                 <a class="btn btn-info" [routerLink]="['/summary', sessionId]">Summary</a>
             </div>
+            
             <div class="bottom-nav">
                 <ul>
                     <li>
@@ -80,6 +95,7 @@
                     </li>
                 </ul>
             </div>
+            
         </div>
 
     </div>

@@ -1,5 +1,40 @@
+header {
+    position: fixed;
+    z-index: 2000;
+
+    display: none;
+
+    width: 100%;
+    height: 75px;
+
+    justify-content: flex-start;
+    align-items: center;
+    ul {
+        display: inline-flex;
+
+        margin: 1rem;
+
+        list-style-type: none;
+    }
+
+    &.page-scroll-header {
+        display: flex;
+
+        background-color: #fff;
+        box-shadow: 0 0 50px 5px rgba(0, 0, 0, .125);
+    }
+
+    &.my-header {
+        transition: background-color 2s ease-out;
+    }
+
+    .logo img {
+        width: 65%;
+    }
+}
+
 #process-component {
-    height: 100%;
+    height: 100vh;
 
      > .row {
         height: 100%;
@@ -24,9 +59,20 @@
                     padding: 1rem;
                     ul {
                         margin: 0;
+                        margin-bottom: 1rem;
                         padding: 0;
 
                         list-style-type: none;
+                    }
+                    h5 {
+                        font-size: 1rem;
+
+                        display: inline-block;
+
+                        width: auto;
+                        padding-bottom: 0;
+
+                        border-bottom: 1px solid;
                     }
                 }
                 .activity-status {
@@ -84,8 +130,9 @@
 
     .bottom-nav {
         position: fixed;
+        z-index: 2001;
+        top: 20px;
         right: 15px;
-        bottom: 20px;
         ul {
             display: inline-flex;
 
@@ -106,7 +153,7 @@
     .recommendation-section {
         position: relative;
 
-        padding: 2.2rem 0;
+        padding: 4rem 0 2rem 0;
         h1,
         h2 {
             font-weight: bold;

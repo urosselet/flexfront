@@ -16,9 +16,13 @@
                     <span><i class="icon flx-{{ activity.label.default.icon }}" aria-hidden="true"></i></span>
                 </div>
             </div>
+            <!-- END::Activity detail section -->
 
             <!-- Cards section -->
             <div class="row cards-wrapper">
+                <div class="col-12 mc-indicator">
+                    <h2 *ngIf="activity.label.default.is_multiple_choice"><i class="icon flx-checklist"></i> Multiple cards can be selected for this decision</h2>
+                </div>
                 <div class="col-12">
                     <div class="row">
                         <div class="col-3 radio-tile-group" *ngFor="let card of activity.label.default.cards.default; let cardIndex = index; ">
@@ -29,8 +33,9 @@
                                     type="checkbox"
                                     class="radio-button"
                                     *ngIf="activity.label.default.is_multiple_choice"
-                                    [value]="card?.cs_initiatives"
-                                    (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title, activity.label.default.summary, activity.label.default.is_multiple_choice)"
+                                    [value]="card.id"
+                                    [checked]="sessionData[index].activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    [(ngModel)]="sessionData[index].activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
                                 />
                                 <input
                                     id="{{ card.id }}"
@@ -38,8 +43,9 @@
                                     type="radio"
                                     class="radio-button"
                                     *ngIf="!activity.label.default.is_multiple_choice"
-                                    [value]="card?.cs_initiatives"
-                                    (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title, activity.label.default.summary, activity.label.default.is_multiple_choice)"
+                                    [value]="card.id"
+                                    [checked]="sessionData[index].activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    [(ngModel)]="sessionData[index].activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
                                 />
                                 <div class="radio-tile">
                                     <div class="top-section">
@@ -58,6 +64,7 @@
                     </div>
                 </div>
             </div>
+            <!-- END::Cards section -->
 
         </wizard-step>
 
@@ -73,9 +80,13 @@
                     <span><i class="icon flx-{{ activity.label.default.icon }}" aria-hidden="true"></i></span>
                 </div>
             </div>
+            <!-- END::Activity detail section -->
 
             <!-- Cards section -->
             <div class="row cards-wrapper">
+                <div class="col-12 mc-indicator">
+                    <h2 *ngIf="activity.label.default.is_multiple_choice"><i class="icon flx-checklist"></i> Multiple cards can be selected for this decision</h2>
+                </div>
                 <div class="col-12">
                     <div class="row">
                         <div class="col-3 radio-tile-group" *ngFor="let card of activity.label.default.cards.default; let cardIndex = index; ">
@@ -86,8 +97,9 @@
                                     name="activity-card_{{ activityIndex }}" 
                                     class="radio-button" 
                                     *ngIf="activity.label.default.is_multiple_choice"
-                                    [value]="card?.cs_initiatives" 
-                                    (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title, activity.label.default.summary, activity.label.default.is_multiple_choice)" 
+                                    [value]="card.id"
+                                    [checked]="sessionData[index].activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    [(ngModel)]="sessionData[index].activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
                                 />
                                 <input 
                                     id="{{ card.id }}" 
@@ -95,8 +107,9 @@
                                     name="activity-card_{{ activityIndex }}" 
                                     class="radio-button" 
                                     *ngIf="!activity.label.default.is_multiple_choice"
-                                    [value]="card?.cs_initiatives" 
-                                    (change)="onSelectCard(activityIndex, card, activity.id, activity.label.default.title, activity.label.default.summary, activity.label.default.is_multiple_choice)" 
+                                    [value]="card.id"
+                                    [checked]="sessionData[index].activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    [(ngModel)]="sessionData[index].activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
                                 />
                                 <div class="radio-tile">
                                     <div class="top-section">
@@ -115,6 +128,7 @@
                     </div>
                 </div>
             </div>
+            <!-- END::Cards section -->
 
         </wizard-completion-step>
 

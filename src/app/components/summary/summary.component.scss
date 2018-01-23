@@ -29,11 +29,24 @@
 			padding-bottom: 1rem;
             border-bottom: 4px solid #53c4d4;
         }
-        h1 {
+        h2 {
             color: #53c4d4;
+            font-size: 1.75rem;
+        }
+        h3, h4 {
+            color: #53c4d4;
+            font-size: 1.35rem;
         }
         .summary-wrapper {
         	display: flex;
+            &:not(:last-child) {
+                border-bottom: 1px solid #efefef;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .col-9 {
+            padding-top: 3rem;
         }
     }
 }

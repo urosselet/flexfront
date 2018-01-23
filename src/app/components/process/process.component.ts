@@ -11,13 +11,21 @@ import { CSProcessService }                                                     
     selector: 'fc-process',
     templateUrl: 'process.component.html',
     styleUrls: ['process.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    host: {
+        '(window:scroll)': 'updateHeader($event)'
+    }
 })
 
 export class ProcessComponent implements OnInit {
 
     @ViewChild(BoxLayoutDirective) boxLayout: BoxLayoutDirective;
     @ViewChild(SlidePushDirective) slidePush: SlidePushDirective;
+
+    private isScrolled = false;
+    private currPos: Number = 0;
+    private startPos: Number = 0;
+    private changePos: Number = 50;
 
     private sessionId: string = localStorage.getItem('currentSession');
     private targetPlatform: EventTarget;
@@ -49,7 +57,8 @@ export class ProcessComponent implements OnInit {
 
         this.route.data.subscribe(resolved => {
             this.csactivities = resolved.csactivities.activities;
-            this.processActivities()
+            this.sessionData = resolved.csactivities.sessionData;
+            this.processActivities();
         });
 
         this.query = this.searchService.getQuery();
@@ -97,7 +106,8 @@ export class ProcessComponent implements OnInit {
     }
 
     public filterPlatform(data: any): void {
-        this.searchService.getPlatforms(data.quadrants, this.sessionId, data.sessionData)
+        // this.sessionData = this.csactivities;
+        this.searchService.getPlatforms(this.sessionId, this.sessionData)
             .subscribe(
                 (res) => { this.results = res.results; },
                 (error) => {});
@@ -116,6 +126,19 @@ export class ProcessComponent implements OnInit {
                 this.isCompleted = true;
             }
         });
+    }
+
+    /**
+     * Show header on scrolling
+     * @param {[type]} evt [description]
+     */
+    public updateHeader(evt): void {
+        this.currPos = (window.pageYOffset || evt.target.scrollTop) - (evt.target.clientTop || 0);
+        if (this.currPos >= this.changePos) {
+            this.isScrolled = true;
+        } else {
+            this.isScrolled = false;
+        }
     }
 
 }

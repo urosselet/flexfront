@@ -12,7 +12,7 @@
         "lib": ["es2015", "dom"],
         "typeRoots": ["../../node_modules/@types"],
         "types": ["node"],
-        "sourceMap": true,
+        "sourceMap": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "noImplicitAny": false,
