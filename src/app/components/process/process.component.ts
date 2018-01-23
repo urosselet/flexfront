@@ -42,8 +42,6 @@ export class ProcessComponent implements OnInit {
     
     public activitiesStatus: any[] = [];
     public attributesArray: any[] = [];
-    public selectedCardsArray: any[] = [];
-    public quadrants: any[] = [];
     public sessionData: any[] = [];
 
     constructor(
@@ -57,8 +55,10 @@ export class ProcessComponent implements OnInit {
 
         this.route.data.subscribe(resolved => {
             this.csactivities = resolved.csactivities.activities;
-            this.sessionData = resolved.csactivities.sessionData;
             this.processActivities();
+            if (Object.keys(resolved.csactivities.sessionData).length > 0) {
+                this.sessionData = resolved.csactivities.sessionData;
+            }
         });
 
         this.query = this.searchService.getQuery();
@@ -106,7 +106,6 @@ export class ProcessComponent implements OnInit {
     }
 
     public filterPlatform(data: any): void {
-        // this.sessionData = this.csactivities;
         this.searchService.getPlatforms(this.sessionId, this.sessionData)
             .subscribe(
                 (res) => { this.results = res.results; },

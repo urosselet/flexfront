@@ -24,14 +24,16 @@ export class ActivityWizardComponent implements AfterViewInit {
     @Input() index;
     @Input() activitiesStatus;
     @Input() attributesArray;
-    @Input() quadrants;
-    @Input() selectedCardsArray;
     @Input() sessionData;
     @Input() isMultipleChoice;
 
     constructor() { }
 
     ngAfterViewInit(): void {
+
+        if (!this.sessionData[this.index]) {
+            this.sessionData.push(this.activity);
+        }
 
         this.sessionData[this.index].activities.forEach((activity, index) => {
             activity.label.default.cards.default.forEach((card, index) => {
@@ -58,7 +60,7 @@ export class ActivityWizardComponent implements AfterViewInit {
      * On card selection action
      * @param {number} activityIndex [description]
      * @param {any}    card          [description]
-     */
+     
     public onSelectCard(card: any): void {
 
         if (card.is_selected === false || card.is_selected === undefined) {
@@ -67,6 +69,6 @@ export class ActivityWizardComponent implements AfterViewInit {
             card.is_selected = false;
         }
 
-    }
+    }*/
 
 }

@@ -34,8 +34,8 @@
                                     class="radio-button"
                                     *ngIf="activity.label.default.is_multiple_choice"
                                     [value]="card.id"
-                                    [checked]="sessionData[index].activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
-                                    [(ngModel)]="sessionData[index].activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    [checked]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    [(ngModel)]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
                                 />
                                 <input
                                     id="{{ card.id }}"
@@ -44,8 +44,8 @@
                                     class="radio-button"
                                     *ngIf="!activity.label.default.is_multiple_choice"
                                     [value]="card.id"
-                                    [checked]="sessionData[index].activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
-                                    [(ngModel)]="sessionData[index].activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    [checked]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    [(ngModel)]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
                                 />
                                 <div class="radio-tile">
                                     <div class="top-section">
@@ -98,8 +98,8 @@
                                     class="radio-button" 
                                     *ngIf="activity.label.default.is_multiple_choice"
                                     [value]="card.id"
-                                    [checked]="sessionData[index].activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
-                                    [(ngModel)]="sessionData[index].activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    [checked]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    [(ngModel)]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
                                 />
                                 <input 
                                     id="{{ card.id }}" 
@@ -108,8 +108,8 @@
                                     class="radio-button" 
                                     *ngIf="!activity.label.default.is_multiple_choice"
                                     [value]="card.id"
-                                    [checked]="sessionData[index].activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
-                                    [(ngModel)]="sessionData[index].activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    [checked]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    [(ngModel)]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
                                 />
                                 <div class="radio-tile">
                                     <div class="top-section">
