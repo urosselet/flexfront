@@ -34,7 +34,9 @@ header {
 }
 
 #process-component {
-    height: 100vh;
+    overflow: auto;
+
+    height: 100%;
 
      > .row {
         height: 100%;

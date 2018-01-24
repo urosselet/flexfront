@@ -86,7 +86,8 @@ module.exports = {
         ),
 
         new TSLintPlugin({
-            files: ['./src/**/*.ts']
+            files: ['./src/**/*.ts'],
+            exclude: []
         }),
 
         new webpack.ProvidePlugin({

@@ -5,16 +5,8 @@ import { Observable }                           from 'rxjs/Rx';
 
 import { CommonService }                        from './common.service';
 
-import * as io                                  from 'socket.io-client';
-
 @Injectable()
 export class CSProcessService extends CommonService {
-
-    /**
-     * Socket object
-     * @type {any}
-     */
-    private socket: any;
 
     /**
      * CS Process API base Url
@@ -45,21 +37,6 @@ export class CSProcessService extends CommonService {
         return this.http.get(`${this.activityUrl}wizard/${sessionId}`)
             .map((res: Response) => res.json())
             .catch(this.handleError);
-    }
-
-    public getUpdatedActivity(): Observable<any> {
-        let observable = new Observable(observer => {
-
-            this.socket = io(process.env.API_URL);
-
-            this.socket.on('activityUpdate', (data) => {
-                observer.next(data);
-            });
-
-            return () => { this.socket.disconnect(); };
-            
-        });
-        return observable;
     }
 
 }

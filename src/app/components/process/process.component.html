@@ -67,7 +67,7 @@
                         <div class="platforms">
                             <span (click)="getPlatformDetail(platform.id, $event)" *ngFor="let platform of results?.high_hits">{{ platform.name }}</span>
                         </div>
-                        <div style="margin-top:1rem; color: #fff; padding: 0.25rem; background: #2da5b6; width: 7rem; text-align: center;">{{ results.high_hits.length }} Platforms</div>
+                        <div style="margin-top:1rem; color: #fff; padding: 0.25rem; width: 7rem; text-align: left; color: #2da5b6;">{{ results.high_hits.length }} Platforms</div>
                     </div>
                     <!-- Medium score hits -->
                     <div class="medium-scores-hits" *ngIf="results?.medium_hits">
@@ -116,6 +116,8 @@
     </aside>
     
 </section>
+
+<div class="clearfix"></div>
 
 <fc-about-services></fc-about-services>
 

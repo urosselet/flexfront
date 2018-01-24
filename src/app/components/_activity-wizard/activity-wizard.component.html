@@ -4,7 +4,11 @@
 
     <div *ngFor="let activity of activities; let activityIndex = index; ">
 
-        <wizard-step stepTitle="{{ activity.label.default.title }}" navigationSymbol="&#xe377;" navigationSymbolFontFamily="flexcrowd" *ngIf="activityIndex < activities.length - 1 ">
+        <wizard-step 
+            stepTitle="{{ activity.label.default.title }}" 
+            navigationSymbol="&#xe377;"
+            navigationSymbolFontFamily="flexcrowd"
+            *ngIf="activityIndex < activities.length - 1 ">
 
             <!-- Activity detail section -->
             <div class="row activity-wrapper">
@@ -68,7 +72,12 @@
 
         </wizard-step>
 
-        <wizard-completion-step stepTitle="{{ activity.label.default.title }}" navigationSymbol="&#xe377;" navigationSymbolFontFamily="flexcrowd" *ngIf="activityIndex === activities.length - 1" enableBackLinks>
+        <wizard-completion-step 
+            stepTitle="{{ activity.label.default.title }}" 
+            navigationSymbol="&#xe377;" 
+            navigationSymbolFontFamily="flexcrowd"
+            *ngIf="activityIndex === activities.length - 1" 
+            enableBackLinks>
 
             <!-- Activity detail section -->
             <div class="row activity-wrapper">

@@ -1,7 +1,5 @@
 import { Component, ViewEncapsulation, AfterViewInit, Input, Output, EventEmitter }      	from '@angular/core';
 
-import * as _ from 'underscore'
-
 @Component({
     selector: 'activity-wizard',
     templateUrl: 'activity-wizard.component.html',
@@ -46,7 +44,7 @@ export class ActivityWizardComponent implements AfterViewInit {
     }
 
     /**
-     * On finilasing current activity last step action
+     * On finalising current activity last step action
      * @param {number} index [description]
      */
     public finalizeStep(index: number): void {
@@ -56,19 +54,6 @@ export class ActivityWizardComponent implements AfterViewInit {
         this.filter.emit();
     }
 
-    /**
-     * On card selection action
-     * @param {number} activityIndex [description]
-     * @param {any}    card          [description]
-     
-    public onSelectCard(card: any): void {
-
-        if (card.is_selected === false || card.is_selected === undefined) {
-            card.is_selected = true;
-        } else if (card.is_selected === true) {
-            card.is_selected = false;
-        }
-
-    }*/
+    public exitStep(activity: any): void { }
 
 }

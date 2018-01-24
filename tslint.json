@@ -17,7 +17,7 @@
         "use-output-property-decorator": true,
         "use-pipe-transform-interface": true,
         "use-host-property-decorator": false,
-        "no-console": [true, "time", "timeEnd", "trace"],
+        "no-console": [false, "time", "timeEnd", "trace"],
         "max-line-length": [false, 100],
         "no-string-literal": false,
         "no-empty": false,
