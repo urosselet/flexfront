@@ -33,12 +33,15 @@
 							</div>
 						</ng-container>
 					</div>
+					
 
 					<div class="col-4">
-						<h3>To Dos</h3>
-						<ul *ngFor="let todo of data?.todos">
+						<ng-container *ngFor="let card of activity.label.default.cards.default">
+						<h3 *ngIf="card?.todos">To Do</h3>
+						<ul *ngFor="let todo of card?.todos">
 							<li>{{ todo.description }}</li>	
 						</ul>
+						</ng-container>
 					</div>
 				</div>
 			</div>

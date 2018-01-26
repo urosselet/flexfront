@@ -1,1 +1,3 @@
-# FlexCrowd Front-end Repository
+# FlexCrowd Front-end
+
+## Compilation des styles Sass

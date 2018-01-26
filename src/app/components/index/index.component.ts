@@ -31,9 +31,10 @@ export class IndexComponent {
         private searchService: SearchService,
         private router: Router
     ) {
-        if (!JSON.parse(localStorage.getItem('sessionID'))) {
+
+        if (localStorage.getItem('currentSession') === null) {
             this.session = uuid();
-            localStorage.setItem('currentSession',this.session);
+            localStorage.setItem('currentSession', this.session);
         } else {
             this.session = JSON.parse(localStorage.getItem('currentSession'));
         }

@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation, OnInit }   from '@angular/core';
+import { Component, Input, ViewEncapsulation }   from '@angular/core';
 
 @Component({
     selector: 'fc-app',
@@ -7,13 +7,4 @@ import { Component, Input, ViewEncapsulation, OnInit }   from '@angular/core';
     encapsulation: ViewEncapsulation.None
 })
 
-export class AppComponent implements OnInit {
-
-    private query: string;
-    private category: string;
-
-    constructor() {}
-
-    public ngOnInit(): void {}
-
-}
+export class AppComponent { }

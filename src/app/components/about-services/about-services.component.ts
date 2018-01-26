@@ -1,5 +1,4 @@
-import { Component, ViewEncapsulation, OnInit, ViewChild, Renderer }                from '@angular/core';
-import { ActivatedRoute }                                                           from '@angular/router';
+import { Component, ViewEncapsulation, ViewChild }                from '@angular/core';
 
 @Component({
     selector: 'fc-about-services',
@@ -8,12 +7,4 @@ import { ActivatedRoute }                                                       
     encapsulation: ViewEncapsulation.None
 })
 
-export class AboutServicesComponent implements OnInit {
-
-    constructor(
-        private route: ActivatedRoute
-    ) { }
-
-    public ngOnInit(): void {}
-
-}
+export class AboutServicesComponent { }
