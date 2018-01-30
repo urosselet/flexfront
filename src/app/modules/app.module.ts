@@ -5,7 +5,11 @@ import { FormsModule, ReactiveFormsModule }     from '@angular/forms';
 import { HttpModule, JsonpModule }              from '@angular/http';
 
 /* Angular material modules */
-import { MatRadioModule, MatButtonModule }      from '@angular/material';
+import { 
+    MatRadioModule, 
+    MatButtonModule, 
+    MatSnackBarModule 
+}                                               from '@angular/material';
 
 /* Third party modules */
 import { NguiAutoCompleteModule }               from '@ngui/auto-complete';
@@ -52,6 +56,7 @@ import { CSProcessResolver }                    from '../services/resolvers/cspr
         AppRoutingModule,
         MatRadioModule,
         MatButtonModule,
+        MatSnackBarModule,
         NguiAutoCompleteModule,
         ArchwizardModule,
         ScrollToModule.forRoot()

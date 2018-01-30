@@ -106,7 +106,26 @@ export class ProcessComponent implements OnInit {
     }
 
     public filterPlatform(data: any): void {
-        this.searchService.getPlatforms(this.sessionId, this.sessionData)
+
+        this.csactivities.forEach((csactivity, csactivityIndex) => {
+
+            csactivity.activities.forEach((activity, activityIndex) => {
+
+                  activity.label.default.cards.default.forEach((card, cardIndex) => {
+
+                    if (this.sessionData[csactivityIndex].activities[activityIndex].label.default.cards.default[cardIndex].is_selected) {
+                        card['is_selected'] = true;
+                    } else {
+                        card['is_selected'] = false;
+                    }
+
+                });
+
+            });
+
+        });
+
+        this.searchService.getPlatforms(this.sessionId, this.csactivities)
             .subscribe(
                 (res) => { this.results = res.results; },
                 (error) => {});

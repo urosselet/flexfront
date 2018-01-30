@@ -36,7 +36,7 @@ export class IndexComponent {
             this.session = uuid();
             localStorage.setItem('currentSession', this.session);
         } else {
-            this.session = JSON.parse(localStorage.getItem('currentSession'));
+            this.session = localStorage.getItem('currentSession');
         }
     }
 

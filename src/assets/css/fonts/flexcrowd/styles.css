@@ -87,82 +87,82 @@
   content: "\70";
 }
 .flx-trophy-user:before {
-  content: "\72";
+  content: "\71";
 }
 .flx-account-group-4:before {
-  content: "\73";
+  content: "\72";
 }
 .flx-file-question-2:before {
-  content: "\74";
+  content: "\73";
 }
 .flx-file-view-2:before {
-  content: "\75";
+  content: "\74";
 }
 .flx-file-edit-2:before {
-  content: "\76";
+  content: "\75";
 }
 .flx-share-time:before {
-  content: "\77";
+  content: "\76";
 }
 .flx-share-time-1:before {
-  content: "\78";
+  content: "\77";
 }
 .flx-clock-fire:before {
-  content: "\79";
+  content: "\78";
 }
 .flx-calendar-2:before {
-  content: "\7a";
+  content: "\79";
 }
 .flx-badge-question:before {
-  content: "\41";
+  content: "\7a";
 }
 .flx-gift-sharing:before {
-  content: "\42";
+  content: "\41";
 }
 .flx-coin-bank-note:before {
-  content: "\43";
+  content: "\42";
 }
 .flx-bank-notes-3:before {
-  content: "\44";
+  content: "\43";
 }
 .flx-person-favorite-star-1:before {
-  content: "\45";
+  content: "\44";
 }
 .flx-boat-steering-wheel:before {
-  content: "\46";
+  content: "\45";
 }
 .flx-account-code:before {
-  content: "\47";
+  content: "\46";
 }
 .flx-science-lightbulb:before {
-  content: "\48";
+  content: "\47";
 }
 .flx-megaphone-2:before {
-  content: "\49";
+  content: "\48";
 }
 .flx-science-robot-2:before {
-  content: "\4a";
+  content: "\49";
 }
 .flx-design-mug:before {
-  content: "\4b";
+  content: "\4a";
 }
 .flx-lightbulb-4:before {
-  content: "\4c";
+  content: "\4b";
 }
 .flx-file-badge:before {
-  content: "\4d";
+  content: "\4c";
 }
 .flx-file-registered-trademark:before {
-  content: "\4e";
+  content: "\4d";
 }
 .flx-sign-peace:before {
-  content: "\4f";
+  content: "\4e";
 }
 .flx-share-star:before {
-  content: "\50";
+  content: "\4f";
 }
 .flx-space-shuttle-2:before {
-  content: "\71";
+  content: "\50";
 }
 .flx-flower-hand:before {
   content: "\51";
@@ -172,4 +172,16 @@
 }
 .flx-check-circle-1:before {
   content: "\53";
+}
+.flx-arrow-right-8:before {
+  content: "\54";
+}
+.flx-arrow-left-8:before {
+  content: "\55";
+}
+.flx-checklist:before {
+  content: "\56";
+}
+.flx-close:before {
+  content: "\57";
 }

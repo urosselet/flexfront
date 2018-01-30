@@ -1,6 +1,6 @@
 <span class="bl-icon-close"><i class="icon flx-close" aria-hidden="true"></i></span>
 
-<wizard id="wizard-container" navBarLocation="left" navBarLayout="large-empty-symbols">
+<wizard id="wizard-container" navBarLocation="left" navBarLayout="large-empty-symbols" navigationMode="free">
 
     <div *ngFor="let activity of activities; let activityIndex = index; ">
 
@@ -40,6 +40,7 @@
                                     [value]="card.id"
                                     [checked]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
                                     [(ngModel)]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    (ngModelChange)="applyFilter()"
                                 />
                                 <input
                                     id="{{ card.id }}"
@@ -50,6 +51,7 @@
                                     [value]="card.id"
                                     [checked]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
                                     [(ngModel)]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    (ngModelChange)="applyFilter()"
                                 />
                                 <div class="radio-tile">
                                     <div class="top-section">
@@ -64,7 +66,7 @@
 
                     <div class="wizard-navigation">
                         <button class="btn btn-success" type="button" previousStep *ngIf="activityIndex > 0"><i class="icon flx-arrow-left-8"></i>Back</button>
-                        <button class="btn btn-success float-right" type="button" nextStep *ngIf="activityIndex !== activities.length - 1">Next decision <i class="icon flx-arrow-right-8"></i></button>
+                        <button class="btn btn-success float-right" type="button" nextStep *ngIf="activityIndex !== activities.length - 1" (click)="openSnackBar(index, activityIndex)">Next decision <i class="icon flx-arrow-right-8"></i></button>
                     </div>
                 </div>
             </div>
@@ -75,6 +77,7 @@
         <wizard-completion-step 
             stepTitle="{{ activity.label.default.title }}" 
             navigationSymbol="&#82;" 
+            navigationMode="free"
             navigationSymbolFontFamily="flexcrowd"
             *ngIf="activityIndex === activities.length - 1" 
             enableBackLinks>
@@ -109,6 +112,7 @@
                                     [value]="card.id"
                                     [checked]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
                                     [(ngModel)]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    (ngModelChange)="applyFilter()"
                                 />
                                 <input 
                                     id="{{ card.id }}" 
@@ -119,6 +123,7 @@
                                     [value]="card.id"
                                     [checked]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
                                     [(ngModel)]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    (ngModelChange)="applyFilter()"
                                 />
                                 <div class="radio-tile">
                                     <div class="top-section">
@@ -133,7 +138,7 @@
 
                     <div class="wizard-navigation">
                         <button class="btn btn-success" type="button" previousStep *ngIf="activityIndex > 0"><i class="icon flx-arrow-left-8"></i>Back</button>
-                        <button class="btn btn-success float-right" type="button" *ngIf="activityIndex === activities.length - 1" (click)="finalizeStep(index)">Next Quadrant <i class="icon flx-arrow-right-8"></i></button>
+                        <button class="btn btn-success float-right" type="button" *ngIf="activityIndex === activities.length - 1" (click)="finalizeStep(index, activityIndex)">Next Quadrant <i class="icon flx-arrow-right-8"></i></button>
                     </div>
                 </div>
             </div>
