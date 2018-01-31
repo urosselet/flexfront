@@ -10,7 +10,7 @@ module.exports = webpackMerge(commonConfig, {
 
     devServer: {
     	host: '0.0.0.0',
-        port: 3001,
+        port: 3002,
         disableHostCheck: true,
         historyApiFallback: true,
         stats: 'errors-only',
