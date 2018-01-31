@@ -54,7 +54,7 @@ module.exports = webpackMerge(commonConfig, {
          * Loaders are switched into minimizing mode.
          *
          * See: https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
-         */
+         
         new UglifyJsPlugin({
             beautify: false,
             output: {
@@ -77,7 +77,7 @@ module.exports = webpackMerge(commonConfig, {
                 join_vars: true,
                 negate_iife: false
             }
-        })
+        })*/
     ],
 
     devtool: 'source-map'
