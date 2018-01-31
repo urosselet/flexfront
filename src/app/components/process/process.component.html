@@ -18,13 +18,13 @@
                             <i class="icon flx-check-badge"></i>
                         </div>
 
-                        <h2 [ngClass]="{'completed': sessionData[i].isCompleted === true}">
+                        <h2 [ngClass]="{'completed': sessionData[i]?.isCompleted === true}">
                             <span><i class="icon flx-{{ csactivity.icon }}" aria-hidden="true"></i></span> 
                             {{ csactivity.label.default.title }}
                         </h2>
                         
                         <!-- selected cards list -->
-                        <div class="seleted-cards-wrapper" *ngIf="sessionData[i].isCompleted">
+                        <div class="seleted-cards-wrapper" *ngIf="sessionData[i]?.isCompleted">
                             <ul *ngFor="let act of sessionData[i]?.activities;">
                                 <h5>{{ act.label.default.title }}</h5>
                                 <li *ngFor="let card of act.label.default.cards.default;">
