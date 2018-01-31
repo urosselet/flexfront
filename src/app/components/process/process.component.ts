@@ -109,6 +109,10 @@ export class ProcessComponent implements OnInit {
 
         this.csactivities.forEach((csactivity, csactivityIndex) => {
 
+            if (this.sessionData[csactivityIndex].isCompleted) {
+                csactivity['isCompleted'] = true;
+            }
+
             csactivity.activities.forEach((activity, activityIndex) => {
 
                 activity.label.default.cards.default.forEach((card, cardIndex) => {

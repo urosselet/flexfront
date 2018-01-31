@@ -185,3 +185,6 @@
 .flx-close:before {
   content: "\57";
 }
+.flx-home-1:before {
+  content: "\58";
+}

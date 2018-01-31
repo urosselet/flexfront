@@ -61,6 +61,7 @@ export class ActivityWizardComponent implements AfterViewInit {
 
         this.openSnackBar(index, activityIndex);
 
+        this.sessionData[index].isCompleted = true;
         this.activitiesStatus[index].isCompleted = true;
         this.activitiesStatus[index].state = 'active';
 
