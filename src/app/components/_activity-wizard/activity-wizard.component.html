@@ -38,8 +38,8 @@
                                     class="radio-button"
                                     *ngIf="activity.label.default.is_multiple_choice"
                                     [value]="card.id"
-                                    [checked]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
-                                    [(ngModel)]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    [checked]="sessionData[index]?.activities[activityIndex]?.label.default.cards.default[cardIndex].is_selected"
+                                    [(ngModel)]="sessionData[index]?.activities[activityIndex]?.label.default.cards.default[cardIndex].is_selected"
                                     (click)="applyFilter($event)"
                                 />
                                 <input
@@ -49,7 +49,7 @@
                                     class="radio-button"
                                     *ngIf="!activity.label.default.is_multiple_choice"
                                     [value]="card.id"
-                                    [(ngModel)]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    [(ngModel)]="sessionData[index]?.activities[activityIndex]?.label.default.cards.default[cardIndex].is_selected"
                                     (click)="applyFilter($event)"
                                 />
                                 <div class="radio-tile">
@@ -109,8 +109,8 @@
                                     class="radio-button" 
                                     *ngIf="activity.label.default.is_multiple_choice"
                                     [value]="card.id"
-                                    [checked]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
-                                    [(ngModel)]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    [checked]="sessionData[index]?.activities[activityIndex]?.label.default.cards.default[cardIndex].is_selected"
+                                    [(ngModel)]="sessionData[index]?.activities[activityIndex]?.label.default.cards.default[cardIndex].is_selected"
                                     (click)="applyFilter($event)"
                                 />
                                 <input 
@@ -120,7 +120,7 @@
                                     class="radio-button" 
                                     *ngIf="!activity.label.default.is_multiple_choice"
                                     [value]="card.id"
-                                    [(ngModel)]="sessionData[index]?.activities[activityIndex].label.default.cards.default[cardIndex].is_selected"
+                                    [(ngModel)]="sessionData[index]?.activities[activityIndex]?.label.default.cards.default[cardIndex].is_selected"
                                     (click)="applyFilter($event)"
                                 />
                                 <div class="radio-tile">
