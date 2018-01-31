@@ -111,7 +111,7 @@ export class ProcessComponent implements OnInit {
 
             csactivity.activities.forEach((activity, activityIndex) => {
 
-                  activity.label.default.cards.default.forEach((card, cardIndex) => {
+                activity.label.default.cards.default.forEach((card, cardIndex) => {
 
                     if (this.sessionData[csactivityIndex].activities[activityIndex].label.default.cards.default[cardIndex].is_selected) {
                         card['is_selected'] = true;
